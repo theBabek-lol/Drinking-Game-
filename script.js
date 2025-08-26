@@ -1,166 +1,203 @@
+document.addEventListener('DOMContentLoaded', async () => {
+    // --- DOM Elements ---
+    const screens = {
+        names: document.getElementById('screen-names'),
+        dating: document.getElementById('screen-dating'),
+        game: document.getElementById('screen-game'),
+        settings: document.getElementById('screen-settings')
+    };
 
-let names = [], couples = {}, deck = [], questions = [];
-let weights = {"nhie":8,"pek":8,"rygg":6,"kat":7,"one_name":4,"two_name":4,"two_name_intim":4,"all":4};
-
-const screens = {
-    names: document.getElementById('screen-names'),
-    dating: document.getElementById('screen-dating'),
-    game: document.getElementById('screen-game'),
-    settings: document.getElementById('screen-settings')
-};
-
-const nameInput = document.getElementById('name-input');
-const namesList = document.getElementById('names-list');
-document.getElementById('add-name-btn').onclick = addName;
-nameInput.addEventListener('keypress', e => { if(e.key === 'Enter') addName(); });
-
-document.getElementById('start-dating-btn').onclick = () => showScreen('dating');
-document.getElementById('settings-btn').onclick = () => showScreen('settings');
-document.getElementById('start-game-btn').onclick = () => {
-    buildDeck();
-    renderDeck();
-    showScreen('game');
-};
-document.getElementById('back-names-btn').onclick = () => showScreen('names');
-document.getElementById('next-btn').onclick = nextChallenge;
-document.getElementById('change-names-btn').onclick = () => showScreen('names');
-
-// ----------------------
-// Load external JSON
-// ----------------------
-fetch('questions.json')
-    .then(resp => resp.json())
-    .then(data => { questions = data; buildDeck(); })
-    .catch(err => {
-        console.error("Failed to load JSON, using fallback", err);
-        questions = [
-            {type:"nhie", template:"Never have I ever…"},
-            {type:"one_name", template:"{} must take a drink"},
-            {type:"two_name", template:"{} and {} swap drinks"}
-        ];
-        buildDeck();
-    });
-
-// ----------------------
-// Name input functions
-// ----------------------
-function addName() {
-    const n = nameInput.value.trim();
-    if(n && !names.includes(n)) {
-        names.push(n);
-        renderNames();
-        nameInput.value = '';
-    }
-    nameInput.focus();
-}
-
-function renderNames() {
-    namesList.innerHTML = '';
-    names.forEach(n => {
-        const b = document.createElement('button');
-        b.textContent = n;
-        b.onclick = () => { names = names.filter(x => x !== n); renderNames(); };
-        namesList.appendChild(b);
-    });
-}
-
-// ----------------------
-// Screen navigation
-// ----------------------
-function showScreen(n) {
-    for(let s in screens) screens[s].classList.add('hidden');
-    screens[n].classList.remove('hidden');
-}
-
-// ----------------------
-// Deck logic
-// ----------------------
-function buildDeck() {
-    deck = [];
-    questions.forEach(q => {
-        let w = weights[q.type] || 1;
-        for(let i=0;i<w;i++) deck.push(q);
-    });
-    shuffle(deck);
-}
-
-function shuffle(array) {
-    for(let i=array.length-1;i>0;i--){
-        const j=Math.floor(Math.random()*(i+1));
-        [array[i], array[j]]=[array[j], array[i]];
-    }
-}
-
-function drawQuestion() {
-    if(deck.length === 0) buildDeck();
-    return deck.pop();
-}
-
-// ----------------------
-// Game logic
-// ----------------------
-function nextChallenge() {
-    if(questions.length === 0) return;
-
-    const q = drawQuestion();
+    const nameInput = document.getElementById('name-input');
+    const namesList = document.getElementById('names-list');
+    const addNameBtn = document.getElementById('add-name-btn');
+    const startDatingBtn = document.getElementById('start-dating-btn');
+    const settingsBtn = document.getElementById('settings-btn');
+    const startGameBtn = document.getElementById('start-game-btn');
+    const nextBtn = document.getElementById('next-btn');
+    const changeNamesBtn = document.getElementById('change-names-btn');
     const card = document.getElementById('card');
+    const namesDating = document.getElementById('names-dating');
+    const couplesDating = document.getElementById('couples-dating');
 
-    switch(q.type) {
-        case "nhie":
-            card.textContent = `Jag har aldrig\n${q.template}`;
-            break;
-        case "one_name":
-            if(names.length === 0) { card.textContent = "För få namn"; break; }
-            card.textContent = q.template.replace("{}", randomChoice(names));
-            break;
-        case "two_name":
-            if(names.length < 2) { card.textContent = "För få namn"; break; }
-            let [n1,n2] = randomSample(names,2);
-            card.textContent = q.template.replace("{}", n1).replace("{}", n2);
-            break;
-        case "rygg":
-            if(names.length < 2) { card.textContent = "För få namn"; break; }
-            [n1,n2] = randomSample(names,2);
-            card.textContent = `Rygg mot rygg\n${n1} & ${n2}`;
-            break;
-        case "pek":
-            card.textContent = `Pekleken!\n${q.template}`;
-            break;
-        case "kat":
-            if(names.length === 0) { card.textContent = "För få namn"; break; }
-            card.textContent = `Kategori!\n${q.template.replace("{}", randomChoice(names))}`;
-            break;
-        case "all":
-            card.textContent = q.template;
-            break;
-        case "two_name_intim":
-            if(names.length < 2) { card.textContent = "För få namn"; break; }
-            n1 = randomChoice(names);
-            let n2;
-            if(couples[n1]) n2 = couples[n1];
-            else {
-                let singles = names.filter(x => !couples[x] && x !== n1);
-                n2 = singles.length >= 1 ? randomChoice(singles) : names.find(x => x!==n1);
+    // --- Game State ---
+    let names = [];
+    let couples = {}; // {name1: name2, name2: name1}
+    let questions = [];
+    let weights = {"nhie":8,"pek":8,"rygg":6,"kat":7,"one_name":4,"two_name":4,"two_name_intim":4,"all":4};
+    let deck = [];
+    let ryggQuestion = null;
+    let ryggNames = [];
+
+    // --- Screen Logic ---
+    function showScreen(screen) {
+        for(let s in screens) screens[s].classList.add('hidden');
+        screens[screen].classList.remove('hidden');
+    }
+
+    // --- Names Management ---
+    function addName(e) {
+        if(e) e.preventDefault();
+        const n = nameInput.value.trim();
+        if(n && !names.includes(n)) {
+            names.push(n);
+            renderNames();
+            nameInput.value = '';
+        }
+        nameInput.focus();
+    }
+
+    function renderNames() {
+        namesList.innerHTML = '';
+        names.forEach(n => {
+            const b = document.createElement('button');
+            b.textContent = n;
+            b.onclick = () => {
+                names = names.filter(x=>x!==n);
+                renderNames();
+            };
+            namesList.appendChild(b);
+        });
+    }
+
+    addNameBtn.onclick = addName;
+    nameInput.addEventListener('keypress', e => { if(e.key==='Enter') addName(e); });
+
+    // --- Dating Screen ---
+    let selectedName = null;
+
+    function renderDating() {
+        namesDating.innerHTML = '';
+        couplesDating.innerHTML = '';
+        names.forEach(n => {
+            const b = document.createElement('button');
+            b.textContent = n;
+            b.onclick = () => selectName(n);
+            namesDating.appendChild(b);
+        });
+
+        const seen = new Set();
+        for(let n1 in couples) {
+            const n2 = couples[n1];
+            if(seen.has(n1) || seen.has(n2)) continue;
+            const b = document.createElement('button');
+            b.textContent = `${n1} ❤️ ${n2}`;
+            b.onclick = () => removeCouple(n1,n2);
+            couplesDating.appendChild(b);
+            seen.add(n1);
+            seen.add(n2);
+        }
+    }
+
+    function selectName(name) {
+        if(selectedName === null) selectedName = name;
+        else {
+            if(name !== selectedName) {
+                couples[selectedName] = name;
+                couples[name] = selectedName;
             }
-            card.textContent = q.template.replace("{}", n1).replace("{}", n2);
-            break;
-        default:
-            card.textContent = `${q.type}\n${q.template}`;
+            selectedName = null;
+            renderDating();
+        }
     }
-}
 
-// ----------------------
-// Helper functions
-// ----------------------
-function randomChoice(arr) {
-    return arr[Math.floor(Math.random()*arr.length)];
-}
-
-function randomSample(arr, n) {
-    let copy = arr.slice(), out=[];
-    for(let i=0;i<n;i++){
-        let idx=Math.floor(Math.random()*copy.length);
-        out.push(copy.splice(idx,1)[0]);
+    function removeCouple(n1,n2) {
+        delete couples[n1];
+        delete couples[n2];
+        renderDating();
     }
-    return out;
-}
+
+    startDatingBtn.onclick = () => {
+        renderDating();
+        showScreen('dating');
+    };
+
+    startGameBtn.onclick = () => {
+        buildDeck();
+        showScreen('game');
+        nextChallenge();
+    };
+
+    changeNamesBtn.onclick = () => showScreen('names');
+
+    settingsBtn.onclick = () => showScreen('settings');
+
+    // --- Deck Logic ---
+    function buildDeck() {
+        deck = [];
+        questions.forEach(q => {
+            const w = weights[q.type] || 1;
+            for(let i=0;i<w;i++) deck.push({...q});
+        });
+        shuffle(deck);
+    }
+
+    function drawQuestion() {
+        if(deck.length===0) buildDeck();
+        return deck.pop();
+    }
+
+    function shuffle(array) {
+        for (let i = array.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [array[i], array[j]] = [array[j], array[i]];
+        }
+    }
+
+    // --- Game Logic ---
+    function nextChallenge() {
+        let q = drawQuestion();
+
+        if(q.type==='nhie') card.textContent = `Jag har aldrig\n${q.template}`;
+        else if(q.type==='one_name') card.textContent = q.template.replace('{}', randomName());
+        else if(q.type==='two_name') card.textContent = q.template.replace('{}', randomName()).replace('{}', randomName());
+        else if(q.type==='rygg') {
+            ryggNames = [randomName(), randomName()];
+            ryggQuestion = q.template;
+            card.textContent = `Rygg mot rygg\n${ryggNames[0]} & ${ryggNames[1]}`;
+            nextBtn.textContent = 'Visa Fråga';
+            nextBtn.onclick = showRygg;
+            return;
+        }
+        else if(q.type==='pek') card.textContent = `Pekleken!\n${q.template}`;
+        else if(q.type==='kat') card.textContent = `Kategori!\n${q.template.replace('{}', randomName())}`;
+        else if(q.type==='all') card.textContent = q.template;
+        else if(q.type==='two_name_intim') {
+            let name1 = randomName();
+            let name2 = couples[name1] || randomName([name1]);
+            card.textContent = q.template.replace('{}', name1).replace('{}', name2);
+        }
+
+        nextBtn.textContent = 'Nästa';
+        nextBtn.onclick = nextChallenge;
+    }
+
+    function showRygg() {
+        card.textContent = ryggQuestion;
+        nextBtn.textContent = 'Nästa';
+        nextBtn.onclick = nextChallenge;
+    }
+
+    function randomName(exclude=[]) {
+        const available = names.filter(n => !exclude.includes(n));
+        return available[Math.floor(Math.random() * available.length)];
+    }
+
+    // --- Load JSON Questions ---
+    async function loadQuestions() {
+        try {
+            const res = await fetch('questions.json');
+            if(!res.ok) throw new Error('File not found');
+            questions = await res.json();
+        } catch(err) {
+            console.warn('Could not load questions.json, using fallback');
+            questions = [
+                {type:'nhie', template:'Never have I ever…'},
+                {type:'one_name', template:'{} must take a drink'},
+                {type:'two_name', template:'{} and {} swap drinks'}
+            ];
+        }
+    }
+
+    await loadQuestions();
+    showScreen('names');
+});
