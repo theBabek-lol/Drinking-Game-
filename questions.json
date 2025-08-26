@@ -1,0 +1,1554 @@
+[
+    {
+        "type": "all",
+        "template": "Alla killar dricker!"
+    },
+    {
+        "type": "all",
+        "template": "Alla med bruna ögon dricker."
+    },
+    {
+        "type": "all",
+        "template": "Alla med en tatuering måste dricka!"
+    },
+    {
+        "type": "all",
+        "template": "Alla med skägg måste dricka!"
+    },
+    {
+        "type": "all",
+        "template": "Alla som ínte har körkort dricker"
+    },
+    {
+        "type": "all",
+        "template": "Alla tjejer dricker!"
+    },
+    {
+        "type": "kat",
+        "template": "{} Bilmärken"
+    },
+    {
+        "type": "kat",
+        "template": "{} Kända familjer"
+    },
+    {
+        "type": "kat",
+        "template": "{} SI enheter"
+    },
+    {
+        "type": "kat",
+        "template": "{} Spritmärken"
+    },
+    {
+        "type": "kat",
+        "template": "{} blommor"
+    },
+    {
+        "type": "kat",
+        "template": "{} datorspel"
+    },
+    {
+        "type": "kat",
+        "template": "{} delstater i USA"
+    },
+    {
+        "type": "kat",
+        "template": "{} europeiska huvudstäder"
+    },
+    {
+        "type": "kat",
+        "template": "{} filmer med DiCaprio"
+    },
+    {
+        "type": "kat",
+        "template": "{} husdjur"
+    },
+    {
+        "type": "kat",
+        "template": "{} länder som börjar med P"
+    },
+    {
+        "type": "kat",
+        "template": "{} porrstjärnor"
+    },
+    {
+        "type": "kat",
+        "template": "{} sexleksaker"
+    },
+    {
+        "type": "kat",
+        "template": "{} sexleksaker"
+    },
+    {
+        "type": "kat",
+        "template": "{} sexställningar"
+    },
+    {
+        "type": "kat",
+        "template": "{} smink och hårprodukts märken"
+    },
+    {
+        "type": "kat",
+        "template": "{} svenska landskap"
+    },
+    {
+        "type": "kat",
+        "template": "{} telefontillverkare"
+    },
+    {
+        "type": "kat",
+        "template": "{} Öl märken"
+    },
+    {
+        "type": "kat",
+        "template": "{} dryckes lekar"
+    },
+    {
+        "type": "kat",
+        "template": "{} sektioner på ltu"
+    },
+    {
+        "type": "kat",
+        "template": "{} städer som börjar med K"
+    },
+    {
+        "type": "kat",
+        "template": "{} pizza sorter"
+    },
+    {
+        "type": "kat",
+        "template": "{} låtar som börjar på S"
+    },
+    {
+        "type": "kat",
+        "template": "{} smörgås pålägg"
+    },
+    {
+        "type": "kat",
+        "template": "{} mat på tub"
+    },
+    {
+        "type": "kat",
+        "template": "{} köksredskap"
+    },
+    {
+        "type": "nhie",
+        "template": "använt en frukt som sexleksak"
+    },
+    {
+        "type": "nhie",
+        "template": "använt en piska under sex"
+    },
+    {
+        "type": "nhie",
+        "template": "använt en sexleksak"
+    },
+    {
+        "type": "nhie",
+        "template": "använt handbojor eller ögonbindlar under sex"
+    },
+    {
+        "type": "nhie",
+        "template": "använt mat under förspel"
+    },
+    {
+        "type": "nhie",
+        "template": "använt telefonen som vibrator"
+    },
+    {
+        "type": "nhie",
+        "template": "använt tinder"
+    },
+    {
+        "type": "nhie",
+        "template": "använt ätbara underkläder"
+    },
+    {
+        "type": "nhie",
+        "template": "badat med kläderna på"
+    },
+    {
+        "type": "nhie",
+        "template": "blekt mina tänder"
+    },
+    {
+        "type": "nhie",
+        "template": "blivit friendzoned"
+    },
+    {
+        "type": "nhie",
+        "template": "blivit påkommen under sex eller onani"
+    },
+    {
+        "type": "nhie",
+        "template": "blivit raggad på av någon med samma kön"
+    },
+    {
+        "type": "nhie",
+        "template": "blivit smiskad eller smiskat någon under sex"
+    },
+    {
+        "type": "nhie",
+        "template": "brutit ett ben"
+    },
+    {
+        "type": "nhie",
+        "template": "bungyjumpat"
+    },
+    {
+        "type": "nhie",
+        "template": "dansat naken"
+    },
+    {
+        "type": "nhie",
+        "template": "dejtat någon som är 10+ år äldre än mig"
+    },
+    {
+        "type": "nhie",
+        "template": "donerat blod"
+    },
+    {
+        "type": "nhie",
+        "template": "fastnat i en hiss"
+    },
+    {
+        "type": "nhie",
+        "template": "fejkat en orgasm"
+    },
+    {
+        "type": "nhie",
+        "template": "filmat under sex"
+    },
+    {
+        "type": "nhie",
+        "template": "fingrat mig själv"
+    },
+    {
+        "type": "nhie",
+        "template": "flörtat för drinkar"
+    },
+    {
+        "type": "nhie",
+        "template": "fått blommor från en partner"
+    },
+    {
+        "type": "nhie",
+        "template": "fått eller gett multipla orgasmer"
+    },
+    {
+        "type": "nhie",
+        "template": "fått en lapdance"
+    },
+    {
+        "type": "nhie",
+        "template": "försökt ge mig själv oralsex"
+    },
+    {
+        "type": "nhie",
+        "template": "gått på strippklubb"
+    },
+    {
+        "type": "nhie",
+        "template": "haft analsex"
+    },
+    {
+        "type": "nhie",
+        "template": "haft en könssjukdom"
+    },
+    {
+        "type": "nhie",
+        "template": "haft en sexdröm om en vän"
+    },
+    {
+        "type": "nhie",
+        "template": "haft en våt dröm"
+    },
+    {
+        "type": "nhie",
+        "template": "haft en våt dröm om en klasskamrat/kollega"
+    },
+    {
+        "type": "nhie",
+        "template": "haft ett husdjur"
+    },
+    {
+        "type": "nhie",
+        "template": "haft ett one night stand"
+    },
+    {
+        "type": "nhie",
+        "template": "haft ett seriöst förhållande"
+    },
+    {
+        "type": "nhie",
+        "template": "haft gruppsex"
+    },
+    {
+        "type": "nhie",
+        "template": "haft gruppsex"
+    },
+    {
+        "type": "nhie",
+        "template": "haft på mig motsatta könets underkläder"
+    },
+    {
+        "type": "nhie",
+        "template": "haft sex i en bastu"
+    },
+    {
+        "type": "nhie",
+        "template": "haft sex i en bil"
+    },
+    {
+        "type": "nhie",
+        "template": "haft sex i en rullande bil"
+    },
+    {
+        "type": "nhie",
+        "template": "haft sex i ett tält"
+    },
+    {
+        "type": "nhie",
+        "template": "haft sex med en kompis ex"
+    },
+    {
+        "type": "nhie",
+        "template": "haft sex med en lärare"
+    },
+    {
+        "type": "nhie",
+        "template": "haft sex med ett ex"
+    },
+    {
+        "type": "nhie",
+        "template": "haft sex med flera personer under samma kväll"
+    },
+    {
+        "type": "nhie",
+        "template": "haft sex med någon i ett förhållande"
+    },
+    {
+        "type": "nhie",
+        "template": "haft sex med nån som inte pratar samma språk"
+    },
+    {
+        "type": "nhie",
+        "template": "haft sex på en offentlig plats"
+    },
+    {
+        "type": "nhie",
+        "template": "haft sex på en toalett"
+    },
+    {
+        "type": "nhie",
+        "template": "haft sex utomlands"
+    },
+    {
+        "type": "nhie",
+        "template": "haft telefon sex"
+    },
+    {
+        "type": "nhie",
+        "template": "hamnat i fyllecell"
+    },
+    {
+        "type": "nhie",
+        "template": "hånglat med en främling"
+    },
+    {
+        "type": "nhie",
+        "template": "kollat på furry porr"
+    },
+    {
+        "type": "nhie",
+        "template": "kommit i samma kondom två gånger"
+    },
+    {
+        "type": "nhie",
+        "template": "krockat"
+    },
+    {
+        "type": "nhie",
+        "template": "kuggat en tenta"
+    },
+    {
+        "type": "nhie",
+        "template": "kört bil onykter"
+    },
+    {
+        "type": "nhie",
+        "template": "kört motorcykel"
+    },
+    {
+        "type": "nhie",
+        "template": "ljugit för att få ligga"
+    },
+    {
+        "type": "nhie",
+        "template": "ljugit för min partner"
+    },
+    {
+        "type": "nhie",
+        "template": "ljugit om min ålder"
+    },
+    {
+        "type": "nhie",
+        "template": "ljugit under spelets gång"
+    },
+    {
+        "type": "nhie",
+        "template": "löst en rubikskub"
+    },
+    {
+        "type": "nhie",
+        "template": "missat ett flyg"
+    },
+    {
+        "type": "nhie",
+        "template": "mätt min penis"
+    },
+    {
+        "type": "nhie",
+        "template": "onanerat mer än tre gånger på ett dygn"
+    },
+    {
+        "type": "nhie",
+        "template": "onanerat på jobbet"
+    },
+    {
+        "type": "nhie",
+        "template": "onanerat samtidigt som jag gråtit"
+    },
+    {
+        "type": "nhie",
+        "template": "rakat mig där nere"
+    },
+    {
+        "type": "nhie",
+        "template": "ringt 112"
+    },
+    {
+        "type": "nhie",
+        "template": "rökt på"
+    },
+    {
+        "type": "nhie",
+        "template": "rökt cigaretter"
+    },
+    {
+        "type": "nhie",
+        "template": "sett någon i detta rum naken"
+    },
+    {
+        "type": "nhie",
+        "template": "sett nån dö"
+    },
+    {
+        "type": "nhie",
+        "template": "skadat mig med mening"
+    },
+    {
+        "type": "nhie",
+        "template": "skickat en nude till fel person"
+    },
+    {
+        "type": "nhie",
+        "template": "smakat min egen sperma"
+    },
+    {
+        "type": "nhie",
+        "template": "spottat i någons ansikte"
+    },
+    {
+        "type": "nhie",
+        "template": "sprungit från polisen"
+    },
+    {
+        "type": "nhie",
+        "template": "spytt i en bil"
+    },
+    {
+        "type": "nhie",
+        "template": "strulat med någon i detta rum"
+    },
+    {
+        "type": "nhie",
+        "template": "sugit av någon som kör bil"
+    },
+    {
+        "type": "nhie",
+        "template": "tagit dagen efter piller"
+    },
+    {
+        "type": "nhie",
+        "template": "tagit en springnota"
+    },
+    {
+        "type": "nhie",
+        "template": "tagit ett graviditetstest"
+    },
+    {
+        "type": "nhie",
+        "template": "tagit narkotika"
+    },
+    {
+        "type": "nhie",
+        "template": "tagit någons oskuld"
+    },
+    {
+        "type": "nhie",
+        "template": "tagit på ett elektrisk staket"
+    },
+    {
+        "type": "nhie",
+        "template": "tittat på hentai"
+    },
+    {
+        "type": "nhie",
+        "template": "triggat brandlarmet"
+    },
+    {
+        "type": "nhie",
+        "template": "tröstätit"
+    },
+    {
+        "type": "nhie",
+        "template": "vaknat på ett badrumsgolv"
+    },
+    {
+        "type": "nhie",
+        "template": "vandrat upp för ett berg"
+    },
+    {
+        "type": "nhie",
+        "template": "varit full på jobbet eller under en lektion"
+    },
+    {
+        "type": "nhie",
+        "template": "varit inlagd på psyket"
+    },
+    {
+        "type": "nhie",
+        "template": "varit olyckligt kär"
+    },
+    {
+        "type": "nhie",
+        "template": "varit på Disneyland"
+    },
+    {
+        "type": "nhie",
+        "template": "varit på en blind dejt"
+    },
+    {
+        "type": "nhie",
+        "template": "varit på en naken strand"
+    },
+    {
+        "type": "nhie",
+        "template": "varit på tv"
+    },
+    {
+        "type": "nhie",
+        "template": "ägt en dildo/vibrator"
+    },
+    {
+        "type": "nhie",
+        "template": "älskat någon"
+    },
+    {
+        "type": "nhie",
+        "template": "åkt helikopter"
+    },
+    {
+        "type": "nhie",
+        "template": "åkt motorcykel"
+    },
+    {
+        "type": "nhie",
+        "template": "ångrat ett ligg"
+    },
+    {
+        "type": "one_name",
+        "template": "Alla med samma dricka som {} måste dricka 3 klunkar"
+    },
+    {
+        "type": "one_name",
+        "template": "{} Ta en klunk för varje smycke du har på dig"
+    },
+    {
+        "type": "one_name",
+        "template": "Vattenfall! Börja med {}"
+    },
+    {
+        "type": "one_name",
+        "template": "{} Visa dina underkläder eller ta 5 klunkar"
+    },
+    {
+        "type": "one_name",
+        "template": "{} Twerka"
+    },
+    {
+        "type": "one_name",
+        "template": "{} bonga en enhet!"
+    },
+    {
+        "type": "one_name",
+        "template": "{} byt plats med den snyggaste i rummet"
+    },
+    {
+        "type": "one_name",
+        "template": "{} dela ut 5 klunkar!"
+    },
+    {
+        "type": "one_name",
+        "template": "{} får inte flytta på sig förens du har avslutat din enhet"
+    },
+    {
+        "type": "one_name",
+        "template": "{} gör 15 armhävningar 1 shot om du misslyckas"
+    },
+    {
+        "type": "one_name",
+        "template": "{} nämn alla deltagare en klunk för varje fel"
+    },
+    {
+        "type": "one_name",
+        "template": "{} ta 3 klunkar från din enhet utan att använda händerna"
+    },
+    {
+        "type": "one_name",
+        "template": "{} ta av ett klädesplagg!"
+    },
+    {
+        "type": "one_name",
+        "template": "{} visa den senaste bilden i ditt galleri eller ta en shot"
+    },
+    {
+        "type": "one_name",
+        "template": "{} visa ett partytrick eller ta en shot!"
+    },
+    {
+        "type": "one_name",
+        "template": "{} är partydog och måste yla varje gång den avslutar en enhet"
+    },
+    {
+        "type": "one_name",
+        "template": "{} är question master i 15 min"
+    },
+    {
+        "type": "one_name",
+        "template": "{} lägg till en regel"
+    },
+    {
+        "type": "pek",
+        "template": "Vem bidrar minst till världen?"
+    },
+    {
+        "type": "pek",
+        "template": "Vem bjuder på efterfest ikväll?"
+    },
+    {
+        "type": "pek",
+        "template": "Vem borde dricka mer?"
+    },
+    {
+        "type": "pek",
+        "template": "Vem dansar bäst?"
+    },
+    {
+        "type": "pek",
+        "template": "Vem flirtar mest?"
+    },
+    {
+        "type": "pek",
+        "template": "Vem får inte csn?"
+    },
+    {
+        "type": "pek",
+        "template": "Vem gifter sig först?"
+    },
+    {
+        "type": "pek",
+        "template": "Vem gråter mest?"
+    },
+    {
+        "type": "pek",
+        "template": "Vem hade du friendzonat?"
+    },
+    {
+        "type": "pek",
+        "template": "Vem hade du räddat först i en brand?"
+    },
+    {
+        "type": "pek",
+        "template": "Vem har den konstigaste fetischen?"
+    },
+    {
+        "type": "pek",
+        "template": "Vem har den mest värdelösa utbildningen?"
+    },
+    {
+        "type": "pek",
+        "template": "Vem har djupast urringning"
+    },
+    {
+        "type": "pek",
+        "template": "Vem har dyrast dricka"
+    },
+    {
+        "type": "pek",
+        "template": "Vem har finast fötter?"
+    },
+    {
+        "type": "pek",
+        "template": "Vem har finast röv?"
+    },
+    {
+        "type": "pek",
+        "template": "Vem har finast ögon?"
+    },
+    {
+        "type": "pek",
+        "template": "Vem har fulast frisyr?"
+    },
+    {
+        "type": "pek",
+        "template": "Vem har fulast tatuering?"
+    },
+    {
+        "type": "pek",
+        "template": "Vem har haft flest förhållanden?"
+    },
+    {
+        "type": "pek",
+        "template": "Vem har hårigast ben!"
+    },
+    {
+        "type": "pek",
+        "template": "Vem har högst bodycount"
+    },
+    {
+        "type": "pek",
+        "template": "Vem har mest ADHD?"
+    },
+    {
+        "type": "pek",
+        "template": "Vem har rest mest?"
+    },
+    {
+        "type": "pek",
+        "template": "Vem har snyggast partner?"
+    },
+    {
+        "type": "pek",
+        "template": "Vem har störst ego?"
+    },
+    {
+        "type": "pek",
+        "template": "Vem har sämst humor?"
+    },
+    {
+        "type": "pek",
+        "template": "Vem hatar sitt liv mest?"
+    },
+    {
+        "type": "pek",
+        "template": "Vem jobbar hårdast?"
+    },
+    {
+        "type": "pek",
+        "template": "Vem klagar mest?"
+    },
+    {
+        "type": "pek",
+        "template": "Vem kollar mest tiktok?"
+    },
+    {
+        "type": "pek",
+        "template": "Vem kommer att vinna ett nobelpris?"
+    },
+    {
+        "type": "pek",
+        "template": "Vem kommer bli arbetslös?"
+    },
+    {
+        "type": "pek",
+        "template": "Vem kommer bli statsminister?"
+    },
+    {
+        "type": "pek",
+        "template": "Vem kommer få flest barn?"
+    },
+    {
+        "type": "pek",
+        "template": "Vem kommer inte in på krogen ikväll?"
+    },
+    {
+        "type": "pek",
+        "template": "Vem kommer jobba på google"
+    },
+    {
+        "type": "pek",
+        "template": "Vem kommer slå ett världsrekord"
+    },
+    {
+        "type": "pek",
+        "template": "Vem rökte sist"
+    },
+    {
+        "type": "pek",
+        "template": "Vem ser yngst ut?"
+    },
+    {
+        "type": "pek",
+        "template": "Vem ser yngst ut?"
+    },
+    {
+        "type": "pek",
+        "template": "Vem ser äldst ut?"
+    },
+    {
+        "type": "pek",
+        "template": "Vem sextar mest?"
+    },
+    {
+        "type": "pek",
+        "template": "Vem skulle du helst ha sex med?"
+    },
+    {
+        "type": "pek",
+        "template": "Vem skulle du inte lita på med en hemlighet"
+    },
+    {
+        "type": "pek",
+        "template": "Vem skulle du inte låna ut din bil till?"
+    },
+    {
+        "type": "pek",
+        "template": "Vem skulle hamna i en sekt?"
+    },
+    {
+        "type": "pek",
+        "template": "Vem skulle inte vilja ha med på en öde ö?"
+    },
+    {
+        "type": "pek",
+        "template": "Vem skulle kunna använda samma kondom två gånger"
+    },
+    {
+        "type": "pek",
+        "template": "Vem skulle kunna bli porrstjärna?"
+    },
+    {
+        "type": "pek",
+        "template": "Vem skulle kunna jobba på en telefonsex linje?"
+    },
+    {
+        "type": "pek",
+        "template": "Vem skulle kunna komma unda med mord"
+    },
+    {
+        "type": "pek",
+        "template": "Vem skulle kunna råna en bank?"
+    },
+    {
+        "type": "pek",
+        "template": "Vem skulle lyckas bäst som musiker"
+    },
+    {
+        "type": "pek",
+        "template": "Vem skulle sälja sina vänner för 1 miljon"
+    },
+    {
+        "type": "pek",
+        "template": "Vem skulle vara med i Paradise Hotel?"
+    },
+    {
+        "type": "pek",
+        "template": "Vem skulle vara skurken i en film?"
+    },
+    {
+        "type": "pek",
+        "template": "Vem spenderar mest pengar på mat?"
+    },
+    {
+        "type": "pek",
+        "template": "Vem tindrar mest?"
+    },
+    {
+        "type": "pek",
+        "template": "Vem tål mest alkohol?"
+    },
+    {
+        "type": "pek",
+        "template": "Vem tål minst alkohol?"
+    },
+    {
+        "type": "pek",
+        "template": "Vem vill du inte ligga med?"
+    },
+    {
+        "type": "pek",
+        "template": "Vem vill du slås mot?"
+    },
+    {
+        "type": "pek",
+        "template": "Vem äger the kama sutra?"
+    },
+    {
+        "type": "pek",
+        "template": "Vem är best på att kyssas?"
+    },
+    {
+        "type": "pek",
+        "template": "Vem är blygast?"
+    },
+    {
+        "type": "pek",
+        "template": "Vem är har en samling erotisk litteratur?"
+    },
+    {
+        "type": "pek",
+        "template": "Vem är känsligast?"
+    },
+    {
+        "type": "pek",
+        "template": "Vem är latast?"
+    },
+    {
+        "type": "pek",
+        "template": "Vem är mest autistisk?"
+    },
+    {
+        "type": "pek",
+        "template": "Vem är mest bortskämd?"
+    },
+    {
+        "type": "pek",
+        "template": "Vem är mest desperat?"
+    },
+    {
+        "type": "pek",
+        "template": "Vem är mest emo?"
+    },
+    {
+        "type": "pek",
+        "template": "Vem är mest gold-digger"
+    },
+    {
+        "type": "pek",
+        "template": "Vem är mest lättkränkt?"
+    },
+    {
+        "type": "pek",
+        "template": "Vem är mest lättlurad?"
+    },
+    {
+        "type": "pek",
+        "template": "Vem är mest orten?"
+    },
+    {
+        "type": "pek",
+        "template": "Vem är mest vig?"
+    },
+    {
+        "type": "pek",
+        "template": "Vem är nördigast?"
+    },
+    {
+        "type": "pek",
+        "template": "Vem är smartast?"
+    },
+    {
+        "type": "pek",
+        "template": "Vem är snyggast?"
+    },
+    {
+        "type": "pek",
+        "template": "Vem är snålast?"
+    },
+    {
+        "type": "pek",
+        "template": "Vem är sämst på att laga mat"
+    },
+    {
+        "type": "pek",
+        "template": "Vem är tystast"
+    },
+    {
+        "type": "rygg",
+        "template": "Vem blir kär lättast?"
+    },
+    {
+        "type": "rygg",
+        "template": "Vem dansar bäst?"
+    },
+    {
+        "type": "rygg",
+        "template": "Vem drar de sämsta skämten?"
+    },
+    {
+        "type": "rygg",
+        "template": "Vem duschar oftast?"
+    },
+    {
+        "type": "rygg",
+        "template": "Vem dör först?"
+    },
+    {
+        "type": "rygg",
+        "template": "Vem får mest ragg?"
+    },
+    {
+        "type": "rygg",
+        "template": "Vem ger bäst oralsex?"
+    },
+    {
+        "type": "rygg",
+        "template": "Vem gör dummast saker på fyllan?"
+    },
+    {
+        "type": "rygg",
+        "template": "Vem hade sex senast?"
+    },
+    {
+        "type": "rygg",
+        "template": "Vem hade sex senast?"
+    },
+    {
+        "type": "rygg",
+        "template": "Vem har blivit dumpad flest gånger?"
+    },
+    {
+        "type": "rygg",
+        "template": "Vem har bäst hår?"
+    },
+    {
+        "type": "rygg",
+        "template": "Vem har bäst musiksmak?"
+    },
+    {
+        "type": "rygg",
+        "template": "Vem har bäst pokerface?"
+    },
+    {
+        "type": "rygg",
+        "template": "Vem har bäst sångröst"
+    },
+    {
+        "type": "rygg",
+        "template": "Vem har den konstigaste relationen?"
+    },
+    {
+        "type": "rygg",
+        "template": "Vem har det finaste ögonbrynen?"
+    },
+    {
+        "type": "rygg",
+        "template": "Vem har finast kropp?"
+    },
+    {
+        "type": "rygg",
+        "template": "Vem har finast tänder?"
+    },
+    {
+        "type": "rygg",
+        "template": "Vem har flest par skor?"
+    },
+    {
+        "type": "rygg",
+        "template": "Vem har haft sex på konstigast ställe?"
+    },
+    {
+        "type": "rygg",
+        "template": "Vem har högst IQ?"
+    },
+    {
+        "type": "rygg",
+        "template": "Vem har högst bdycount?"
+    },
+    {
+        "type": "rygg",
+        "template": "Vem har högst självförtroende?"
+    },
+    {
+        "type": "rygg",
+        "template": "Vem har läskigast browser-historik?"
+    },
+    {
+        "type": "rygg",
+        "template": "Vem har mest pengar på kontot?"
+    },
+    {
+        "type": "rygg",
+        "template": "Vem har sex med släckta lampor?"
+    },
+    {
+        "type": "rygg",
+        "template": "Vem har snyggast rumpa?"
+    },
+    {
+        "type": "rygg",
+        "template": "Vem har spelat bort mest pengar?"
+    },
+    {
+        "type": "rygg",
+        "template": "Vem har stökigast hemma?"
+    },
+    {
+        "type": "rygg",
+        "template": "Vem har störst ego?"
+    },
+    {
+        "type": "rygg",
+        "template": "Vem har störst penis?"
+    },
+    {
+        "type": "rygg",
+        "template": "Vem har störst röv?"
+    },
+    {
+        "type": "rygg",
+        "template": "Vem har sämst fashion sense?"
+    },
+    {
+        "type": "rygg",
+        "template": "Vem har sämst humor?"
+    },
+    {
+        "type": "rygg",
+        "template": "Vem har vackrast leende?"
+    },
+    {
+        "type": "rygg",
+        "template": "Vem kan stå på händer längst?"
+    },
+    {
+        "type": "rygg",
+        "template": "Vem kan vara utan sin telefon längst?"
+    },
+    {
+        "type": "rygg",
+        "template": "Vem kollar på konstigast porr?"
+    },
+    {
+        "type": "rygg",
+        "template": "Vem kollar på mest porr?"
+    },
+    {
+        "type": "rygg",
+        "template": "Vem kommer att dö först?"
+    },
+    {
+        "type": "rygg",
+        "template": "Vem kommer bli mest bakis?"
+    },
+    {
+        "type": "rygg",
+        "template": "Vem kommer bli miljonär?"
+    },
+    {
+        "type": "rygg",
+        "template": "Vem kommer bli scammad?"
+    },
+    {
+        "type": "rygg",
+        "template": "Vem kommer få sötast barn?"
+    },
+    {
+        "type": "rygg",
+        "template": "Vem kommer först i sängen?"
+    },
+    {
+        "type": "rygg",
+        "template": "Vem kommer gå med i en cirkus?"
+    },
+    {
+        "type": "rygg",
+        "template": "Vem kommer inte att hamna i himmelen?"
+    },
+    {
+        "type": "rygg",
+        "template": "Vem kommer leva längst?"
+    },
+    {
+        "type": "rygg",
+        "template": "Vem lagar godast mat?"
+    },
+    {
+        "type": "rygg",
+        "template": "Vem ligger på första dejten?"
+    },
+    {
+        "type": "rygg",
+        "template": "Vem läser mest böcker?"
+    },
+    {
+        "type": "rygg",
+        "template": "Vem pratar för mycket?"
+    },
+    {
+        "type": "rygg",
+        "template": "Vem ser fulast ut i glasögon?"
+    },
+    {
+        "type": "rygg",
+        "template": "Vem ser äldst ut?"
+    },
+    {
+        "type": "rygg",
+        "template": "Vem skickar mest nudes?"
+    },
+    {
+        "type": "rygg",
+        "template": "Vem skulle dö först i en björnattack?"
+    },
+    {
+        "type": "rygg",
+        "template": "Vem skulle dö först i en skräckfilm?"
+    },
+    {
+        "type": "rygg",
+        "template": "Vem skulle göra den bästa sextapen?"
+    },
+    {
+        "type": "rygg",
+        "template": "Vem skulle komma sent till sitt egna bröllop?"
+    },
+    {
+        "type": "rygg",
+        "template": "Vem skulle kunna ligga med någon annans partner?"
+    },
+    {
+        "type": "rygg",
+        "template": "Vem skulle se bäst ut som sexy nurse?"
+    },
+    {
+        "type": "rygg",
+        "template": "Vem skulle sitta i the cuckchair?"
+    },
+    {
+        "type": "rygg",
+        "template": "Vem skulle tjäna mest på OF?"
+    },
+    {
+        "type": "rygg",
+        "template": "Vem skulle tjäna mest som prostituerad?"
+    },
+    {
+        "type": "rygg",
+        "template": "Vem skulle vara den bästa föräldern?"
+    },
+    {
+        "type": "rygg",
+        "template": "Vem skulle vinna i ett slagsmål?"
+    },
+    {
+        "type": "rygg",
+        "template": "Vem skvallrar mest?"
+    },
+    {
+        "type": "rygg",
+        "template": "Vem snackar mest skit?"
+    },
+    {
+        "type": "rygg",
+        "template": "Vem spenderar mest pengar på kläder?"
+    },
+    {
+        "type": "rygg",
+        "template": "Vem spenderar mest tid framför spegeln?"
+    },
+    {
+        "type": "rygg",
+        "template": "Vem springer snabbast?"
+    },
+    {
+        "type": "rygg",
+        "template": "Vem svettas mest?"
+    },
+    {
+        "type": "rygg",
+        "template": "Vem talar sämst engelska?"
+    },
+    {
+        "type": "rygg",
+        "template": "Vem twerkar bäst?"
+    },
+    {
+        "type": "rygg",
+        "template": "Vem tål mest alkohol?"
+    },
+    {
+        "type": "rygg",
+        "template": "Vem utför de mest ambitiösa och atletiska ställningarna i sängen?"
+    },
+    {
+        "type": "rygg",
+        "template": "Vem vill bli fastkedjad i sängen?"
+    },
+    {
+        "type": "rygg",
+        "template": "Vem vill helst ligga med den andra?"
+    },
+    {
+        "type": "rygg",
+        "template": "Vem vinner 1v1 i Counter Strike?"
+    },
+    {
+        "type": "rygg",
+        "template": "Vem vinner i armbrytning?"
+    },
+    {
+        "type": "rygg",
+        "template": "Vem är barnsligast?"
+    },
+    {
+        "type": "rygg",
+        "template": "Vem är bäst i sängen?"
+    },
+    {
+        "type": "rygg",
+        "template": "Vem är bäst klädd ikväll?"
+    },
+    {
+        "type": "rygg",
+        "template": "Vem är bäst på beerpong?"
+    },
+    {
+        "type": "rygg",
+        "template": "Vem är bäst på dirty talk?"
+    },
+    {
+        "type": "rygg",
+        "template": "Vem är bäst på matte?"
+    },
+    {
+        "type": "rygg",
+        "template": "Vem är bättre på sporter?"
+    },
+    {
+        "type": "rygg",
+        "template": "Vem är charmigast?"
+    },
+    {
+        "type": "rygg",
+        "template": "Vem är den mest allmänbildade?"
+    },
+    {
+        "type": "rygg",
+        "template": "Vem är den största feministen?"
+    },
+    {
+        "type": "rygg",
+        "template": "Vem är den största romantikern?"
+    },
+    {
+        "type": "rygg",
+        "template": "Vem är den sämsta förloraren?"
+    },
+    {
+        "type": "rygg",
+        "template": "Vem är först ut i en brand?"
+    },
+    {
+        "type": "rygg",
+        "template": "Vem är händigast?"
+    },
+    {
+        "type": "rygg",
+        "template": "Vem är hårigast där nere?"
+    },
+    {
+        "type": "rygg",
+        "template": "Vem är jobbigast på fyllan?"
+    },
+    {
+        "type": "rygg",
+        "template": "Vem är kåtast?"
+    },
+    {
+        "type": "rygg",
+        "template": "Vem är latast?"
+    },
+    {
+        "type": "rygg",
+        "template": "Vem är lättast att få i säng?"
+    },
+    {
+        "type": "rygg",
+        "template": "Vem är mer framgångsrik?"
+    },
+    {
+        "type": "rygg",
+        "template": "Vem är mest PK?"
+    },
+    {
+        "type": "rygg",
+        "template": "Vem är mest Wifey?"
+    },
+    {
+        "type": "rygg",
+        "template": "Vem är mest benägen att delta i en trekant?"
+    },
+    {
+        "type": "rygg",
+        "template": "Vem är mest beroende av social media?"
+    },
+    {
+        "type": "rygg",
+        "template": "Vem är mest bortskämd?"
+    },
+    {
+        "type": "rygg",
+        "template": "Vem är mest envis?"
+    },
+    {
+        "type": "rygg",
+        "template": "Vem är mest feminin?"
+    },
+    {
+        "type": "rygg",
+        "template": "Vem är mest högljudd i sängen?"
+    },
+    {
+        "type": "rygg",
+        "template": "Vem är mest kinky?"
+    },
+    {
+        "type": "rygg",
+        "template": "Vem är mest lättlurad?"
+    },
+    {
+        "type": "rygg",
+        "template": "Vem är mest maskulin?"
+    },
+    {
+        "type": "rygg",
+        "template": "Vem är mest pervers?"
+    },
+    {
+        "type": "rygg",
+        "template": "Vem är mest pinsam?"
+    },
+    {
+        "type": "rygg",
+        "template": "Vem är mest pryd?"
+    },
+    {
+        "type": "rygg",
+        "template": "Vem är mest pålitlig?"
+    },
+    {
+        "type": "rygg",
+        "template": "Vem är mest streetsmart?"
+    },
+    {
+        "type": "rygg",
+        "template": "Vem är mest teknisk?"
+    },
+    {
+        "type": "rygg",
+        "template": "Vem är mest tävlingsinriktad?"
+    },
+    {
+        "type": "rygg",
+        "template": "Vem är mest vältränad?"
+    },
+    {
+        "type": "rygg",
+        "template": "Vem är nördigast?"
+    },
+    {
+        "type": "rygg",
+        "template": "Vem är roligast på fyllan?"
+    },
+    {
+        "type": "rygg",
+        "template": "Vem är snabbast i sängen?"
+    },
+    {
+        "type": "rygg",
+        "template": "Vem är snyggast naken?"
+    },
+    {
+        "type": "rygg",
+        "template": "Vem är störst drama queen?"
+    },
+    {
+        "type": "rygg",
+        "template": "Vem är sötast?"
+    },
+    {
+        "type": "rygg",
+        "template": "Vem är troligast att göra illa sig under sex?"
+    },
+    {
+        "type": "rygg",
+        "template": "Vem är trögast?"
+    },
+    {
+        "type": "two_name_intim",
+        "template": "{} balansera din dricka på {} röv och drick utan att använda händerna"
+    },
+    {
+        "type": "two_name_intim",
+        "template": "{} blunda och gissa färgen på {}´s underkläder tills du gissar rätt. 1 klunk per fel!"
+    },
+    {
+        "type": "two_name_intim",
+        "template": "{} för varje shot du tar måste {} ta av sig ett klädesplagg"
+    },
+    {
+        "type": "two_name_intim",
+        "template": "{} ge {} en lapdance!"
+    },
+    {
+        "type": "two_name_intim",
+        "template": "{} kittla {} 5 klunkar till den om den skrattar"
+    },
+    {
+        "type": "two_name_intim",
+        "template": "{} sätt dig i {}´s knä"
+    },
+    {
+        "type": "two_name_intim",
+        "template": "{} ta en bodyshot från {}"
+    },
+    {
+        "type": "two_name",
+        "template": "Armbrytning! {} mot {} förloraren tar en shot!"
+    },
+    {
+        "type": "two_name",
+        "template": "Sten, sax, påse! {} mot {}, förloraren tar en shot"
+    },
+    {
+        "type": "two_name",
+        "template": "Tumkrig!! {} mot {} förloraren tar en shot"
+    },
+    {
+        "type": "two_name",
+        "template": "{} byt dricka med {}"
+    },
+    {
+        "type": "two_name",
+        "template": "{} byt ett klädesplagg med {}"
+    },
+    {
+        "type": "two_name",
+        "template": "{} ge {} en ny frisyr"
+    },
+    {
+        "type": "two_name",
+        "template": "{} lyft {}. En shot om du misslyckas"
+    },
+    {
+        "type": "two_name",
+        "template": "{} måste dricka varje gång {} måste dricka í 15 min"
+    },
+    {
+        "type": "two_name",
+        "template": "{} och {} staring contest förloraren tar en shot"
+    }
+]
