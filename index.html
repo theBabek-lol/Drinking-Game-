@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <title>Dryckeslek</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="app">
+    <!-- Name Screen -->
+    <div id="name-screen" class="screen active">
+      <h1>Lägg till namn</h1>
+      <input id="name-input" type="text" placeholder="Namn">
+      <button id="add-name">Lägg till</button>
+      <ul id="name-list"></ul>
+      <button id="to-couples">Starta</button>
+    </div>
+
+    <!-- Couples Screen -->
+    <div id="couples-screen" class="screen">
+      <h1>Par</h1>
+      <ul id="available-names"></ul>
+      <ul id="couple-list"></ul>
+      <button id="to-game">Nästa</button>
+    </div>
+
+    <!-- Game Screen -->
+    <div id="game-screen" class="screen">
+      <h1>Utmaning</h1>
+      <div id="question">Klicka Nästa</div>
+      <button id="next-btn">Nästa</button>
+      <button id="edit-names">Ändra namn</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
