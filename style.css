@@ -42,7 +42,7 @@ html, body {
     margin-left: 5px;
 }
 
-/* Names screen buttons - flow layout */
+/* Names screen list - flow layout */
 #names-list {
     display: flex;
     flex-wrap: wrap;
@@ -51,13 +51,103 @@ html, body {
     justify-content: flex-start;
 }
 
-#names-list button {
-    flex: 0 0 auto;
-    padding: 10px 15px;
-    font-size: 1.2rem;
-    border-radius: 12px;
+/* Dating screen lists - flow layout */
+#names-dating,
+#couples-dating {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: flex-start;
+    align-items: flex-start; /* start at top */
+    width: 100%;
+}
+
+/* Wrapper for fixed-height cards/lists */
+.card-wrapper,
+.scrollable-wrapper {
+    flex: 0 0 auto;      /* do not grow or shrink */
+    height: 150px;       /* fixed height */
+    min-height: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Scrollable inside wrapper */
+.scrollable {
+    width: 100%;
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+/* Game card styling */
+#card {
+    font-size: 2rem;
+    padding: 15px;
     background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    width: 100%;
+    max-width: 500px;
+    text-align: center;
+}
+
+/* Dating lists wrapper */
+.dating-lists-wrapper {
+    display: flex;
+    width: 100%;
+    gap: 5px;
+}
+
+.half {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* start at top */
+    justify-content: flex-start;
+}
+
+/* Buttons pinned at bottom */
+.bottom-buttons,
+.game-bottom-buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: auto;      /* push buttons to bottom */
+}
+
+/* Make all buttons big and consistent */
+button {
+    flex: 1;
+    min-height: 70px;
+    padding: 20px 0;
+    font-size: 1.5rem;
+    border-radius: 16px;
     border: none;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    background: #fff;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.15);
     cursor: pointer;
+}
+
+button:hover {
+    background: #eee;
+}
+
+/* Mobile adjustments */
+@media (max-height: 600px), (max-width: 400px) {
+    .input-row input {
+        font-size: 1rem;
+        padding: 8px;
+    }
+    button {
+        font-size: 1.3rem;
+        min-height: 60px;
+        padding: 15px 0;
+    }
+    #card {
+        font-size: 1.8rem;
+        padding: 10px;
+    }
 }
