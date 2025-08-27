@@ -14,28 +14,30 @@ body {
     height: 100%;
     padding: 10px;
     box-sizing: border-box;
-    overflow: hidden;   /* 🔹 prevent scroll */
+    overflow: hidden;   /* prevent scrolling of the whole screen */
 }
 
 .hidden {
     display: none;
 }
 
-/* Inputs + Add name */
+/* Input row */
 .input-row {
     display: flex;
     margin-bottom: 10px;
 }
+
 .input-row input {
     flex: 1;
     padding: 14px;
     font-size: 1.1rem;
 }
+
 .input-row button {
     margin-left: 5px;
 }
 
-/* Scrollable areas (names list, couples, weights, etc.) */
+/* Scrollable areas (names list, couples, weights) */
 .scrollable {
     flex: 1;
     overflow-y: auto;
@@ -49,11 +51,102 @@ body {
 button {
     cursor: pointer;
     flex-shrink: 0;
-    min-height: 60px;        /* 🔹 tap friendly */
+    min-height: 60px;        
     padding: 16px 20px;
     font-size: 1.2rem;
     border-radius: 12px;
     border: none;
     background: #fff;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    transition: background 0.2
+    transition: background 0.2s, transform 0.1s;
+}
+
+button:hover {
+    background: #eee;
+}
+
+button:active {
+    transform: scale(0.97);
+}
+
+/* Bottom button bars (Names screen and Dating screen main buttons) */
+.bottom-buttons,
+#screen-dating > #start-game-btn,
+#screen-game .game-bottom-buttons,
+#screen-settings > #back-names-btn {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    gap: 10px;
+    padding: 10px;
+    background: #f0f0f0;
+    box-shadow: 0 -2px 6px rgba(0,0,0,0.1);
+    z-index: 10;
+}
+
+/* Bottom-buttons specifics */
+.bottom-buttons button,
+#screen-dating > #start-game-btn,
+#screen-game .game-bottom-buttons button,
+#screen-settings > #back-names-btn {
+    flex: 1;
+}
+
+/* Add extra padding at the bottom of screens so content is not hidden behind buttons */
+.screen {
+    padding-bottom: 90px;
+}
+
+/* Game screen question card */
+#card {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;           /* bigger question text */
+    text-align: center;
+    margin-bottom: 10px;
+    background: #fff;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    word-wrap: break-word;
+}
+
+/* Create a container for game screen buttons */
+#screen-game .game-bottom-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+/* Make buttons inside game-bottom-buttons large */
+#screen-game .game-bottom-buttons button {
+    flex: 1;
+    padding: 20px 0;
+    font-size: 1.4rem;
+    border-radius: 16px;
+}
+
+/* Dating layout */
+.dating-lists {
+    flex: 1;
+    display: flex;
+    gap: 10px;
+}
+.half {
+    flex: 1;
+}
+
+/* Mobile optimizations */
+@media (max-width: 600px) {
+    button {
+        min-height: 70px;
+        font-size: 1.3rem;
+    }
+    #card {
+        font-size: 2.4rem;
+        padding: 24px;
+    }
+}
