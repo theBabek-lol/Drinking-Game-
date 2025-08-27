@@ -27,16 +27,13 @@ body {
     font-size: 1.1rem;
 }
 
-.input-row button {
-    margin-left: 5px;
-}
-
-/* 🔹 Global button styling */
+/* 🔹 Global button styling (applies everywhere) */
 button {
     cursor: pointer;
-    padding: 18px 24px;   /* bigger click area */
-    font-size: 1.2rem;    /* larger text */
-    border-radius: 12px;  /* rounded corners */
+    flex-shrink: 0;
+    padding: 18px 24px;   /* bigger tap area */
+    font-size: 1.2rem;
+    border-radius: 12px;
     border: none;
     background: #fff;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
@@ -88,3 +85,4 @@ button:active {
 .half {
     flex: 1;
 }
+
