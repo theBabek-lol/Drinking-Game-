@@ -90,6 +90,7 @@ html, body {
 #names-dating button,
 #couples-dating button {
     flex: 0 0 auto;              /* keep natural width */
+    min-width: 100px;            /* ensures buttons fill row before wrapping */
 }
 
 /* Wrapper for fixed-height cards/lists */
