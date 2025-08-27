@@ -17,11 +17,10 @@ html, body {
 .screen {
     display: flex;
     flex-direction: column;
-    flex: 1 1 auto;           /* fill available space */
+    height: 100dvh; /* dynamic viewport height */
     padding: 5px;
     box-sizing: border-box;
 }
-
 .hidden {
     display: none;
 }
