@@ -42,12 +42,13 @@ html, body {
     margin-left: 5px;
 }
 
-/* Names list - flow layout */
+/* Names screen buttons - flow layout */
 #names-list {
     display: flex;
-    flex-wrap: wrap;          /* wrap to next line */
+    flex-wrap: wrap;
     gap: 10px;
     margin-top: 10px;
+    justify-content: flex-start;
 }
 
 #names-list button {
@@ -62,6 +63,34 @@ html, body {
 }
 
 #names-list button:hover {
+    background: #eee;
+}
+
+/* Dating screen lists - flow layout */
+#names-dating,
+#couples-dating {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: flex-start;
+    align-items: flex-start; /* start at top */
+    width: 100%;
+}
+
+#names-dating button,
+#couples-dating button {
+    flex: 0 0 auto;
+    padding: 10px 15px;
+    font-size: 1.2rem;
+    border-radius: 12px;
+    background: #fff;
+    border: none;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    cursor: pointer;
+}
+
+#names-dating button:hover,
+#couples-dating button:hover {
     background: #eee;
 }
 
@@ -82,8 +111,8 @@ html, body {
     max-width: 500px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    justify-content: flex-start;  /* start at top */
+    align-items: flex-start;
 }
 
 /* Game card styling */
@@ -98,7 +127,7 @@ html, body {
     text-align: center;
 }
 
-/* Dating lists layout */
+/* Dating lists wrapper */
 .dating-lists-wrapper {
     display: flex;
     width: 100%;
@@ -109,8 +138,8 @@ html, body {
     flex: 1;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    align-items: flex-start; /* start at top */
+    justify-content: flex-start;
 }
 
 /* Buttons pinned at bottom */
