@@ -21,6 +21,7 @@ html, body {
     padding: 5px;
     box-sizing: border-box;
 }
+
 .hidden {
     display: none;
 }
@@ -41,14 +42,37 @@ html, body {
     margin-left: 5px;
 }
 
-/* Content areas resize to fit screen */
-.scrollable, #card, .dating-lists {
-    flex: 1 1 0;      /* expand but shrink if needed */
-    min-height: 0;    /* allows shrinking */
+/* Fixed-size content areas */
+#card,
+.scrollable {      
+    flex: 0 0 auto;        /* do not grow or shrink */
+    height: 150px;         /* fixed height, adjust as needed */
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    width: 100%;
+    max-width: 500px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+/* Dating lists layout */
+.dating-lists {
+    flex-direction: row;
+    width: 100%;
+    gap: 5px;
+}
+
+.half {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 /* Buttons pinned at bottom */
@@ -56,7 +80,7 @@ html, body {
 .game-bottom-buttons {
     display: flex;
     gap: 10px;
-    margin-top: auto;      /* push to bottom */
+    margin-top: auto;      /* push buttons to bottom */
 }
 
 /* Make all buttons big */
@@ -79,29 +103,7 @@ button:hover {
 /* Game card */
 #card {
     font-size: 2rem;
-    text-align: center;
-    background: #fff;
-    border-radius: 12px;
     padding: 15px;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-    width: 100%;
-    max-width: 500px;
-    margin-bottom: 5px;
-}
-
-/* Dating lists layout */
-.dating-lists {
-    flex-direction: row;
-    width: 100%;
-    gap: 5px;
-}
-
-.half {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
 }
 
 /* Mobile adjustments */
