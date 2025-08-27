@@ -1,3 +1,4 @@
+/* General */
 body, html {
     margin: 0;
     padding: 0;
@@ -10,11 +11,12 @@ body, html {
     height: 100%;
 }
 
+/* Screen setup */
 .screen {
     display: flex;
     flex-direction: column;
-    height: 100vh;  /* full viewport height */
-    padding: 10px;
+    height: 100vh;      /* fill viewport */
+    padding: 5px;
     box-sizing: border-box;
 }
 
@@ -22,36 +24,38 @@ body, html {
     display: none;
 }
 
+/* Input row */
 .input-row {
     display: flex;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
 }
 
 .input-row input {
     flex: 1;
-    padding: 14px;
-    font-size: 1.1rem;
+    padding: 10px;
+    font-size: 1rem;
 }
 
 .input-row button {
     margin-left: 5px;
 }
 
-.scrollable {
-    flex: 1;           /* expand to fill available space */
-    overflow-y: auto;
-    border: 1px solid #ccc;
-    padding: 8px;
-    background: #fff;
-    border-radius: 8px;
+/* Scrollable / content area */
+.scrollable, #card, .dating-lists {
+    flex: 1 1 auto;     /* expand but shrink if needed */
+    min-height: 0;      /* important for flex shrink on small screens */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
-/* Global button styling */
+/* Buttons */
 button {
     cursor: pointer;
     flex-shrink: 0;
-    min-height: 60px;
-    padding: 16px 20px;
+    min-height: 50px;
+    padding: 15px 0;
     font-size: 1.2rem;
     border-radius: 12px;
     border: none;
@@ -63,56 +67,63 @@ button:hover {
     background: #eee;
 }
 
-/* Bottom buttons inside screens */
+/* Bottom buttons pinned */
 .bottom-buttons,
 .game-bottom-buttons {
     display: flex;
-    gap: 10px;
-    margin-top: auto; /* pushes buttons to the bottom */
+    gap: 5px;
+    margin-top: auto;       /* push to bottom */
 }
 
 .bottom-buttons button,
 .game-bottom-buttons button {
     flex: 1;
-    padding: 20px 0;
-    font-size: 1.4rem;
-    border-radius: 16px;
+    padding: 15px 0;
+    font-size: 1.2rem;
+    border-radius: 12px;
 }
 
-/* Game question card */
+/* Game card */
 #card {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 2rem;
+    font-size: 1.8rem;
     text-align: center;
-    margin-bottom: 10px;
     background: #fff;
     border-radius: 12px;
-    padding: 20px;
+    padding: 10px;
     box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-    word-wrap: break-word;
+    width: 100%;
+    max-width: 500px;
+    margin-bottom: 5px;
 }
 
+/* Dating layout */
 .dating-lists {
-    flex: 1;
-    display: flex;
-    gap: 10px;
+    flex-direction: row;
+    width: 100%;
+    gap: 5px;
 }
 
 .half {
     flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
-/* Mobile optimizations */
-@media (max-width: 600px) {
+/* Mobile adjustments */
+@media (max-height: 600px), (max-width: 400px) {
+    .input-row input {
+        font-size: 0.9rem;
+        padding: 8px;
+    }
     button {
-        min-height: 70px;
-        font-size: 1.3rem;
+        font-size: 1rem;
+        min-height: 40px;
+        padding: 10px 0;
     }
     #card {
-        font-size: 2.4rem;
-        padding: 24px;
+        font-size: 1.4rem;
+        padding: 8px;
     }
 }
