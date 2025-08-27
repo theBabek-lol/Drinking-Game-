@@ -1,4 +1,4 @@
-/* General */
+/* General setup */
 body, html {
     margin: 0;
     padding: 0;
@@ -11,11 +11,11 @@ body, html {
     height: 100%;
 }
 
-/* Screen setup */
+/* Screen layout */
 .screen {
     display: flex;
     flex-direction: column;
-    height: 100vh;      /* fill viewport */
+    height: 100vh;           /* full viewport height */
     padding: 5px;
     box-sizing: border-box;
 }
@@ -40,39 +40,22 @@ body, html {
     margin-left: 5px;
 }
 
-/* Scrollable / content area */
+/* Content areas resize to fit screen */
 .scrollable, #card, .dating-lists {
-    flex: 1 1 auto;     /* expand but shrink if needed */
-    min-height: 0;      /* important for flex shrink on small screens */
+    flex: 1 1 0;
+    min-height: 0;                 /* allows shrinking on small screens */
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
-/* Buttons */
-button {
-    cursor: pointer;
-    flex-shrink: 0;
-    min-height: 50px;
-    padding: 15px 0;
-    font-size: 1.2rem;
-    border-radius: 12px;
-    border: none;
-    background: #fff;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-}
-
-button:hover {
-    background: #eee;
-}
-
-/* Bottom buttons pinned */
+/* Buttons pinned at bottom */
 .bottom-buttons,
 .game-bottom-buttons {
     display: flex;
     gap: 5px;
-    margin-top: auto;       /* push to bottom */
+    margin-top: auto;      /* push to bottom */
 }
 
 .bottom-buttons button,
@@ -81,6 +64,15 @@ button:hover {
     padding: 15px 0;
     font-size: 1.2rem;
     border-radius: 12px;
+    min-height: 50px;
+    border: none;
+    background: #fff;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    cursor: pointer;
+}
+
+button:hover {
+    background: #eee;
 }
 
 /* Game card */
@@ -96,7 +88,7 @@ button:hover {
     margin-bottom: 5px;
 }
 
-/* Dating layout */
+/* Dating lists layout */
 .dating-lists {
     flex-direction: row;
     width: 100%;
@@ -111,7 +103,7 @@ button:hover {
     justify-content: center;
 }
 
-/* Mobile adjustments */
+/* Small screens adjustments */
 @media (max-height: 600px), (max-width: 400px) {
     .input-row input {
         font-size: 0.9rem;
@@ -119,8 +111,8 @@ button:hover {
     }
     button {
         font-size: 1rem;
-        min-height: 40px;
         padding: 10px 0;
+        min-height: 40px;
     }
     #card {
         font-size: 1.4rem;
