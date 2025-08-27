@@ -3,86 +3,57 @@ body {
     margin: 0;
     padding: 0;
     background: #f0f0f0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 .screen {
     display: flex;
     flex-direction: column;
-    height: 100vh;
+    height: 100%;
     padding: 10px;
+    box-sizing: border-box;
+    overflow: hidden;   /* 🔹 prevent scroll */
 }
 
 .hidden {
     display: none;
 }
 
+/* Inputs + Add name */
 .input-row {
     display: flex;
     margin-bottom: 10px;
 }
-
 .input-row input {
     flex: 1;
-    padding: 12px;
+    padding: 14px;
     font-size: 1.1rem;
 }
+.input-row button {
+    margin-left: 5px;
+}
 
-/* 🔹 Global button styling (applies everywhere) */
+/* Scrollable areas (names list, couples, weights, etc.) */
+.scrollable {
+    flex: 1;
+    overflow-y: auto;
+    border: 1px solid #ccc;
+    padding: 8px;
+    background: #fff;
+    border-radius: 8px;
+}
+
+/* Global button styling */
 button {
     cursor: pointer;
     flex-shrink: 0;
-    padding: 18px 24px;   /* bigger tap area */
+    min-height: 60px;        /* 🔹 tap friendly */
+    padding: 16px 20px;
     font-size: 1.2rem;
     border-radius: 12px;
     border: none;
     background: #fff;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    transition: background 0.2s, transform 0.1s;
-}
-
-button:hover {
-    background: #eee;
-}
-
-button:active {
-    transform: scale(0.97);
-}
-
-/* 🔹 Bottom buttons — even bigger */
-.bottom-buttons {
-    display: flex;
-    justify-content: space-around;
-    margin-top: 10px;
-    gap: 10px;
-}
-
-.bottom-buttons button {
-    flex: 1;
-    margin: 0;
-    padding: 25px 0;
-    font-size: 1.4rem;
-    border-radius: 16px;
-}
-
-/* 🔹 Card */
-.card {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 1.5rem;
-    text-align: center;
-    margin-bottom: 10px;
-}
-
-/* 🔹 Dating layout */
-.dating-lists {
-    flex: 1;
-    display: flex;
-    gap: 10px;
-}
-
-.half {
-    flex: 1;
-}
-
+    transition: background 0.2
