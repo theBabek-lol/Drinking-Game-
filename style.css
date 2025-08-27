@@ -69,11 +69,9 @@ button:active {
     transform: scale(0.97);
 }
 
-/* Bottom button bars (Names screen and Dating screen main buttons) */
+/* Bottom button bars for all screens */
 .bottom-buttons,
-#screen-dating > #start-game-btn,
-#screen-game .game-bottom-buttons,
-#screen-settings > #back-names-btn {
+#screen-game .game-bottom-buttons {
     position: fixed;
     bottom: 0;
     left: 0;
@@ -86,12 +84,13 @@ button:active {
     z-index: 10;
 }
 
-/* Bottom-buttons specifics */
+/* Buttons inside bottom bars */
 .bottom-buttons button,
-#screen-dating > #start-game-btn,
-#screen-game .game-bottom-buttons button,
-#screen-settings > #back-names-btn {
+#screen-game .game-bottom-buttons button {
     flex: 1;
+    padding: 20px 0;
+    font-size: 1.4rem;
+    border-radius: 16px;
 }
 
 /* Add extra padding at the bottom of screens so content is not hidden behind buttons */
@@ -105,7 +104,7 @@ button:active {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 2rem;           /* bigger question text */
+    font-size: 2rem;
     text-align: center;
     margin-bottom: 10px;
     background: #fff;
@@ -124,9 +123,6 @@ button:active {
 /* Make buttons inside game-bottom-buttons large */
 #screen-game .game-bottom-buttons button {
     flex: 1;
-    padding: 20px 0;
-    font-size: 1.4rem;
-    border-radius: 16px;
 }
 
 /* Dating layout */
@@ -135,6 +131,7 @@ button:active {
     display: flex;
     gap: 10px;
 }
+
 .half {
     flex: 1;
 }
