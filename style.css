@@ -9,13 +9,12 @@ body {
 }
 
 .screen {
-    position: relative;       /* 🔹 for absolute positioning inside */
     display: flex;
     flex-direction: column;
     height: 100%;
     padding: 10px;
     box-sizing: border-box;
-    overflow: hidden;         /* prevent scrolling of the whole screen */
+    overflow: hidden;
 }
 
 .hidden {
@@ -70,19 +69,13 @@ button:active {
     transform: scale(0.97);
 }
 
-/* Bottom buttons inside screens */
+/* Bottom buttons inside screens using flex layout */
 .bottom-buttons,
 .game-bottom-buttons {
-    position: absolute;       /* 🔹 stick to bottom of the screen */
-    bottom: 0;
-    left: 0;
-    width: 100%;
     display: flex;
     gap: 10px;
-    padding: 10px;
-    background: #f0f0f0;
-    box-shadow: 0 -2px 6px rgba(0,0,0,0.1);
-    z-index: 10;
+    margin-top: auto;  /* 🔹 pushes buttons to bottom */
+    padding: 10px 0 0 0;
 }
 
 .bottom-buttons button,
