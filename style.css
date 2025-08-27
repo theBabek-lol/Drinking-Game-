@@ -42,11 +42,34 @@ html, body {
     margin-left: 5px;
 }
 
+/* Names list - flow layout */
+#names-list {
+    display: flex;
+    flex-wrap: wrap;          /* wrap to next line */
+    gap: 10px;
+    margin-top: 10px;
+}
+
+#names-list button {
+    flex: 0 0 auto;
+    padding: 10px 15px;
+    font-size: 1.2rem;
+    border-radius: 12px;
+    background: #fff;
+    border: none;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    cursor: pointer;
+}
+
+#names-list button:hover {
+    background: #eee;
+}
+
 /* Wrapper for fixed-height cards/lists */
 .card-wrapper,
 .scrollable-wrapper {
     flex: 0 0 auto;      /* do not grow or shrink */
-    height: 150px;       /* fixed height, adjust as needed */
+    height: 150px;       /* fixed height */
     min-height: 0;
     display: flex;
     justify-content: center;
