@@ -26,29 +26,30 @@
     </div>
 
     <!-- Dating Screen -->
-    <div id="screen-dating" class="screen hidden">
+   <div id="screen-dating" class="screen hidden">
         <h2>Skapa Par</h2>
         <div id="dating-lists" class="dating-lists">
             <div id="names-dating" class="scrollable half"></div>
             <div id="couples-dating" class="scrollable half"></div>
         </div>
-        <!-- Bottom button -->
-        <div class="bottom-buttons">
-            <button id="start-game-btn">Fortsätt till Spelet</button>
-        </div>
     </div>
+    <!-- Bottom button outside screen div -->
+    <div class="bottom-buttons">
+        <button id="start-game-btn">Fortsätt till Spelet</button>
+    </div>
+
 
     <!-- Game Screen -->
     <div id="screen-game" class="screen hidden">
         <h2>Spelet</h2>
         <div id="card">Klicka Nästa</div>
-        <!-- Game buttons pinned at bottom -->
-        <div class="game-bottom-buttons">
-            <button id="next-btn">Nästa</button>
-            <button id="change-names-btn">Ändra namn</button>
-        </div>
     </div>
-
+    <!-- Game buttons outside screen div -->
+    <div class="bottom-buttons game-bottom-buttons">
+        <button id="next-btn">Nästa</button>
+        <button id="change-names-btn">Ändra namn</button>
+    </div>
+    
     <!-- Settings Screen -->
     <div id="screen-settings" class="screen hidden">
         <h2>Ändra Viktning</h2>
