@@ -4,17 +4,19 @@ body {
     padding: 0;
     background: #f0f0f0;
     height: 100vh;
-    display: flex;
-    flex-direction: column;
 }
 
+#app {
+    height: 100%;
+}
+
+/* Each screen fills the viewport */
 .screen {
     display: flex;
     flex-direction: column;
     height: 100%;
     padding: 10px;
     box-sizing: border-box;
-    overflow: hidden;
 }
 
 .hidden {
@@ -37,9 +39,9 @@ body {
     margin-left: 5px;
 }
 
-/* Scrollable areas */
+/* Scrollable areas take available space above buttons */
 .scrollable {
-    flex: 1;
+    flex: 1 1 auto;
     overflow-y: auto;
     border: 1px solid #ccc;
     padding: 8px;
@@ -58,24 +60,18 @@ button {
     border: none;
     background: #fff;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    transition: background 0.2s, transform 0.1s;
 }
 
 button:hover {
     background: #eee;
 }
 
-button:active {
-    transform: scale(0.97);
-}
-
-/* Bottom buttons inside screens using flex layout */
+/* Bottom buttons stick to the bottom naturally */
 .bottom-buttons,
 .game-bottom-buttons {
     display: flex;
     gap: 10px;
-    margin-top: auto;  /* 🔹 pushes buttons to bottom */
-    padding: 10px 0 0 0;
+    margin-top: auto; /* pushes buttons to the bottom */
 }
 
 .bottom-buttons button,
@@ -88,7 +84,7 @@ button:active {
 
 /* Game question card */
 #card {
-    flex: 1;
+    flex: 1 1 auto;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -104,13 +100,13 @@ button:active {
 
 /* Dating layout */
 .dating-lists {
-    flex: 1;
+    flex: 1 1 auto;
     display: flex;
     gap: 10px;
 }
 
 .half {
-    flex: 1;
+    flex: 1 1 auto;
 }
 
 /* Mobile optimizations */
