@@ -42,27 +42,42 @@ html, body {
     margin-left: 5px;
 }
 
-/* Fixed-size content areas */
-#card,
-.scrollable {      
-    flex: 0 0 auto;        /* do not grow or shrink */
-    height: 150px;         /* fixed height, adjust as needed */
+/* Wrapper for fixed-height cards/lists */
+.card-wrapper,
+.scrollable-wrapper {
+    flex: 0 0 auto;      /* do not grow or shrink */
+    height: 150px;       /* fixed height, adjust as needed */
+    min-height: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Scrollable inside wrapper */
+.scrollable {
+    width: 100%;
+    max-width: 500px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+/* Game card styling */
+#card {
+    font-size: 2rem;
+    padding: 15px;
     background: #fff;
     border-radius: 12px;
     box-shadow: 0 2px 6px rgba(0,0,0,0.1);
     width: 100%;
     max-width: 500px;
-    margin-bottom: 10px;
     text-align: center;
 }
 
 /* Dating lists layout */
-.dating-lists {
-    flex-direction: row;
+.dating-lists-wrapper {
+    display: flex;
     width: 100%;
     gap: 5px;
 }
@@ -98,12 +113,6 @@ button {
 
 button:hover {
     background: #eee;
-}
-
-/* Game card */
-#card {
-    font-size: 2rem;
-    padding: 15px;
 }
 
 /* Mobile adjustments */
