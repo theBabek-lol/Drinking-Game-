@@ -16,7 +16,9 @@
             <input type="text" id="name-input" placeholder="Skriv namn" />
             <button id="add-name-btn">Lägg till</button>
         </div>
-        <div id="names-list" class="scrollable"></div>
+        <div class="scrollable-wrapper">
+            <div id="names-list" class="scrollable"></div>
+        </div>
         <div class="bottom-buttons">
             <button id="start-dating-btn">Börja Festen</button>
             <button id="settings-btn">Inställningar</button>
@@ -26,9 +28,13 @@
     <!-- Dating Screen -->
     <div id="screen-dating" class="screen hidden">
         <h2>Skapa Par</h2>
-        <div id="dating-lists" class="dating-lists">
-            <div id="names-dating" class="half"></div>
-            <div id="couples-dating" class="half"></div>
+        <div class="dating-lists-wrapper">
+            <div class="half scrollable-wrapper">
+                <div id="names-dating" class="scrollable"></div>
+            </div>
+            <div class="half scrollable-wrapper">
+                <div id="couples-dating" class="scrollable"></div>
+            </div>
         </div>
         <div class="bottom-buttons">
             <button id="start-game-btn">Fortsätt till Spelet</button>
@@ -38,7 +44,9 @@
     <!-- Game Screen -->
     <div id="screen-game" class="screen hidden">
         <h2>Spelet</h2>
-        <div id="card">Klicka Nästa</div>
+        <div class="card-wrapper">
+            <div id="card">Klicka Nästa</div>
+        </div>
         <div class="game-bottom-buttons">
             <button id="next-btn">Nästa</button>
             <button id="change-names-btn">Ändra namn</button>
@@ -48,7 +56,9 @@
     <!-- Settings Screen -->
     <div id="screen-settings" class="screen hidden">
         <h2>Ändra Viktning</h2>
-        <div id="weights-list" class="scrollable"></div>
+        <div class="scrollable-wrapper">
+            <div id="weights-list" class="scrollable"></div>
+        </div>
         <div class="bottom-buttons">
             <button id="back-names-btn">Tillbaka</button>
         </div>
