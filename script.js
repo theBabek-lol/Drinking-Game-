@@ -19,12 +19,15 @@ document.addEventListener('DOMContentLoaded', async () => {
     const card = document.getElementById('card');
     const namesDating = document.getElementById('names-dating');
     const couplesDating = document.getElementById('couples-dating');
+    const weightsList = document.getElementById('weights-list');
 
     // --- Game State ---
     let names = [];
     let couples = {}; 
     let questions = [];
-    const weights = {"nhie":8,"pek":8,"rygg":6,"kat":7,"one_name":4,"two_name":4,"two_name_intim":4,"all":4};
+    const weights = {
+        nhie:8, pek:8, rygg:6, kat:7, one_name:4, two_name:4, two_name_intim:4, all:4
+    };
     let deck = [];
     let ryggQuestion = null;
     let ryggNames = [];
@@ -119,7 +122,10 @@ document.addEventListener('DOMContentLoaded', async () => {
     };
 
     changeNamesBtn.onclick = () => showScreen('names');
-    settingsBtn.onclick = () => showScreen('settings');
+    settingsBtn.onclick = () => {
+        renderWeights();
+        showScreen('settings');
+    };
     backNamesBtn.onclick = () => showScreen('names');
 
     // --- Deck Logic ---
@@ -196,6 +202,37 @@ document.addEventListener('DOMContentLoaded', async () => {
     function randomName(exclude=[]) {
         const available = names.filter(n => !exclude.includes(n));
         return available[Math.floor(Math.random() * available.length)] || '(ingen)';
+    }
+
+    // --- Settings Screen (Weights) ---
+    function renderWeights() {
+        weightsList.innerHTML = '';
+        for (let type in weights) {
+            const row = document.createElement('div');
+            row.className = 'weight-setting';
+
+            const label = document.createElement('label');
+            label.textContent = type;
+
+            const slider = document.createElement('input');
+            slider.type = 'range';
+            slider.min = 0;
+            slider.max = 20;
+            slider.value = weights[type];
+
+            const value = document.createElement('span');
+            value.textContent = weights[type];
+
+            slider.oninput = () => {
+                weights[type] = parseInt(slider.value);
+                value.textContent = slider.value;
+            };
+
+            row.appendChild(label);
+            row.appendChild(slider);
+            row.appendChild(value);
+            weightsList.appendChild(row);
+        }
     }
 
     // --- Load JSON Questions ---
