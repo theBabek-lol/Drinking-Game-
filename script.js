@@ -25,9 +25,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     let names = [];
     let couples = {}; 
     let questions = [];
-    const weights = {
-        nhie:8, pek:8, rygg:6, kat:7, one_name:4, two_name:4, two_name_intim:4, all:4
-    };
+    const weights = {"nhie":8,"pek":8,"rygg":6,"kat":7,"one_name":4,"two_name":4,"two_name_intim":4,"all":4};
     let deck = [];
     let ryggQuestion = null;
     let ryggNames = [];
@@ -36,6 +34,8 @@ document.addEventListener('DOMContentLoaded', async () => {
     function showScreen(screen) {
         for (const s in screens) screens[s].classList.add('hidden');
         screens[screen].classList.remove('hidden');
+
+        if (screen === "settings") renderWeights();
     }
 
     // --- Names Management ---
@@ -122,10 +122,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     };
 
     changeNamesBtn.onclick = () => showScreen('names');
-    settingsBtn.onclick = () => {
-        renderWeights();
-        showScreen('settings');
-    };
+    settingsBtn.onclick = () => showScreen('settings');
     backNamesBtn.onclick = () => showScreen('names');
 
     // --- Deck Logic ---
@@ -204,14 +201,16 @@ document.addEventListener('DOMContentLoaded', async () => {
         return available[Math.floor(Math.random() * available.length)] || '(ingen)';
     }
 
-    // --- Settings Screen (Weights) ---
+    // --- Settings / Weights ---
     function renderWeights() {
         weightsList.innerHTML = '';
+        const total = Object.values(weights).reduce((a,b)=>a+b,0);
+
         for (let type in weights) {
             const row = document.createElement('div');
-            row.className = 'weight-setting';
+            row.className = 'weight-row';
 
-            const label = document.createElement('label');
+            const label = document.createElement('span');
             label.textContent = type;
 
             const slider = document.createElement('input');
@@ -221,16 +220,22 @@ document.addEventListener('DOMContentLoaded', async () => {
             slider.value = weights[type];
 
             const value = document.createElement('span');
+            value.className = 'weight-value';
             value.textContent = weights[type];
 
+            const percent = document.createElement('span');
+            percent.className = 'weight-percent';
+            percent.textContent = `(${((weights[type]/total)*100).toFixed(0)}%)`;
+
             slider.oninput = () => {
-                weights[type] = parseInt(slider.value);
-                value.textContent = slider.value;
+                weights[type] = parseInt(slider.value,10);
+                renderWeights(); // re-render to update all percentages
             };
 
             row.appendChild(label);
             row.appendChild(slider);
             row.appendChild(value);
+            row.appendChild(percent);
             weightsList.appendChild(row);
         }
     }
@@ -250,6 +255,11 @@ document.addEventListener('DOMContentLoaded', async () => {
             ];
         }
     }
+
+    await loadQuestions();
+    showScreen('names');
+});
+
 
     await loadQuestions();
     showScreen('names');
