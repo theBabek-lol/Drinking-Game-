@@ -17,7 +17,7 @@ html, body {
 .screen {
     display: flex;
     flex-direction: column;
-    height: 100dvh; /* dynamic viewport height */
+    height: 100dvh;
     padding: 5px;
     box-sizing: border-box;
 }
@@ -42,10 +42,10 @@ html, body {
     margin-left: 5px;
 }
 
-/* Names screen list - flow layout */
+/* Names screen list */
 #names-list {
     display: flex;
-    flex-wrap: wrap;          /* wrap to next line */
+    flex-wrap: wrap;
     gap: 10px;
     margin-top: 10px;
 }
@@ -65,44 +65,42 @@ html, body {
     background: #eee;
 }
 
-/* Scrollable wrapper for dating screen and cards */
+/* Scrollable wrapper */
 .scrollable-wrapper {
     flex: 1;
     display: flex;
-    flex-direction: column; /* stack content vertically */
-    align-items: flex-start; /* start at top */
+    flex-direction: column;
+    align-items: flex-start;
     justify-content: flex-start;
     height: 100%;
     width: 100%;
 }
 
-/* Dating screen lists - horizontal flow and wrap */
 #names-dating,
 #couples-dating {
-    display: flex;               /* flex layout */
-    flex-wrap: wrap;             /* wrap to next line when full */
-    justify-content: flex-start; /* align left */
-    align-items: flex-start;     /* start at top */
-    gap: 10px;                   /* spacing between buttons */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 10px;
     width: 100%;
 }
 
 #names-dating button,
 #couples-dating button {
-    flex: 0 0 auto;              /* keep natural width */
+    flex: 0 0 auto;
 }
 
-/* Wrapper for fixed-height cards/lists */
+/* Card wrapper */
 .card-wrapper {
-    flex: 0 0 auto;      /* do not grow or shrink */
-    height: 150px;       /* fixed height */
-    min-height: 0;
+    flex: 0 0 auto;
+    height: 150px;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-/* Scrollable inside wrapper */
+/* Scrollable inside */
 .scrollable {
     width: 100%;
     max-width: 500px;
@@ -112,7 +110,7 @@ html, body {
     align-items: flex-start;
 }
 
-/* Game card styling */
+/* Game card */
 #card {
     font-size: 2rem;
     padding: 15px;
@@ -124,7 +122,7 @@ html, body {
     text-align: center;
 }
 
-/* Dating lists wrapper */
+/* Dating wrapper */
 .dating-lists-wrapper {
     display: flex;
     width: 100%;
@@ -135,19 +133,19 @@ html, body {
     flex: 1;
     display: flex;
     flex-direction: column;
-    align-items: flex-start; /* start at top */
+    align-items: flex-start;
     justify-content: flex-start;
 }
 
-/* Buttons pinned at bottom */
+/* Buttons pinned bottom */
 .bottom-buttons,
 .game-bottom-buttons {
     display: flex;
     gap: 10px;
-    margin-top: auto;      /* push buttons to bottom */
+    margin-top: auto;
 }
 
-/* Make all buttons big */
+/* All buttons */
 button {
     flex: 1;
     min-height: 70px;
@@ -162,6 +160,56 @@ button {
 
 button:hover {
     background: #eee;
+}
+
+/* --- Game screen fixes --- */
+.game-bottom-buttons {
+    flex-direction: column; /* stack vertically */
+}
+
+#next-btn {
+    min-height: 100px;
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+#change-names-btn {
+    min-height: 60px;
+    font-size: 1.3rem;
+}
+
+/* --- Settings weights --- */
+#weights-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+    max-width: 500px;
+}
+
+.weight-setting {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.weight-setting label {
+    width: 120px;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.weight-setting input[type="range"] {
+    flex: 1;
+    accent-color: #007aff;
+    height: 6px;
+    border-radius: 6px;
+}
+
+.weight-setting span {
+    width: 50px;
+    text-align: right;
+    font-size: 1rem;
 }
 
 /* Mobile adjustments */
