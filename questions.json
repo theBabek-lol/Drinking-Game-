@@ -13,15 +13,27 @@
     },
     {
         "type": "all",
+        "template": "Alla med iphone dricker!"
+    },
+    {
+        "type": "all",
         "template": "Alla med skägg måste dricka!"
     },
     {
         "type": "all",
-        "template": "Alla som ínte har körkort dricker"
+        "template": "Alla som inte har körkort dricker!"
     },
     {
         "type": "all",
         "template": "Alla tjejer dricker!"
+    },
+    {
+        "type": "all",
+        "template": "Om du har skapat den här appen dela ut en shot!"
+    },
+    {
+        "type": "all",
+        "template": "Skål!! Alla dricker 5 klunkar"
     },
     {
         "type": "kat",
@@ -53,6 +65,10 @@
     },
     {
         "type": "kat",
+        "template": "{} dryckes lekar"
+    },
+    {
+        "type": "kat",
         "template": "{} europeiska huvudstäder"
     },
     {
@@ -65,11 +81,31 @@
     },
     {
         "type": "kat",
+        "template": "{} köksredskap"
+    },
+    {
+        "type": "kat",
         "template": "{} länder som börjar med P"
     },
     {
         "type": "kat",
+        "template": "{} låtar som börjar på S"
+    },
+    {
+        "type": "kat",
+        "template": "{} mat på tub"
+    },
+    {
+        "type": "kat",
+        "template": "{} pizza sorter"
+    },
+    {
+        "type": "kat",
         "template": "{} porrstjärnor"
+    },
+    {
+        "type": "kat",
+        "template": "{} sektioner på ltu"
     },
     {
         "type": "kat",
@@ -89,6 +125,14 @@
     },
     {
         "type": "kat",
+        "template": "{} smörgås pålägg"
+    },
+    {
+        "type": "kat",
+        "template": "{} städer som börjar med K"
+    },
+    {
+        "type": "kat",
         "template": "{} svenska landskap"
     },
     {
@@ -98,38 +142,6 @@
     {
         "type": "kat",
         "template": "{} Öl märken"
-    },
-    {
-        "type": "kat",
-        "template": "{} dryckes lekar"
-    },
-    {
-        "type": "kat",
-        "template": "{} sektioner på ltu"
-    },
-    {
-        "type": "kat",
-        "template": "{} städer som börjar med K"
-    },
-    {
-        "type": "kat",
-        "template": "{} pizza sorter"
-    },
-    {
-        "type": "kat",
-        "template": "{} låtar som börjar på S"
-    },
-    {
-        "type": "kat",
-        "template": "{} smörgås pålägg"
-    },
-    {
-        "type": "kat",
-        "template": "{} mat på tub"
-    },
-    {
-        "type": "kat",
-        "template": "{} köksredskap"
     },
     {
         "type": "nhie",
@@ -261,11 +273,19 @@
     },
     {
         "type": "nhie",
+        "template": "haft en tinder-profil"
+    },
+    {
+        "type": "nhie",
         "template": "haft en våt dröm"
     },
     {
         "type": "nhie",
         "template": "haft en våt dröm om en klasskamrat/kollega"
+    },
+    {
+        "type": "nhie",
+        "template": "haft en walk of shame"
     },
     {
         "type": "nhie",
@@ -373,6 +393,10 @@
     },
     {
         "type": "nhie",
+        "template": "kysst någon av samma kön"
+    },
+    {
+        "type": "nhie",
         "template": "kört bil onykter"
     },
     {
@@ -409,6 +433,10 @@
     },
     {
         "type": "nhie",
+        "template": "naken badat"
+    },
+    {
+        "type": "nhie",
         "template": "onanerat mer än tre gånger på ett dygn"
     },
     {
@@ -421,6 +449,10 @@
     },
     {
         "type": "nhie",
+        "template": "pratat i telefon under sex"
+    },
+    {
+        "type": "nhie",
         "template": "rakat mig där nere"
     },
     {
@@ -429,11 +461,11 @@
     },
     {
         "type": "nhie",
-        "template": "rökt på"
+        "template": "rökt cigaretter"
     },
     {
         "type": "nhie",
-        "template": "rökt cigaretter"
+        "template": "rökt på"
     },
     {
         "type": "nhie",
@@ -573,19 +605,19 @@
     },
     {
         "type": "one_name",
-        "template": "{} Ta en klunk för varje smycke du har på dig"
-    },
-    {
-        "type": "one_name",
         "template": "Vattenfall! Börja med {}"
     },
     {
         "type": "one_name",
-        "template": "{} Visa dina underkläder eller ta 5 klunkar"
+        "template": "{} Ta en klunk för varje smycke du har på dig"
     },
     {
         "type": "one_name",
         "template": "{} Twerka"
+    },
+    {
+        "type": "one_name",
+        "template": "{} Visa dina underkläder eller ta 5 klunkar"
     },
     {
         "type": "one_name",
@@ -601,6 +633,10 @@
     },
     {
         "type": "one_name",
+        "template": "{} drick lika många klunkar som du har bokstäver i ditt namn"
+    },
+    {
+        "type": "one_name",
         "template": "{} får inte flytta på sig förens du har avslutat din enhet"
     },
     {
@@ -609,7 +645,15 @@
     },
     {
         "type": "one_name",
+        "template": "{} lägg till en regel"
+    },
+    {
+        "type": "one_name",
         "template": "{} nämn alla deltagare en klunk för varje fel"
+    },
+    {
+        "type": "one_name",
+        "template": "{} ta 2 klunkar för varje ex som du har"
     },
     {
         "type": "one_name",
@@ -618,6 +662,30 @@
     {
         "type": "one_name",
         "template": "{} ta av ett klädesplagg!"
+    },
+    {
+        "type": "one_name",
+        "template": "{} ta en klunk för varje par skor du äger"
+    },
+    {
+        "type": "one_name",
+        "template": "{} ta en klunk för varje person du hånglat med i rummet"
+    },
+    {
+        "type": "one_name",
+        "template": "{} ta en klunk för varje piercing du har"
+    },
+    {
+        "type": "one_name",
+        "template": "{} ta en klunk för varje syskon du har"
+    },
+    {
+        "type": "one_name",
+        "template": "{} ta en klunk för varje tatuering du har"
+    },
+    {
+        "type": "one_name",
+        "template": "{} ta en selfie och lägg upp i story – annars shot"
     },
     {
         "type": "one_name",
@@ -634,10 +702,6 @@
     {
         "type": "one_name",
         "template": "{} är question master i 15 min"
-    },
-    {
-        "type": "one_name",
-        "template": "{} lägg till en regel"
     },
     {
         "type": "pek",
@@ -866,6 +930,10 @@
     {
         "type": "pek",
         "template": "Vem skulle vara skurken i en film?"
+    },
+    {
+        "type": "pek",
+        "template": "Vem sover naken"
     },
     {
         "type": "pek",
@@ -1516,6 +1584,10 @@
         "template": "{} ta en bodyshot från {}"
     },
     {
+        "type": "two_name_intim",
+        "template": "{} ta en shot från mellan {} bröst/lår"
+    },
+    {
         "type": "two_name",
         "template": "Armbrytning! {} mot {} förloraren tar en shot!"
     },
@@ -1538,6 +1610,10 @@
     {
         "type": "two_name",
         "template": "{} ge {} en ny frisyr"
+    },
+    {
+        "type": "two_name",
+        "template": "{} gör en armhävning med {} på ryggen en shot om du misslyckas"
     },
     {
         "type": "two_name",
