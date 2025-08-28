@@ -21,10 +21,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     const couplesDating = document.getElementById('couples-dating');
     const weightsList = document.getElementById('weights-list');
 
-    // --- Add special classes for game screen layout ---
-    changeNamesBtn.classList.add('change-name-btn');
-    nextBtn.classList.add('next-btn');
-
     // --- Game State ---
     let names = [];
     let couples = {}; 
@@ -39,7 +35,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         if (!el) return;
         el.addEventListener('click', handler);
         el.addEventListener('touchstart', (e) => {
-            e.preventDefault();
+            e.preventDefault(); // prevent duplicate click
             handler();
         }, { passive: false });
     }
