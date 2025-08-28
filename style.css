@@ -1,4 +1,4 @@
-//* General setup */
+/* General setup */
 html, body {
     margin: 0;
     padding: 0;
@@ -17,8 +17,7 @@ html, body {
 .screen {
     display: flex;
     flex-direction: column;
-    height: 100vh; /* fixed */
-    min-height: 100vh;
+    flex: 1 1 auto;
     padding: 5px;
     box-sizing: border-box;
     overflow: hidden;
@@ -117,32 +116,22 @@ html, body {
     margin-top: auto;
 }
 
-/* Default: all bottom buttons double height */
 .bottom-buttons button,
 .game-bottom-buttons button {
-    min-height: 120px;   /* double height */
+    flex: 1;
+    min-height: 60px;
+    padding: 15px 0;
+    font-size: 1.4rem;
+    border-radius: 16px;
+    border: none;
+    background: #fff;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.15);
+    cursor: pointer;
 }
 
 /* All other buttons keep normal size */
 button:not(.bottom-buttons button):not(.game-bottom-buttons button) {
     min-height: auto;
-    flex: 0 0 auto;
-}
-
-/* Game screen special layout */
-#screen-game .game-bottom-buttons {
-    display: flex;
-    flex-direction: column; /* stack vertically */
-    gap: 10px;
-}
-
-#screen-game .game-bottom-buttons button.change-name-btn {
-    min-height: 60px;  /* normal height */
-    flex: 0 0 auto;
-}
-
-#screen-game .game-bottom-buttons button.next-btn {
-    min-height: 120px; /* double height */
     flex: 0 0 auto;
 }
 
