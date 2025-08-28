@@ -17,8 +17,7 @@ html, body {
 .screen {
     display: flex;
     flex-direction: column;
-    height: 100svh; /* fixed */
-    min-height: 100svh;
+    flex: 1 1 auto;
     padding: 5px;
     box-sizing: border-box;
     overflow: hidden;
