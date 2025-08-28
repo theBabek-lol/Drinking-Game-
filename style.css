@@ -1,64 +1,182 @@
-// Inside DOMContentLoaded after defining "weights"
-const settingsContainer = document.getElementById("settings-container");
-
-// Render sliders for weights
-function renderSettings() {
-    settingsContainer.innerHTML = "";
-    const total = Object.values(weights).reduce((a, b) => a + b, 0);
-
-    for (let type in weights) {
-        const wrapper = document.createElement("div");
-        wrapper.className = "weight-setting";
-
-        const label = document.createElement("label");
-        label.textContent = type;
-
-        const slider = document.createElement("input");
-        slider.type = "range";
-        slider.min = 0;
-        slider.max = 100;
-        slider.value = Math.round((weights[type] / total) * 100);
-
-        const valueDisplay = document.createElement("span");
-        valueDisplay.textContent = slider.value + "%";
-
-        slider.oninput = () => {
-            adjustWeights(type, parseInt(slider.value));
-            renderSettings(); // re-render so all stay normalized
-        };
-
-        wrapper.appendChild(label);
-        wrapper.appendChild(slider);
-        wrapper.appendChild(valueDisplay);
-        settingsContainer.appendChild(wrapper);
-    }
+/* General setup */
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: sans-serif;
+    background: #f0f0f0;
 }
 
-// Normalize so total = 100%
-function adjustWeights(changedType, newPercent) {
-    const others = Object.keys(weights).filter(t => t !== changedType);
-    const oldTotal = Object.values(weights).reduce((a,b) => a+b, 0);
-    
-    // Convert percentages back to raw values
-    const newWeights = {};
-    newWeights[changedType] = newPercent;
-
-    let remaining = 100 - newPercent;
-    let oldRemaining = others.map(t => weights[t]);
-    let oldSum = oldRemaining.reduce((a,b) => a+b,0);
-
-    others.forEach((t, i) => {
-        newWeights[t] = Math.round((weights[t] / oldSum) * remaining);
-    });
-
-    // Update weights in-place (scale to something usable, e.g., out of 10)
-    for (let t in newWeights) {
-        weights[t] = Math.max(1, Math.round(newWeights[t] / 10)); 
-    }
+#app {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 }
 
-// Render when entering settings
-settingsBtn.onclick = () => {
-    renderSettings();
-    showScreen('settings');
-};
+/* Screen layout */
+.screen {
+    display: flex;
+    flex-direction: column;
+    height: 100dvh; /* dynamic viewport height */
+    padding: 5px;
+    box-sizing: border-box;
+}
+
+.hidden {
+    display: none;
+}
+
+/* Input row */
+.input-row {
+    display: flex;
+    margin-bottom: 5px;
+}
+
+.input-row input {
+    flex: 1;
+    padding: 12px;
+    font-size: 1.1rem;
+}
+
+.input-row button {
+    margin-left: 5px;
+}
+
+/* Names screen list - flow layout */
+#names-list {
+    display: flex;
+    flex-wrap: wrap;          /* wrap to next line */
+    gap: 10px;
+    margin-top: 10px;
+}
+
+#names-list button {
+    flex: 0 0 auto;
+    padding: 10px 15px;
+    font-size: 1.2rem;
+    border-radius: 12px;
+    background: #fff;
+    border: none;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    cursor: pointer;
+}
+
+#names-list button:hover {
+    background: #eee;
+}
+
+/* Scrollable wrapper for dating screen and cards */
+.scrollable-wrapper {
+    flex: 1;
+    display: flex;
+    flex-direction: column; /* stack content vertically */
+    align-items: flex-start; /* start at top */
+    justify-content: flex-start;
+    height: 100%;
+    width: 100%;
+}
+
+/* Dating screen lists - horizontal flow and wrap */
+#names-dating,
+#couples-dating {
+    display: flex;               /* flex layout */
+    flex-wrap: wrap;             /* wrap to next line when full */
+    justify-content: flex-start; /* align left */
+    align-items: flex-start;     /* start at top */
+    gap: 10px;                   /* spacing between buttons */
+    width: 100%;
+}
+
+#names-dating button,
+#couples-dating button {
+    flex: 0 0 auto;              /* keep natural width */
+}
+
+/* Wrapper for fixed-height cards/lists */
+.card-wrapper {
+    flex: 0 0 auto;      /* do not grow or shrink */
+    height: 150px;       /* fixed height */
+    min-height: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Scrollable inside wrapper */
+.scrollable {
+    width: 100%;
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+/* Game card styling */
+#card {
+    font-size: 2rem;
+    padding: 15px;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    width: 100%;
+    max-width: 500px;
+    text-align: center;
+}
+
+/* Dating lists wrapper */
+.dating-lists-wrapper {
+    display: flex;
+    width: 100%;
+    gap: 5px;
+}
+
+.half {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* start at top */
+    justify-content: flex-start;
+}
+
+/* Buttons pinned at bottom */
+.bottom-buttons,
+.game-bottom-buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: auto;      /* push buttons to bottom */
+}
+
+/* Make all buttons big */
+button {
+    flex: 1;
+    min-height: 70px;
+    padding: 20px 0;
+    font-size: 1.5rem;
+    border-radius: 16px;
+    border: none;
+    background: #fff;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.15);
+    cursor: pointer;
+}
+
+button:hover {
+    background: #eee;
+}
+
+/* Mobile adjustments */
+@media (max-height: 600px), (max-width: 400px) {
+    .input-row input {
+        font-size: 1rem;
+        padding: 8px;
+    }
+    button {
+        font-size: 1.3rem;
+        min-height: 60px;
+        padding: 15px 0;
+    }
+    #card {
+        font-size: 1.8rem;
+        padding: 10px;
+    }
+}
