@@ -17,9 +17,11 @@ html, body {
 .screen {
     display: flex;
     flex-direction: column;
-    height: 100dvh;
+    height: 100vh; /* fixed */
+    min-height: 100vh;
     padding: 5px;
     box-sizing: border-box;
+    overflow: hidden;
 }
 
 .hidden {
@@ -51,7 +53,6 @@ html, body {
 }
 
 #names-list button {
-    flex: 0 0 auto;
     padding: 10px 15px;
     font-size: 1.2rem;
     border-radius: 12px;
@@ -70,28 +71,25 @@ html, body {
     flex: 1;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    justify-content: flex-start;
-    height: 100%;
-    width: 100%;
+    min-height: 0;
+    overflow-y: auto;
 }
 
+/* Dating screen lists */
 #names-dating,
 #couples-dating {
     display: flex;
     flex-wrap: wrap;
-    justify-content: flex-start;
-    align-items: flex-start;
     gap: 10px;
     width: 100%;
 }
 
 #names-dating button,
 #couples-dating button {
-    flex: 0 0 auto;
+    padding: 10px 15px;
 }
 
-/* Card wrapper */
+/* Card styling */
 .card-wrapper {
     flex: 0 0 auto;
     height: 150px;
@@ -100,17 +98,6 @@ html, body {
     align-items: center;
 }
 
-/* Scrollable inside */
-.scrollable {
-    width: 100%;
-    max-width: 500px;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
-}
-
-/* Game card */
 #card {
     font-size: 2rem;
     padding: 15px;
@@ -122,22 +109,7 @@ html, body {
     text-align: center;
 }
 
-/* Dating wrapper */
-.dating-lists-wrapper {
-    display: flex;
-    width: 100%;
-    gap: 5px;
-}
-
-.half {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: flex-start;
-}
-
-/* Buttons pinned bottom */
+/* Bottom buttons */
 .bottom-buttons,
 .game-bottom-buttons {
     display: flex;
@@ -145,12 +117,12 @@ html, body {
     margin-top: auto;
 }
 
-/* All buttons */
-button {
+.bottom-buttons button,
+.game-bottom-buttons button {
     flex: 1;
-    min-height: 70px;
-    padding: 20px 0;
-    font-size: 1.5rem;
+    min-height: 60px;
+    padding: 15px 0;
+    font-size: 1.4rem;
     border-radius: 16px;
     border: none;
     background: #fff;
@@ -158,58 +130,54 @@ button {
     cursor: pointer;
 }
 
-button:hover {
-    background: #eee;
+/* All other buttons keep normal size */
+button:not(.bottom-buttons button):not(.game-bottom-buttons button) {
+    min-height: auto;
+    flex: 0 0 auto;
 }
 
-/* --- Game screen fixes --- */
-.game-bottom-buttons {
-    flex-direction: column; /* stack vertically */
-}
-
-#next-btn {
-    min-height: 100px;
-    font-size: 2rem;
-    font-weight: bold;
-}
-
-#change-names-btn {
-    min-height: 60px;
-    font-size: 1.3rem;
-}
-
-/* --- Settings weights --- */
+/* Settings weights */
 #weights-list {
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 12px;
     width: 100%;
     max-width: 500px;
+    margin: 10px auto;
 }
 
-.weight-setting {
+.weight-row {
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     gap: 10px;
+    background: #fff;
+    padding: 8px 10px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
-.weight-setting label {
-    width: 120px;
-    font-size: 1.2rem;
+.weight-row span {
+    font-size: 1.1rem;
+}
+
+.weight-row input[type="range"] {
+    flex: 1 1 120px;
+    accent-color: #0077ff;
+    min-width: 100px;
+}
+
+.weight-value {
     font-weight: bold;
-}
-
-.weight-setting input[type="range"] {
-    flex: 1;
-    accent-color: #007aff;
-    height: 6px;
-    border-radius: 6px;
-}
-
-.weight-setting span {
-    width: 50px;
+    min-width: 30px;
     text-align: right;
-    font-size: 1rem;
+}
+
+.weight-percent {
+    color: #666;
+    font-size: 0.9rem;
+    min-width: 45px;
+    text-align: left;
 }
 
 /* Mobile adjustments */
@@ -218,13 +186,21 @@ button:hover {
         font-size: 1rem;
         padding: 8px;
     }
-    button {
-        font-size: 1.3rem;
-        min-height: 60px;
-        padding: 15px 0;
+    .bottom-buttons button,
+    .game-bottom-buttons button {
+        font-size: 1.2rem;
+        min-height: 50px;
+        padding: 10px 0;
     }
     #card {
-        font-size: 1.8rem;
+        font-size: 1.6rem;
         padding: 10px;
+    }
+    .weight-row {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .weight-row input[type="range"] {
+        width: 100%;
     }
 }
