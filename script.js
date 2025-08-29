@@ -21,16 +21,13 @@ document.addEventListener('DOMContentLoaded', async () => {
     const couplesDating = document.getElementById('couples-dating');
     const weightsList = document.getElementById('weights-list');
 
-    // --- Add classes for styling rules ---
-    changeNamesBtn.classList.add('change-name-btn');
-    nextBtn.classList.add('next-btn');
-
     // --- Game State ---
     let names = [];
     let couples = {}; 
     let questions = [];
     const weights = {"nhie":8,"pek":8,"rygg":6,"kat":7,"one_name":4,"two_name":4,"two_name_intim":4,"all":4};
-    let deck = [];
+
+    let questionPools = {}; // grouped by type
     let ryggQuestion = null;
     let ryggNames = [];
 
@@ -122,24 +119,43 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     // --- Deck Logic ---
     function buildDeck() {
-        deck = [];
-        if (!questions.length) {
-            questions = [
-                {type:'nhie', template:'Jag har aldrig…'},
-                {type:'one_name', template:'{} tar en klunk'},
-                {type:'two_name', template:'{} och {} byter plats'}
-            ];
-        }
+        // Group questions by type
+        questionPools = {};
         questions.forEach(q => {
-            const w = weights[q.type] || 1;
-            for (let i = 0; i < w; i++) deck.push({...q});
+            if (!questionPools[q.type]) {
+                questionPools[q.type] = { all: [], remaining: [] };
+            }
+            questionPools[q.type].all.push(q);
         });
-        shuffle(deck);
+
+        // Initialize "remaining" with a shuffled copy
+        for (let type in questionPools) {
+            questionPools[type].remaining = shuffle([...questionPools[type].all]);
+        }
+    }
+
+    function pickType() {
+        const totalWeight = Object.values(weights).reduce((a,b)=>a+b,0);
+        let r = Math.random() * totalWeight;
+        for (let type in weights) {
+            r -= weights[type];
+            if (r <= 0) return type;
+        }
+        return Object.keys(weights)[0]; // fallback
     }
 
     function drawQuestion() {
-        if (deck.length === 0) buildDeck();
-        return deck.pop();
+        if (!Object.keys(questionPools).length) buildDeck();
+
+        const type = pickType();
+        const pool = questionPools[type];
+        if (!pool) return null;
+
+        if (pool.remaining.length === 0) {
+            pool.remaining = shuffle([...pool.all]);
+        }
+
+        return pool.remaining.pop();
     }
 
     function shuffle(array) {
@@ -147,6 +163,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             const j = Math.floor(Math.random() * (i + 1));
             [array[i], array[j]] = [array[j], array[i]];
         }
+        return array;
     }
 
     // --- Game Logic ---
