@@ -21,6 +21,10 @@ document.addEventListener('DOMContentLoaded', async () => {
     const couplesDating = document.getElementById('couples-dating');
     const weightsList = document.getElementById('weights-list');
 
+    // --- Add classes for styling rules ---
+    changeNamesBtn.classList.add('change-name-btn');
+    nextBtn.classList.add('next-btn');
+
     // --- Game State ---
     let names = [];
     let couples = {}; 
