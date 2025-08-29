@@ -116,10 +116,11 @@ html, body {
     margin-top: auto;
 }
 
+/* All bottom buttons are double height by default */
 .bottom-buttons button,
 .game-bottom-buttons button {
     flex: 1;
-    min-height: 60px;
+    min-height: 120px; /* doubled */
     padding: 15px 0;
     font-size: 1.4rem;
     border-radius: 16px;
@@ -127,6 +128,21 @@ html, body {
     background: #fff;
     box-shadow: 0 3px 6px rgba(0,0,0,0.15);
     cursor: pointer;
+}
+
+/* Game screen: stack buttons vertically */
+.game-bottom-buttons {
+    flex-direction: column;
+}
+
+/* Change Names stays normal height */
+.game-bottom-buttons .change-names-btn {
+    min-height: 60px;
+}
+
+/* Next button is double height */
+.game-bottom-buttons .next-btn {
+    min-height: 120px;
 }
 
 /* All other buttons keep normal size */
@@ -188,8 +204,14 @@ button:not(.bottom-buttons button):not(.game-bottom-buttons button) {
     .bottom-buttons button,
     .game-bottom-buttons button {
         font-size: 1.2rem;
-        min-height: 50px;
+        min-height: 100px; /* smaller double height for mobile */
         padding: 10px 0;
+    }
+    .game-bottom-buttons .change-names-btn {
+        min-height: 50px;
+    }
+    .game-bottom-buttons .next-btn {
+        min-height: 100px;
     }
     #card {
         font-size: 1.6rem;
@@ -203,3 +225,4 @@ button:not(.bottom-buttons button):not(.game-bottom-buttons button) {
         width: 100%;
     }
 }
+
