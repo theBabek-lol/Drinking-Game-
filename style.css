@@ -3,8 +3,8 @@ html, body {
     margin: 0;
     padding: 0;
     height: 100%;
-    font-family: sans-serif;
-    background: #f0f0f0;
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    background: linear-gradient(135deg, #ffecd2, #fcb69f);
 }
 
 #app {
@@ -18,9 +18,13 @@ html, body {
     display: flex;
     flex-direction: column;
     flex: 1 1 auto;
-    padding: 5px;
+    padding: 10px;
     box-sizing: border-box;
     overflow: hidden;
+    background: rgba(255, 255, 255, 0.4);
+    border-radius: 20px;
+    margin: 10px;
+    box-shadow: 0 6px 12px rgba(0,0,0,0.1);
 }
 
 .hidden {
@@ -30,20 +34,37 @@ html, body {
 /* Input row */
 .input-row {
     display: flex;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
+    gap: 8px;
 }
 
 .input-row input {
     flex: 1;
     padding: 12px;
     font-size: 1.1rem;
+    border-radius: 12px;
+    border: 2px solid #ff9ff3;
+    background: #fff;
+    outline: none;
 }
 
 .input-row button {
-    margin-left: 5px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #ff9ff3, #feca57);
+    border: none;
+    padding: 10px 15px;
+    font-size: 1.1rem;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.2s;
 }
 
-/* Names screen list */
+.input-row button:hover {
+    transform: scale(1.05);
+}
+
+/* Names list */
 #names-list {
     display: flex;
     flex-wrap: wrap;
@@ -56,13 +77,20 @@ html, body {
     font-size: 1.2rem;
     border-radius: 12px;
     background: #fff;
-    border: none;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    border: 2px solid #54a0ff;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
     cursor: pointer;
+    transition: all 0.2s;
 }
 
 #names-list button:hover {
-    background: #eee;
+    background: #c8d6e5;
+}
+
+#names-list button.selected {
+    background: linear-gradient(135deg, #54a0ff, #00d2d3);
+    color: white;
+    box-shadow: 0 0 10px #54a0ff;
 }
 
 /* Scrollable wrapper */
@@ -74,69 +102,43 @@ html, body {
     overflow-y: auto;
 }
 
-/* Dating screen lists */
+/* Dating screen */
 #names-dating,
 #couples-dating {
     display: flex;
     flex-wrap: wrap;
-    gap: 12px;
-    padding: 10px 0;
+    gap: 10px;
     width: 100%;
+    margin-top: 10px;
 }
 
-/* Names: pill-style selectable chips */
-#names-dating button {
-    padding: 10px 18px;
-    font-size: 1.1rem;
-    border-radius: 25px;
-    background: #ffffff;
-    border: 2px solid #0077ff22;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.08);
-    cursor: pointer;
-    transition: all 0.2s ease;
-}
-
-#names-dating button:hover {
-    background: #f5f9ff;
-    border-color: #0077ff55;
-}
-
-/* Highlight selected name (waiting for pair) */
-#names-dating button.selected {
-    background: #0077ff;
-    color: #fff;
-    border-color: #0077ff;
-}
-
-/* Couples: more prominent with heart theme */
+#names-dating button,
 #couples-dating button {
-    padding: 12px 20px;
+    padding: 12px 18px;
+    border-radius: 14px;
     font-size: 1.2rem;
-    border-radius: 18px;
-    background: linear-gradient(135deg, #ff7aa2, #ff4d6d);
-    color: #fff;
     border: none;
-    box-shadow: 0 3px 6px rgba(0,0,0,0.2);
     cursor: pointer;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    background: #fff;
+    border: 2px solid #1dd1a1;
+    transition: all 0.2s;
 }
 
+#names-dating button:hover,
 #couples-dating button:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 5px 10px rgba(0,0,0,0.25);
+    background: #dff9fb;
 }
 
-/* Subtle section divider between names and couples */
-#names-dating {
-    border-bottom: 1px solid #ddd;
-    padding-bottom: 15px;
-    margin-bottom: 15px;
+#names-dating button.selected {
+    background: linear-gradient(135deg, #1dd1a1, #10ac84);
+    color: #fff;
+    box-shadow: 0 0 12px #1dd1a1;
 }
 
 /* Card styling */
 .card-wrapper {
     flex: 0 0 auto;
-    height: 150px;
+    height: 180px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -144,20 +146,21 @@ html, body {
 
 #card {
     font-size: 2rem;
-    padding: 15px;
+    padding: 20px;
     background: #fff;
-    border-radius: 12px;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    border-radius: 20px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
     width: 100%;
     max-width: 500px;
     text-align: center;
+    line-height: 1.4;
 }
 
 /* Bottom buttons */
 .bottom-buttons,
 .game-bottom-buttons {
     display: flex;
-    gap: 10px;
+    gap: 12px;
     margin-top: auto;
 }
 
@@ -165,14 +168,23 @@ html, body {
 .bottom-buttons button,
 .game-bottom-buttons button {
     flex: 1;
-    min-height: 120px; /* doubled */
+    min-height: 120px;
     padding: 15px 0;
     font-size: 1.4rem;
-    border-radius: 16px;
+    border-radius: 18px;
     border: none;
-    background: #fff;
-    box-shadow: 0 3px 6px rgba(0,0,0,0.15);
+    background: linear-gradient(135deg, #ff6b6b, #feca57);
+    color: #fff;
+    font-weight: bold;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
     cursor: pointer;
+    transition: transform 0.2s, opacity 0.2s;
+}
+
+.bottom-buttons button:hover,
+.game-bottom-buttons button:hover {
+    transform: translateY(-3px);
+    opacity: 0.9;
 }
 
 /* Game screen: stack buttons vertically */
@@ -188,12 +200,6 @@ html, body {
 /* Next button is double height */
 .game-bottom-buttons .next-btn {
     min-height: 120px;
-}
-
-/* All other buttons keep normal size */
-button:not(.bottom-buttons button):not(.game-bottom-buttons button) {
-    min-height: auto;
-    flex: 0 0 auto;
 }
 
 /* Settings weights */
@@ -212,9 +218,10 @@ button:not(.bottom-buttons button):not(.game-bottom-buttons button) {
     align-items: center;
     gap: 10px;
     background: #fff;
-    padding: 8px 10px;
-    border-radius: 10px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    padding: 10px 12px;
+    border-radius: 14px;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.15);
+    border: 2px solid #ff9ff3;
 }
 
 .weight-row span {
@@ -223,7 +230,7 @@ button:not(.bottom-buttons button):not(.game-bottom-buttons button) {
 
 .weight-row input[type="range"] {
     flex: 1 1 120px;
-    accent-color: #0077ff;
+    accent-color: #ee5253;
     min-width: 100px;
 }
 
@@ -231,6 +238,7 @@ button:not(.bottom-buttons button):not(.game-bottom-buttons button) {
     font-weight: bold;
     min-width: 30px;
     text-align: right;
+    color: #ee5253;
 }
 
 .weight-percent {
@@ -249,7 +257,7 @@ button:not(.bottom-buttons button):not(.game-bottom-buttons button) {
     .bottom-buttons button,
     .game-bottom-buttons button {
         font-size: 1.2rem;
-        min-height: 100px; /* smaller double height for mobile */
+        min-height: 100px;
         padding: 10px 0;
     }
     .game-bottom-buttons .change-names-btn {
@@ -260,7 +268,7 @@ button:not(.bottom-buttons button):not(.game-bottom-buttons button) {
     }
     #card {
         font-size: 1.6rem;
-        padding: 10px;
+        padding: 12px;
     }
     .weight-row {
         flex-direction: column;
