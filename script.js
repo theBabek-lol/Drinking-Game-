@@ -66,11 +66,15 @@ document.addEventListener('DOMContentLoaded', async () => {
         names.forEach(n => {
             const b = document.createElement('button');
             b.textContent = n;
+            b.classList.add('name-btn');
             addClickEvents(b, () => {
                 names = names.filter(x => x !== n);
                 renderNames();
             });
             namesList.appendChild(b);
+
+            // ✨ playful pop animation
+            setTimeout(() => b.classList.add('pop-in'), 10);
         });
     }
 
@@ -83,6 +87,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         names.forEach(n => {
             const b = document.createElement('button');
             b.textContent = n;
+            b.classList.add('dating-btn');
             addClickEvents(b, () => selectName(n));
             namesDating.appendChild(b);
         });
@@ -93,6 +98,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             if (seen.has(n1) || seen.has(n2)) continue;
             const b = document.createElement('button');
             b.textContent = `${n1} ❤️ ${n2}`;
+            b.classList.add('couple-btn');
             addClickEvents(b, () => removeCouple(n1,n2));
             couplesDating.appendChild(b);
             seen.add(n1);
@@ -101,8 +107,12 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
 
     function selectName(name) {
-        if (selectedName === null) selectedName = name;
-        else {
+        if (selectedName === null) {
+            selectedName = name;
+            // ✨ highlight selected
+            [...namesDating.children].forEach(btn => btn.classList.remove('selected'));
+            [...namesDating.children].find(btn => btn.textContent === name)?.classList.add('selected');
+        } else {
             if (name !== selectedName) {
                 couples[selectedName] = name;
                 couples[name] = selectedName;
@@ -120,7 +130,6 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     // --- Deck Logic ---
     function buildDeck() {
-        // Group questions by type
         questionPools = {};
         questions.forEach(q => {
             if (!questionPools[q.type]) {
@@ -128,8 +137,6 @@ document.addEventListener('DOMContentLoaded', async () => {
             }
             questionPools[q.type].all.push(q);
         });
-
-        // Initialize "remaining" with a shuffled copy
         for (let type in questionPools) {
             questionPools[type].remaining = shuffle([...questionPools[type].all]);
         }
@@ -142,20 +149,17 @@ document.addEventListener('DOMContentLoaded', async () => {
             r -= weights[type];
             if (r <= 0) return type;
         }
-        return Object.keys(weights)[0]; // fallback
+        return Object.keys(weights)[0]; 
     }
 
     function drawQuestion() {
         if (!Object.keys(questionPools).length) buildDeck();
-
         const type = pickType();
         const pool = questionPools[type];
         if (!pool) return null;
-
         if (pool.remaining.length === 0) {
             pool.remaining = shuffle([...pool.all]);
         }
-
         return pool.remaining.pop();
     }
 
@@ -179,6 +183,11 @@ document.addEventListener('DOMContentLoaded', async () => {
             card.textContent = 'Inga fler frågor!';
             return;
         }
+
+        // ✨ flip animation on new card
+        card.classList.remove('flip');
+        void card.offsetWidth;
+        card.classList.add('flip');
 
         if (q.type === 'nhie') card.textContent = `Jag har aldrig\n${q.template}`;
         else if (q.type === 'one_name') card.textContent = q.template.replace('{}', randomName());
@@ -222,7 +231,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     function renderWeights() {
         weightsList.innerHTML = '';
         const total = Object.values(weights).reduce((a,b)=>a+b,0);
-
         for (let type in weights) {
             const row = document.createElement('div');
             row.className = 'weight-row';
