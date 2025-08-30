@@ -79,13 +79,58 @@ html, body {
 #couples-dating {
     display: flex;
     flex-wrap: wrap;
-    gap: 10px;
+    gap: 12px;
+    padding: 10px 0;
     width: 100%;
 }
 
-#names-dating button,
+/* Names: pill-style selectable chips */
+#names-dating button {
+    padding: 10px 18px;
+    font-size: 1.1rem;
+    border-radius: 25px;
+    background: #ffffff;
+    border: 2px solid #0077ff22;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.08);
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+#names-dating button:hover {
+    background: #f5f9ff;
+    border-color: #0077ff55;
+}
+
+/* Highlight selected name (waiting for pair) */
+#names-dating button.selected {
+    background: #0077ff;
+    color: #fff;
+    border-color: #0077ff;
+}
+
+/* Couples: more prominent with heart theme */
 #couples-dating button {
-    padding: 10px 15px;
+    padding: 12px 20px;
+    font-size: 1.2rem;
+    border-radius: 18px;
+    background: linear-gradient(135deg, #ff7aa2, #ff4d6d);
+    color: #fff;
+    border: none;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.2);
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+#couples-dating button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 10px rgba(0,0,0,0.25);
+}
+
+/* Subtle section divider between names and couples */
+#names-dating {
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 15px;
+    margin-bottom: 15px;
 }
 
 /* Card styling */
@@ -225,4 +270,3 @@ button:not(.bottom-buttons button):not(.game-bottom-buttons button) {
         width: 100%;
     }
 }
-
