@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     let names = [];
     let couples = {}; 
     let questions = [];
-    const weights = {"nhie":8,"pek":8,"rygg":6,"kat":7,"one_name":4,"two_name":4,"two_name_intim":4,"all":4};
+    const weights = {"nhie":8,"pek":8,"rygg":6,"kat":7,"one_name":3,"two_name":3,"two_name_intim":2,"all":4};
 
     let questionPools = {}; // grouped by type
     let ryggQuestion = null;
