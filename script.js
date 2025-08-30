@@ -30,13 +30,14 @@ document.addEventListener('DOMContentLoaded', async () => {
     let questionPools = {}; // grouped by type
     let ryggQuestion = null;
     let ryggNames = [];
+    let waitingForRyggReveal = false; // flag for rygg flow
 
-    // --- Helper: attach mobile-friendly click events ---
+    // --- Helper: attach click ---
     function addClickEvents(el, handler) {
         if (!el) return;
         el.addEventListener('click', handler);
         el.addEventListener('touchstart', (e) => {
-            e.preventDefault(); // prevent duplicate click
+            e.preventDefault();
             handler();
         }, { passive: false });
     }
@@ -168,6 +169,11 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     // --- Game Logic ---
     function nextChallenge() {
+        if (waitingForRyggReveal) {
+            showRygg();
+            return;
+        }
+
         const q = drawQuestion();
         if (!q) {
             card.textContent = 'Inga fler frågor!';
@@ -186,7 +192,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             ryggQuestion = q.template;
             card.textContent = `Rygg mot rygg\n${ryggNames[0]} & ${ryggNames[1]}`;
             nextBtn.textContent = 'Visa fråga';
-            addClickEvents(nextBtn, showRygg);
+            waitingForRyggReveal = true;
             return;
         }
         else if (q.type === 'pek') card.textContent = `Pekleken!\n${q.template}`;
@@ -199,13 +205,12 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
 
         nextBtn.textContent = 'Nästa';
-        addClickEvents(nextBtn, nextChallenge);
     }
 
     function showRygg() {
         card.textContent = ryggQuestion;
         nextBtn.textContent = 'Nästa';
-        addClickEvents(nextBtn, nextChallenge);
+        waitingForRyggReveal = false;
     }
 
     function randomName(exclude=[]) {
@@ -276,6 +281,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     addClickEvents(changeNamesBtn, () => showScreen('names'));
     addClickEvents(settingsBtn, () => showScreen('settings'));
     addClickEvents(backNamesBtn, () => showScreen('names'));
+    addClickEvents(nextBtn, nextChallenge);
 
     // --- Initialize ---
     await loadQuestions();
