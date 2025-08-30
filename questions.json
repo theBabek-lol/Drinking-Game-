@@ -85,7 +85,7 @@
     },
     {
         "type": "kat",
-        "template": "{} länder som börjar med P"
+        "template": "{} länder som börjar med M"
     },
     {
         "type": "kat",
@@ -1626,5 +1626,93 @@
     {
         "type": "two_name",
         "template": "{} och {} staring contest förloraren tar en shot"
+    },
+    {
+        "type": "kat",
+        "template": "{} TV-serier från 2000-talet"
+    },
+    {
+        "type": "kat",
+        "template": "{} Berömda konstnärer"
+    },
+    {
+        "type": "kat",
+        "template": "{} Sportgrenar"
+    },
+    {
+        "type": "kat",
+        "template": "{} Instrument"
+    },
+    {
+        "type": "kat",
+        "template": "{} Superhjältar"
+    },
+    {
+        "type": "kat",
+        "template": "{} Berg i världen"
+    },
+    {
+        "type": "kat",
+        "template": "{} Kända författare"
+    },
+    {
+        "type": "kat",
+        "template": "{} Snabbmatskedjor"
+    },
+    {
+        "type": "kat",
+        "template": "{} Vinmärken"
+    },
+    {
+        "type": "kat",
+        "template": "{} Japanska bilar"
+    },
+    {
+        "type": "kat",
+        "template": "{} Fotbollslag"
+    },
+    {
+        "type": "kat",
+        "template": "{} TV-kanaler"
+    },
+    {
+        "type": "kat",
+        "template": "{} Datormärken"
+    },
+    {
+        "type": "kat",
+        "template": "{} klädesmärken"
+    },
+    {
+        "type": "kat",
+        "template": "{} Stjärntecken"
+    },
+    {
+        "type": "kat",
+        "template": "{} mjukvaror"
+    },
+    {
+        "type": "kat",
+        "template": "{} energidrycker"
+    },
+    {
+        "type": "kat",
+        "template": "{} podcasts"
+    },
+    {
+        "type": "kat",
+        "template": "{} streamingtjänster"
+    },
+    {
+        "type": "kat",
+        "template": "{} bilmärken från Japan"
+    },
+    {
+        "type": "kat",
+        "template": "{} musikfestivaler"
+    },
+    {
+        "type": "kat",
+        "template": "{} pokémon"
     }
 ]
