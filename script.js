@@ -408,5 +408,3 @@ document.addEventListener('DOMContentLoaded', async () => {
     renderNames();
     showScreen('names');
 });
-
-});
