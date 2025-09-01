@@ -1,4 +1,17 @@
 document.addEventListener('DOMContentLoaded', async () => {
+    const APP_VERSION = "1.0.0"; // bumpa när du deployar
+
+    // --- Version label ---
+    const versionEl = document.createElement("div");
+    versionEl.textContent = `v${APP_VERSION}`;
+    versionEl.style.position = "fixed";
+    versionEl.style.top = "5px";
+    versionEl.style.right = "10px";
+    versionEl.style.fontSize = "12px";
+    versionEl.style.opacity = "0.7";
+    versionEl.style.zIndex = "9999";
+    document.body.appendChild(versionEl);
+
     // --- DOM Elements ---
     const screens = {
         names: document.getElementById('screen-names'),
@@ -27,24 +40,16 @@ document.addEventListener('DOMContentLoaded', async () => {
     let questions = [];
     const weights = {"nhie":8,"pek":8,"rygg":6,"kat":7,"one_name":3,"two_name":3,"two_name_intim":2,"all":4};
 
-    let questionPools = {}; // grouped by type { type: { all:[], remaining:[] } }
+    let questionPools = {};
     let ryggQuestion = null;
     let ryggNames = [];
-    let waitingForRyggReveal = false; // flag for rygg flow
-
-    // Important: buildDeck will only run once per page load/start session.
+    let waitingForRyggReveal = false;
     let deckBuilt = false;
 
-    // --- Helper: attach click (buttons ONLY) ---
+    // --- Helper: only click (fix for PC/mobile) ---
     function addClickEvents(el, handler) {
         if (!el) return;
         el.addEventListener('click', handler);
-        el.addEventListener('touchstart', (e) => {
-            // prevent duplicate click/touch on mobile buttons
-            // KEEP this only for buttons — do NOT use addClickEvents on sliders
-            e.preventDefault();
-            handler();
-        }, { passive: false });
     }
 
     // --- Screen Logic ---
@@ -73,7 +78,6 @@ document.addEventListener('DOMContentLoaded', async () => {
             b.textContent = n;
             b.classList.add('name-btn');
             addClickEvents(b, () => {
-                // remove name and any couple association
                 names = names.filter(x => x !== n);
                 if (couples[n]) {
                     const partner = couples[n];
@@ -83,9 +87,6 @@ document.addEventListener('DOMContentLoaded', async () => {
                 renderNames();
             });
             namesList.appendChild(b);
-
-            // playful pop-in (if you have CSS for .pop-in)
-            setTimeout(() => b.classList.add('pop-in'), 10);
         });
     }
 
@@ -159,9 +160,9 @@ document.addEventListener('DOMContentLoaded', async () => {
         return pairs;
     }
 
-    // --- Deck Logic (built only once) ---
+    // --- Deck Logic ---
     function buildDeck() {
-        if (deckBuilt) return; // IMPORTANT: never rebuild once built
+        if (deckBuilt) return;
         questionPools = {};
         questions.forEach(q => {
             if (!questionPools[q.type]) {
@@ -180,7 +181,6 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     function pickType() {
         const totalWeight = Object.values(weights).reduce((a,b)=>a+b,0);
-        // if totalWeight is 0, fallback to equal chance among existing types
         if (totalWeight <= 0) {
             const types = Object.keys(questionPools);
             return types[Math.floor(Math.random() * types.length)];
@@ -190,23 +190,17 @@ document.addEventListener('DOMContentLoaded', async () => {
             r -= weights[type];
             if (r <= 0) return type;
         }
-        // fallback
         return Object.keys(weights)[0];
     }
 
     function drawQuestion() {
-        // Do not auto-rebuild on subsequent calls — only build once at start
         if (!deckBuilt) buildDeck();
-
         const type = pickType();
         const pool = questionPools[type];
         if (!pool) return null;
-
         if (pool.remaining.length === 0) {
-            // reshuffle this type's own list when it runs out (acceptable)
             pool.remaining = shuffle([...pool.all]);
         }
-
         return pool.remaining.pop();
     }
 
@@ -231,7 +225,6 @@ document.addEventListener('DOMContentLoaded', async () => {
             return;
         }
 
-        // flip animation trigger (if CSS defined)
         card.classList.remove('flip');
         void card.offsetWidth;
         card.classList.add('flip');
@@ -245,7 +238,6 @@ document.addEventListener('DOMContentLoaded', async () => {
             const n2 = randomName([n1]);
             card.textContent = q.template.replace('{}', n1).replace('{}', n2);
         } else if (q.type === 'rygg') {
-            // pick two distinct names
             const n1 = randomName();
             const n2 = randomName([n1]);
             if (!n1 || !n2 || n1 === '(ingen)' || n2 === '(ingen)') {
@@ -265,10 +257,6 @@ document.addEventListener('DOMContentLoaded', async () => {
         } else if (q.type === 'all') {
             card.textContent = q.template;
         } else if (q.type === 'two_name_intim') {
-            // pairing rules:
-            // - If chosen person is coupled -> pair with partner
-            // - If chosen person is single -> pair with another single
-            // - Never mix single with partnered person
             const singles = getSingles();
             const allNames = names.slice();
             if (allNames.length < 2) {
@@ -277,20 +265,16 @@ document.addEventListener('DOMContentLoaded', async () => {
                 return;
             }
 
-            // pick the first participant (try to avoid '(ingen)')
             const n1 = randomName();
             let n2 = null;
 
             if (couples[n1]) {
-                // n1 is in relationship -> partner guaranteed exists
                 n2 = couples[n1];
             } else {
-                // n1 is single -> pick another single
                 const otherSingles = singles.filter(s => s !== n1);
                 if (otherSingles.length > 0) {
                     n2 = otherSingles[Math.floor(Math.random() * otherSingles.length)];
                 } else {
-                    // No other single available -> try to pick a random couple pair instead
                     const pairs = uniqueCouplePairs();
                     if (pairs.length > 0) {
                         const pick = pairs[Math.floor(Math.random() * pairs.length)];
@@ -351,8 +335,6 @@ document.addEventListener('DOMContentLoaded', async () => {
             percent.className = 'weight-percent';
             percent.textContent = `(${((weights[type]/total)*100).toFixed(0)}%)`;
 
-            // update weights in place — this will affect pickType going forward,
-            // but it will NOT rebuild or reshuffle the existing pools (per your request).
             slider.addEventListener('input', () => {
                 weights[type] = parseInt(slider.value,10);
                 value.textContent = weights[type];
@@ -386,13 +368,12 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
     }
 
-    // --- Attach main buttons ---
+    // --- Attach buttons ---
     addClickEvents(addNameBtn, addName);
     nameInput.addEventListener('keydown', e => { if (e.key === 'Enter') addName(e); });
     addClickEvents(startDatingBtn, () => { renderDating(); showScreen('dating'); });
 
     addClickEvents(startGameBtn, () => {
-        // build deck only the first time; never rebuild after changes per request
         if (!deckBuilt) buildDeck();
         showScreen('game');
         if (!waitingForRyggReveal) nextChallenge();
