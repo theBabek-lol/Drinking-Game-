@@ -52,6 +52,7 @@ html, body {
 .input-row button {
     margin-left: 5px;
     font-weight: bold;
+    background: linear-gradient(135deg, #34d399, #10b981);
 }
 
 /* Buttons general */
