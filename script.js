@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', async () => {
-    const APP_VERSION = "1.0.0"; // bumpa när du deployar
+    const APP_VERSION = "1.0.1"; // bumpa när du deployar
 
     // --- Version label ---
     const versionEl = document.createElement("div");
@@ -329,7 +329,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             row.className = 'weight-row';
 
             const label = document.createElement('span');
-            label.textContent = wieghtlabels[type] || type;
+            label.textContent = weightLabels[type] || type;
 
             const slider = document.createElement('input');
             slider.type = 'range';
