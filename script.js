@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', async () => {
-    const APP_VERSION = "1.0.1"; // bumpa när du deployar
+    const APP_VERSION = "1.0.2"; // bumpa när du deployar
 
     // --- Version label ---
     const versionEl = document.createElement("div");
@@ -33,6 +33,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     const namesDating = document.getElementById('names-dating');
     const couplesDating = document.getElementById('couples-dating');
     const weightsList = document.getElementById('weights-list');
+    const gameHeader = document.getElementById('game-header');
     
     // --- Game State ---
     let names = [];
@@ -240,14 +241,18 @@ document.addEventListener('DOMContentLoaded', async () => {
         card.classList.add('flip');
 
         if (q.type === 'nhie') {
+            gameHeader.textContent = "Jag har aldrig";
             card.textContent = `Jag har aldrig\n${q.template}`;
         } else if (q.type === 'one_name') {
+            gameHeader.textContent = "Utmaning";
             card.textContent = q.template.replace('{}', randomName());
         } else if (q.type === 'two_name') {
+            gameHeader.textContent = "Utmaning";
             const n1 = randomName();
             const n2 = randomName([n1]);
             card.textContent = q.template.replace('{}', n1).replace('{}', n2);
         } else if (q.type === 'rygg') {
+            gameHeader.textContent = "Rygg mot rygg";
             const n1 = randomName();
             const n2 = randomName([n1]);
             if (!n1 || !n2 || n1 === '(ingen)' || n2 === '(ingen)') {
@@ -261,12 +266,15 @@ document.addEventListener('DOMContentLoaded', async () => {
                 return;
             }
         } else if (q.type === 'pek') {
+            gameHeader.textContent = "Pekleken";
             card.textContent = `Pekleken!\n${q.template}`;
         } else if (q.type === 'kat') {
+            gameHeader.textContent = "Kategori";
             card.textContent = `Kategori!\n${q.template.replace('{}', randomName())}`;
         } else if (q.type === 'all') {
             card.textContent = q.template;
         } else if (q.type === 'two_name_intim') {
+            gameHeader.textContent = "Utmaning";
             const singles = getSingles();
             const allNames = names.slice();
             if (allNames.length < 2) {
