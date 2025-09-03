@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     const namesDating = document.getElementById('names-dating');
     const couplesDating = document.getElementById('couples-dating');
     const weightsList = document.getElementById('weights-list');
-
+    
     // --- Game State ---
     let names = [];
     let couples = {};
@@ -45,6 +45,16 @@ document.addEventListener('DOMContentLoaded', async () => {
     let ryggNames = [];
     let waitingForRyggReveal = false;
     let deckBuilt = false;
+    const weightLabels = {
+          nhie: "Jag har aldrig",
+          pek: "Pekleken",
+          rygg: "Rygg mot rygg",
+          kat: "Kategorier",
+          one_name: "En person",
+          two_name: "Två personer",
+          two_name_intim: "Intima frågor",
+          all: "Alla deltar"
+    };
 
     // --- Helper: only click (fix for PC/mobile) ---
     function addClickEvents(el, handler) {
@@ -319,7 +329,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             row.className = 'weight-row';
 
             const label = document.createElement('span');
-            label.textContent = type;
+            label.textContent = wieghtlabels[type] || type;
 
             const slider = document.createElement('input');
             slider.type = 'range';
