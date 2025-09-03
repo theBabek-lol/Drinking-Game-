@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', async () => {
-    const APP_VERSION = "1.0.3"; // bumpa när du deployar
+    const APP_VERSION = "1.0.4"; // bumpa när du deployar
 
     // --- Version label ---
     const versionEl = document.createElement("div");
@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     let names = [];
     let couples = {};
     let questions = [];
-    const weights = {"nhie":8,"pek":8,"rygg":6,"kat":7,"one_name":3,"two_name":3,"two_name_intim":2,"all":4};
+    const weights = {"nhie":8,"pek":8,"rygg":6,"kat":5,"one_name":2,"two_name":2,"two_name_intim":2,"all":3};
 
     let questionPools = {};
     let ryggQuestion = null;
