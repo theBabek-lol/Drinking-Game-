@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     let names = [];
     let couples = {};
     let questions = [];
-    const weights = {"nhie":8,"pek":8,"rygg":6,"kat":5,"one_name":2,"two_name":2,"two_name_intim":2,"all":3};
+    const weights = {"nhie":8,"pek":8,"rygg":6,"kat":4,"one_name":2,"two_name":2,"two_name_intim":2,"all":3};
 
     let questionPools = {};
     let ryggQuestion = null;
