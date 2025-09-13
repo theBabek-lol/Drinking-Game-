@@ -1,5 +1,4 @@
-
-all|Alla killar dricker!
+﻿all|Alla killar dricker!
 all|Alla med bruna ögon dricker.
 all|Alla med en tatuering måste dricka!
 all|Alla med iphone dricker!
@@ -80,6 +79,7 @@ nhie|dansat naken
 nhie|dejtat någon som är 10+ år äldre än mig
 nhie|donerat blod
 nhie|dumpat någon via sms
+nhie|eldat i en papperskorg
 nhie|fastnat i en hiss
 nhie|fejkat en orgasm
 nhie|filmat under sex
@@ -127,6 +127,7 @@ nhie|kuggat en tenta
 nhie|kysst någon av samma kön
 nhie|kört bil onykter
 nhie|kört motorcykel
+nhie|kört på ett djur
 nhie|ljugit för att få ligga
 nhie|ljugit för min partner
 nhie|ljugit om min ålder
@@ -136,6 +137,7 @@ nhie|löst en rubikskub
 nhie|missat ett flyg
 nhie|mätt min penis
 nhie|naken badat
+nhie|nakenbadat
 nhie|onanerat mer än tre gånger på ett dygn
 nhie|onanerat på jobbet
 nhie|onanerat samtidigt som jag gråtit
@@ -149,6 +151,7 @@ nhie|sett nån dö
 nhie|skadat mig med mening
 nhie|skickat en nude till fel person
 nhie|smakat min egen sperma
+nhie|spelat ett porrspel
 nhie|spottat i någons ansikte
 nhie|sprungit från polisen
 nhie|spytt i en bil
@@ -189,6 +192,7 @@ one_name|{} drick lika många klunkar som du har bokstäver i ditt namn
 one_name|{} får inte flytta på sig förens du har avslutat din enhet
 one_name|{} gör 15 armhävningar 1 shot om du misslyckas
 one_name|{} lägg till en regel
+one_name|{} lägg ut en story
 one_name|{} nämn alla deltagare, en klunk för varje fel
 one_name|{} ta 2 klunkar för varje ex som du har
 one_name|{} ta 3 klunkar från din enhet utan att använda händerna
@@ -215,6 +219,8 @@ pek|Vem gifter sig först?
 pek|Vem gråter mest?
 pek|Vem hade du friendzonat?
 pek|Vem hade du räddat först i en brand?
+pek|Vem hade kunnat bli skådespelare?
+pek|Vem har den bästa sångrösten?
 pek|Vem har den konstigaste fetischen?
 pek|Vem har den mest värdelösa utbildningen?
 pek|Vem har djupast urringning?
@@ -224,9 +230,11 @@ pek|Vem har finast röv?
 pek|Vem har finast ögon?
 pek|Vem har fulast frisyr?
 pek|Vem har fulast tatuering?
+pek|Vem har gett flest blowjobs?
 pek|Vem har haft flest förhållanden?
 pek|Vem har hårigast ben!
 pek|Vem har högst bodycount?
+pek|Vem har lägst bodycount?
 pek|Vem har mest ADHD?
 pek|Vem har rest mest?
 pek|Vem har snyggast partner?
@@ -255,6 +263,7 @@ pek|Vem skulle hamna i en sekt?
 pek|Vem skulle inte vilja ha med på en öde ö?
 pek|Vem skulle kunna använda samma kondom två gånger?
 pek|Vem skulle kunna bli porrstjärna?
+pek|Vem skulle kunna ha sin egen podcast?
 pek|Vem skulle kunna jobba på en telefonsex linje?
 pek|Vem skulle kunna komma unda med mord?
 pek|Vem skulle kunna råna en bank?
@@ -262,6 +271,7 @@ pek|Vem skulle lyckas bäst som musiker?
 pek|Vem skulle sälja sina vänner för 1 miljon?
 pek|Vem skulle vara med i Paradise Hotel?
 pek|Vem skulle vara skurken i en film?
+pek|Vem skulle vinna i en fight mot en björn?
 pek|Vem sover naken?
 pek|Vem spenderar mest pengar på mat?
 pek|Vem tindrar mest?
@@ -272,6 +282,7 @@ pek|Vem vill du slås mot?
 pek|Vem äger the kama sutra?
 pek|Vem är best på att kyssas?
 pek|Vem är blygast?
+pek|Vem är den största hustlern?
 pek|Vem är har en samling erotisk litteratur?
 pek|Vem är känsligast?
 pek|Vem är latast?
@@ -435,4 +446,5 @@ two_name|{} ge {} en ny frisyr
 two_name|{} gör en armhävning med {} på ryggen en shot om du misslyckas
 two_name|{} lyft {}. En shot om du misslyckas
 two_name|{} måste dricka varje gång {} måste dricka í 15 min
+two_name|{} och {} på tre sista som avslutar sin enhet måste ta en shot
 two_name|{} och {} staring contest förloraren tar en shot
