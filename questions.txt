@@ -1,0 +1,438 @@
+
+all|Alla killar dricker!
+all|Alla med bruna ögon dricker.
+all|Alla med en tatuering måste dricka!
+all|Alla med iphone dricker!
+all|Alla med skägg måste dricka!
+all|Alla som dricker cider dricker!
+all|Alla som dricker öl dricker!
+all|Alla som inte har körkort dricker!
+all|Alla tjejer dricker!
+all|Om du har skapat den här appen dela ut en shot!
+all|Skål!! Alla dricker 5 klunkar
+kat|{} Berg i världen
+kat|{} Berömda konstnärer
+kat|{} Bilmärken
+kat|{} Datormärken
+kat|{} Fotbollslag
+kat|{} Instrument
+kat|{} Japanska bilar
+kat|{} Kända familjer
+kat|{} Kända författare
+kat|{} SI enheter
+kat|{} Snabbmatskedjor
+kat|{} Sportgrenar
+kat|{} Spritmärken
+kat|{} Stjärntecken
+kat|{} Superhjältar
+kat|{} TV-kanaler
+kat|{} TV-serier från 2000-talet
+kat|{} Vinmärken
+kat|{} bilmärken från Japan
+kat|{} blommor
+kat|{} datorspel
+kat|{} delstater i USA
+kat|{} dryckes lekar
+kat|{} energidrycker
+kat|{} europeiska huvudstäder
+kat|{} filmer med DiCaprio
+kat|{} husdjur
+kat|{} karaktärer i Game of Thrones
+kat|{} klädesmärken
+kat|{} köksredskap
+kat|{} länder som börjar med M
+kat|{} låtar som börjar på S
+kat|{} mat på tub
+kat|{} mjukvaror
+kat|{} musikfestivaler
+kat|{} pizza sorter
+kat|{} podcasts
+kat|{} pokémon
+kat|{} porrstjärnor
+kat|{} sektioner på ltu
+kat|{} sexleksaker
+kat|{} sexleksaker
+kat|{} sexställningar
+kat|{} smink och hårprodukts märken
+kat|{} smörgås pålägg
+kat|{} streamingtjänster
+kat|{} städer som börjar med K
+kat|{} svenska landskap
+kat|{} telefontillverkare
+kat|{} Öl märken
+nhie|använt en frukt som sexleksak
+nhie|använt en piska under sex
+nhie|använt en sexleksak
+nhie|använt handbojor eller ögonbindlar under sex
+nhie|använt mat under förspel
+nhie|använt telefonen som vibrator
+nhie|använt tinder
+nhie|använt ätbara underkläder
+nhie|badat med kläderna på
+nhie|blekt mina tänder
+nhie|blivit friendzoned
+nhie|blivit påkommen under sex eller onani
+nhie|blivit raggad på av någon med samma kön
+nhie|blivit smiskad eller smiskat någon under sex
+nhie|brutit ett ben
+nhie|bungyjumpat
+nhie|dansat naken
+nhie|dejtat någon som är 10+ år äldre än mig
+nhie|donerat blod
+nhie|dumpat någon via sms
+nhie|fastnat i en hiss
+nhie|fejkat en orgasm
+nhie|filmat under sex
+nhie|fingrat mig själv
+nhie|flörtat för drinkar
+nhie|fått blommor från en partner
+nhie|fått eller gett multipla orgasmer
+nhie|fått en lapdance
+nhie|försökt ge mig själv oralsex
+nhie|gått på strippklubb
+nhie|haft analsex
+nhie|haft en könssjukdom
+nhie|haft en sexdröm om en vän
+nhie|haft en tinder-profil
+nhie|haft en trekant
+nhie|haft en våt dröm
+nhie|haft en våt dröm om en klasskamrat/kollega
+nhie|haft en walk of shame
+nhie|haft ett husdjur
+nhie|haft ett one night stand
+nhie|haft ett seriöst förhållande
+nhie|haft gruppsex
+nhie|haft gruppsex
+nhie|haft på mig motsatta könets underkläder
+nhie|haft sex i en bastu
+nhie|haft sex i en bil
+nhie|haft sex i en rullande bil
+nhie|haft sex i ett tält
+nhie|haft sex med en kompis ex
+nhie|haft sex med en lärare
+nhie|haft sex med ett ex
+nhie|haft sex med flera personer under samma kväll
+nhie|haft sex med någon i ett förhållande
+nhie|haft sex med nån som inte pratar samma språk
+nhie|haft sex på en offentlig plats
+nhie|haft sex på en toalett
+nhie|haft sex utomlands
+nhie|haft telefon sex
+nhie|hamnat i fyllecell
+nhie|hånglat med en främling
+nhie|kollat på furry porr
+nhie|kommit i samma kondom två gånger
+nhie|krockat
+nhie|kuggat en tenta
+nhie|kysst någon av samma kön
+nhie|kört bil onykter
+nhie|kört motorcykel
+nhie|ljugit för att få ligga
+nhie|ljugit för min partner
+nhie|ljugit om min ålder
+nhie|ljugit om mitt bodycount
+nhie|ljugit under spelets gång
+nhie|löst en rubikskub
+nhie|missat ett flyg
+nhie|mätt min penis
+nhie|naken badat
+nhie|onanerat mer än tre gånger på ett dygn
+nhie|onanerat på jobbet
+nhie|onanerat samtidigt som jag gråtit
+nhie|pratat i telefon under sex
+nhie|rakat mig där nere
+nhie|ringt 112
+nhie|rökt cigaretter
+nhie|rökt på
+nhie|sett någon i detta rum naken
+nhie|sett nån dö
+nhie|skadat mig med mening
+nhie|skickat en nude till fel person
+nhie|smakat min egen sperma
+nhie|spottat i någons ansikte
+nhie|sprungit från polisen
+nhie|spytt i en bil
+nhie|strulat med någon i detta rum
+nhie|sugit av någon som kör bil
+nhie|tagit dagen efter piller
+nhie|tagit en springnota
+nhie|tagit ett graviditetstest
+nhie|tagit narkotika
+nhie|tagit någons oskuld
+nhie|tagit på ett elektrisk staket
+nhie|tittat på hentai
+nhie|triggat brandlarmet
+nhie|tröstätit
+nhie|vaknat på ett badrumsgolv
+nhie|vandrat upp för ett berg
+nhie|varit full på jobbet eller under en lektion
+nhie|varit inlagd på psyket
+nhie|varit olyckligt kär
+nhie|varit på Disneyland
+nhie|varit på en blind dejt
+nhie|varit på en naken strand
+nhie|varit på tv
+nhie|ägt en dildo/vibrator
+nhie|älskat någon
+nhie|åkt helikopter
+nhie|åkt motorcykel
+nhie|ångrat ett ligg
+one_name|Alla med samma dricka som {} måste dricka 3 klunkar
+one_name|Vattenfall! Börja med {}
+one_name|{} Ta en klunk för varje smycke du har på dig
+one_name|{} Twerka
+one_name|{} Visa dina underkläder eller ta 5 klunkar
+one_name|{} bonga en enhet!
+one_name|{} byt plats med den snyggaste i rummet
+one_name|{} dela ut 5 klunkar!
+one_name|{} drick lika många klunkar som du har bokstäver i ditt namn
+one_name|{} får inte flytta på sig förens du har avslutat din enhet
+one_name|{} gör 15 armhävningar 1 shot om du misslyckas
+one_name|{} lägg till en regel
+one_name|{} nämn alla deltagare, en klunk för varje fel
+one_name|{} ta 2 klunkar för varje ex som du har
+one_name|{} ta 3 klunkar från din enhet utan att använda händerna
+one_name|{} ta av ett klädesplagg!
+one_name|{} ta en klunk för varje par skor du äger
+one_name|{} ta en klunk för varje person du hånglat med i rummet
+one_name|{} ta en klunk för varje piercing du har
+one_name|{} ta en klunk för varje syskon du har
+one_name|{} ta en klunk för varje tatuering du har
+one_name|{} ta en selfie och lägg upp i story – annars shot
+one_name|{} visa den senaste bilden i ditt galleri eller ta en shot
+one_name|{} visa din sökhistorik på instagram - annars 5 klunkar
+one_name|{} visa ett partytrick eller ta en shot!
+one_name|{} visa senaste tinder konversationen - annars shot
+one_name|{} är partydog och måste yla varje gång den avslutar en enhet
+one_name|{} är question master i 15 min
+pek|Vem bidrar minst till världen?
+pek|Vem bjuder på efterfest ikväll?
+pek|Vem borde dricka mer?
+pek|Vem dansar bäst?
+pek|Vem flirtar mest?
+pek|Vem får inte csn?
+pek|Vem gifter sig först?
+pek|Vem gråter mest?
+pek|Vem hade du friendzonat?
+pek|Vem hade du räddat först i en brand?
+pek|Vem har den konstigaste fetischen?
+pek|Vem har den mest värdelösa utbildningen?
+pek|Vem har djupast urringning?
+pek|Vem har dyrast dricka?
+pek|Vem har finast fötter?
+pek|Vem har finast röv?
+pek|Vem har finast ögon?
+pek|Vem har fulast frisyr?
+pek|Vem har fulast tatuering?
+pek|Vem har haft flest förhållanden?
+pek|Vem har hårigast ben!
+pek|Vem har högst bodycount?
+pek|Vem har mest ADHD?
+pek|Vem har rest mest?
+pek|Vem har snyggast partner?
+pek|Vem har störst ego?
+pek|Vem har sämst humor?
+pek|Vem hatar sitt liv mest?
+pek|Vem jobbar hårdast?
+pek|Vem klagar mest?
+pek|Vem kollar mest tiktok?
+pek|Vem kommer att vinna ett nobelpris?
+pek|Vem kommer bli arbetslös?
+pek|Vem kommer bli statsminister?
+pek|Vem kommer få flest barn?
+pek|Vem kommer inte in på krogen ikväll?
+pek|Vem kommer jobba på google?
+pek|Vem kommer slå ett världsrekord?
+pek|Vem rökte sist?
+pek|Vem ser yngst ut?
+pek|Vem ser yngst ut?
+pek|Vem ser äldst ut?
+pek|Vem sextar mest?
+pek|Vem skulle du helst ha sex med?
+pek|Vem skulle du inte lita på med en hemlighet?
+pek|Vem skulle du inte låna ut din bil till?
+pek|Vem skulle hamna i en sekt?
+pek|Vem skulle inte vilja ha med på en öde ö?
+pek|Vem skulle kunna använda samma kondom två gånger?
+pek|Vem skulle kunna bli porrstjärna?
+pek|Vem skulle kunna jobba på en telefonsex linje?
+pek|Vem skulle kunna komma unda med mord?
+pek|Vem skulle kunna råna en bank?
+pek|Vem skulle lyckas bäst som musiker?
+pek|Vem skulle sälja sina vänner för 1 miljon?
+pek|Vem skulle vara med i Paradise Hotel?
+pek|Vem skulle vara skurken i en film?
+pek|Vem sover naken?
+pek|Vem spenderar mest pengar på mat?
+pek|Vem tindrar mest?
+pek|Vem tål mest alkohol?
+pek|Vem tål minst alkohol?
+pek|Vem vill du inte ligga med?
+pek|Vem vill du slås mot?
+pek|Vem äger the kama sutra?
+pek|Vem är best på att kyssas?
+pek|Vem är blygast?
+pek|Vem är har en samling erotisk litteratur?
+pek|Vem är känsligast?
+pek|Vem är latast?
+pek|Vem är mest autistisk?
+pek|Vem är mest bortskämd?
+pek|Vem är mest desperat?
+pek|Vem är mest emo?
+pek|Vem är mest gold-digger
+pek|Vem är mest lättkränkt?
+pek|Vem är mest lättlurad?
+pek|Vem är mest orten?
+pek|Vem är mest vig?
+pek|Vem är nördigast?
+pek|Vem är smartast?
+pek|Vem är snyggast?
+pek|Vem är snålast?
+pek|Vem är sämst på att laga mat?
+pek|Vem är tystast?
+rygg|Vem blir kär lättast?
+rygg|Vem dansar bäst?
+rygg|Vem drar de sämsta skämten?
+rygg|Vem duschar oftast?
+rygg|Vem dör först?
+rygg|Vem får mest ragg?
+rygg|Vem ger bäst oralsex?
+rygg|Vem gör dummast saker på fyllan?
+rygg|Vem hade sex senast?
+rygg|Vem hade sex senast?
+rygg|Vem har blivit dumpad flest gånger?
+rygg|Vem har bäst hår?
+rygg|Vem har bäst musiksmak?
+rygg|Vem har bäst pokerface?
+rygg|Vem har bäst sångröst
+rygg|Vem har den konstigaste relationen?
+rygg|Vem har det finaste ögonbrynen?
+rygg|Vem har finast kropp?
+rygg|Vem har finast tänder?
+rygg|Vem har flest par skor?
+rygg|Vem har haft sex på konstigast ställe?
+rygg|Vem har högst IQ?
+rygg|Vem har högst bdycount?
+rygg|Vem har högst självförtroende?
+rygg|Vem har läskigast browser-historik?
+rygg|Vem har mest pengar på kontot?
+rygg|Vem har sex med släckta lampor?
+rygg|Vem har snyggast rumpa?
+rygg|Vem har spelat bort mest pengar?
+rygg|Vem har stökigast hemma?
+rygg|Vem har störst ego?
+rygg|Vem har störst penis?
+rygg|Vem har störst röv?
+rygg|Vem har sämst fashion sense?
+rygg|Vem har sämst humor?
+rygg|Vem har vackrast leende?
+rygg|Vem kan stå på händer längst?
+rygg|Vem kan vara utan sin telefon längst?
+rygg|Vem kollar på konstigast porr?
+rygg|Vem kollar på mest porr?
+rygg|Vem kommer att dö först?
+rygg|Vem kommer bli mest bakis?
+rygg|Vem kommer bli miljonär?
+rygg|Vem kommer bli scammad?
+rygg|Vem kommer få sötast barn?
+rygg|Vem kommer först i sängen?
+rygg|Vem kommer gå med i en cirkus?
+rygg|Vem kommer inte att hamna i himmelen?
+rygg|Vem kommer leva längst?
+rygg|Vem lagar godast mat?
+rygg|Vem ligger på första dejten?
+rygg|Vem läser mest böcker?
+rygg|Vem pratar för mycket?
+rygg|Vem ser fulast ut i glasögon?
+rygg|Vem ser äldst ut?
+rygg|Vem skickar mest nudes?
+rygg|Vem skulle dö först i en björnattack?
+rygg|Vem skulle dö först i en skräckfilm?
+rygg|Vem skulle göra den bästa sextapen?
+rygg|Vem skulle komma sent till sitt egna bröllop?
+rygg|Vem skulle kunna ligga med någon annans partner?
+rygg|Vem skulle se bäst ut som sexy nurse?
+rygg|Vem skulle sitta i the cuckchair?
+rygg|Vem skulle tjäna mest på OF?
+rygg|Vem skulle tjäna mest som prostituerad?
+rygg|Vem skulle vara den bästa föräldern?
+rygg|Vem skulle vinna i ett slagsmål?
+rygg|Vem skvallrar mest?
+rygg|Vem snackar mest skit?
+rygg|Vem spenderar mest pengar på kläder?
+rygg|Vem spenderar mest tid framför spegeln?
+rygg|Vem springer snabbast?
+rygg|Vem svettas mest?
+rygg|Vem talar sämst engelska?
+rygg|Vem twerkar bäst?
+rygg|Vem tål mest alkohol?
+rygg|Vem utför de mest ambitiösa och atletiska ställningarna i sängen?
+rygg|Vem vill bli fastkedjad i sängen?
+rygg|Vem vill helst ligga med den andra?
+rygg|Vem vinner 1v1 i Counter Strike?
+rygg|Vem vinner i armbrytning?
+rygg|Vem är barnsligast?
+rygg|Vem är bäst i sängen?
+rygg|Vem är bäst klädd ikväll?
+rygg|Vem är bäst på beerpong?
+rygg|Vem är bäst på dirty talk?
+rygg|Vem är bäst på matte?
+rygg|Vem är bättre på sporter?
+rygg|Vem är charmigast?
+rygg|Vem är den mest allmänbildade?
+rygg|Vem är den största feministen?
+rygg|Vem är den största romantikern?
+rygg|Vem är den sämsta förloraren?
+rygg|Vem är först ut i en brand?
+rygg|Vem är händigast?
+rygg|Vem är hårigast där nere?
+rygg|Vem är jobbigast på fyllan?
+rygg|Vem är kåtast?
+rygg|Vem är latast?
+rygg|Vem är lättast att få i säng?
+rygg|Vem är mer framgångsrik?
+rygg|Vem är mest PK?
+rygg|Vem är mest Wifey?
+rygg|Vem är mest benägen att delta i en trekant?
+rygg|Vem är mest beroende av social media?
+rygg|Vem är mest bortskämd?
+rygg|Vem är mest envis?
+rygg|Vem är mest feminin?
+rygg|Vem är mest högljudd i sängen?
+rygg|Vem är mest kinky?
+rygg|Vem är mest lättlurad?
+rygg|Vem är mest maskulin?
+rygg|Vem är mest pervers?
+rygg|Vem är mest pinsam?
+rygg|Vem är mest pryd?
+rygg|Vem är mest pålitlig?
+rygg|Vem är mest streetsmart?
+rygg|Vem är mest teknisk?
+rygg|Vem är mest tävlingsinriktad?
+rygg|Vem är mest vältränad?
+rygg|Vem är nördigast?
+rygg|Vem är roligast på fyllan?
+rygg|Vem är snabbast i sängen?
+rygg|Vem är snyggast naken?
+rygg|Vem är störst drama queen?
+rygg|Vem är sötast?
+rygg|Vem är troligast att göra illa sig under sex?
+rygg|Vem är trögast?
+two_name_intim|{} balansera din dricka på {} röv och drick utan att använda händerna
+two_name_intim|{} blunda och gissa färgen på {}´s underkläder tills du gissar rätt. 1 klunk per fel!
+two_name_intim|{} för varje shot du tar måste {} ta av sig ett klädesplagg
+two_name_intim|{} ge {} en lapdance!
+two_name_intim|{} kittla {} 5 klunkar till den om den skrattar
+two_name_intim|{} sätt dig i {}´s knä
+two_name_intim|{} ta en bodyshot från {}
+two_name_intim|{} ta en shot från mellan {} bröst/lår
+two_name|Armbrytning! {} mot {} förloraren tar en shot!
+two_name|Sten, sax, påse! {} mot {}, förloraren tar en shot
+two_name|Tumkrig!! {} mot {} förloraren tar en shot
+two_name|{} byt dricka med {}
+two_name|{} byt ett klädesplagg med {}
+two_name|{} ge {} en ny frisyr
+two_name|{} gör en armhävning med {} på ryggen en shot om du misslyckas
+two_name|{} lyft {}. En shot om du misslyckas
+two_name|{} måste dricka varje gång {} måste dricka í 15 min
+two_name|{} och {} staring contest förloraren tar en shot
