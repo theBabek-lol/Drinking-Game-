@@ -1,6 +1,6 @@
 [
     {
-        "type": "all",
+        "type": "﻿all",
         "template": "Alla killar dricker!"
     },
     {
@@ -21,6 +21,14 @@
     },
     {
         "type": "all",
+        "template": "Alla som dricker cider dricker!"
+    },
+    {
+        "type": "all",
+        "template": "Alla som dricker öl dricker!"
+    },
+    {
+        "type": "all",
         "template": "Alla som inte har körkort dricker!"
     },
     {
@@ -37,7 +45,31 @@
     },
     {
         "type": "kat",
+        "template": "{} Berg i världen"
+    },
+    {
+        "type": "kat",
+        "template": "{} Berömda konstnärer"
+    },
+    {
+        "type": "kat",
         "template": "{} Bilmärken"
+    },
+    {
+        "type": "kat",
+        "template": "{} Datormärken"
+    },
+    {
+        "type": "kat",
+        "template": "{} Fotbollslag"
+    },
+    {
+        "type": "kat",
+        "template": "{} Instrument"
+    },
+    {
+        "type": "kat",
+        "template": "{} Japanska bilar"
     },
     {
         "type": "kat",
@@ -45,11 +77,47 @@
     },
     {
         "type": "kat",
+        "template": "{} Kända författare"
+    },
+    {
+        "type": "kat",
         "template": "{} SI enheter"
     },
     {
         "type": "kat",
+        "template": "{} Snabbmatskedjor"
+    },
+    {
+        "type": "kat",
+        "template": "{} Sportgrenar"
+    },
+    {
+        "type": "kat",
         "template": "{} Spritmärken"
+    },
+    {
+        "type": "kat",
+        "template": "{} Stjärntecken"
+    },
+    {
+        "type": "kat",
+        "template": "{} Superhjältar"
+    },
+    {
+        "type": "kat",
+        "template": "{} TV-kanaler"
+    },
+    {
+        "type": "kat",
+        "template": "{} TV-serier från 2000-talet"
+    },
+    {
+        "type": "kat",
+        "template": "{} Vinmärken"
+    },
+    {
+        "type": "kat",
+        "template": "{} bilmärken från Japan"
     },
     {
         "type": "kat",
@@ -69,6 +137,10 @@
     },
     {
         "type": "kat",
+        "template": "{} energidrycker"
+    },
+    {
+        "type": "kat",
         "template": "{} europeiska huvudstäder"
     },
     {
@@ -78,6 +150,14 @@
     {
         "type": "kat",
         "template": "{} husdjur"
+    },
+    {
+        "type": "kat",
+        "template": "{} karaktärer i Game of Thrones"
+    },
+    {
+        "type": "kat",
+        "template": "{} klädesmärken"
     },
     {
         "type": "kat",
@@ -97,7 +177,23 @@
     },
     {
         "type": "kat",
+        "template": "{} mjukvaror"
+    },
+    {
+        "type": "kat",
+        "template": "{} musikfestivaler"
+    },
+    {
+        "type": "kat",
         "template": "{} pizza sorter"
+    },
+    {
+        "type": "kat",
+        "template": "{} podcasts"
+    },
+    {
+        "type": "kat",
+        "template": "{} pokémon"
     },
     {
         "type": "kat",
@@ -126,6 +222,10 @@
     {
         "type": "kat",
         "template": "{} smörgås pålägg"
+    },
+    {
+        "type": "kat",
+        "template": "{} streamingtjänster"
     },
     {
         "type": "kat",
@@ -221,6 +321,14 @@
     },
     {
         "type": "nhie",
+        "template": "dumpat någon via sms"
+    },
+    {
+        "type": "nhie",
+        "template": "eldat i en papperskorg"
+    },
+    {
+        "type": "nhie",
         "template": "fastnat i en hiss"
     },
     {
@@ -274,6 +382,10 @@
     {
         "type": "nhie",
         "template": "haft en tinder-profil"
+    },
+    {
+        "type": "nhie",
+        "template": "haft en trekant"
     },
     {
         "type": "nhie",
@@ -405,6 +517,10 @@
     },
     {
         "type": "nhie",
+        "template": "kört på ett djur"
+    },
+    {
+        "type": "nhie",
         "template": "ljugit för att få ligga"
     },
     {
@@ -414,6 +530,10 @@
     {
         "type": "nhie",
         "template": "ljugit om min ålder"
+    },
+    {
+        "type": "nhie",
+        "template": "ljugit om mitt bodycount"
     },
     {
         "type": "nhie",
@@ -434,6 +554,10 @@
     {
         "type": "nhie",
         "template": "naken badat"
+    },
+    {
+        "type": "nhie",
+        "template": "nakenbadat"
     },
     {
         "type": "nhie",
@@ -486,6 +610,10 @@
     {
         "type": "nhie",
         "template": "smakat min egen sperma"
+    },
+    {
+        "type": "nhie",
+        "template": "spelat ett porrspel"
     },
     {
         "type": "nhie",
@@ -649,7 +777,11 @@
     },
     {
         "type": "one_name",
-        "template": "{} nämn alla deltagare en klunk för varje fel"
+        "template": "{} lägg ut en story"
+    },
+    {
+        "type": "one_name",
+        "template": "{} nämn alla deltagare, en klunk för varje fel"
     },
     {
         "type": "one_name",
@@ -693,7 +825,15 @@
     },
     {
         "type": "one_name",
+        "template": "{} visa din sökhistorik på instagram - annars 5 klunkar"
+    },
+    {
+        "type": "one_name",
         "template": "{} visa ett partytrick eller ta en shot!"
+    },
+    {
+        "type": "one_name",
+        "template": "{} visa senaste tinder konversationen - annars shot"
     },
     {
         "type": "one_name",
@@ -745,6 +885,14 @@
     },
     {
         "type": "pek",
+        "template": "Vem hade kunnat bli skådespelare?"
+    },
+    {
+        "type": "pek",
+        "template": "Vem har den bästa sångrösten?"
+    },
+    {
+        "type": "pek",
         "template": "Vem har den konstigaste fetischen?"
     },
     {
@@ -753,11 +901,11 @@
     },
     {
         "type": "pek",
-        "template": "Vem har djupast urringning"
+        "template": "Vem har djupast urringning?"
     },
     {
         "type": "pek",
-        "template": "Vem har dyrast dricka"
+        "template": "Vem har dyrast dricka?"
     },
     {
         "type": "pek",
@@ -781,6 +929,10 @@
     },
     {
         "type": "pek",
+        "template": "Vem har gett flest blowjobs?"
+    },
+    {
+        "type": "pek",
         "template": "Vem har haft flest förhållanden?"
     },
     {
@@ -789,7 +941,11 @@
     },
     {
         "type": "pek",
-        "template": "Vem har högst bodycount"
+        "template": "Vem har högst bodycount?"
+    },
+    {
+        "type": "pek",
+        "template": "Vem har lägst bodycount?"
     },
     {
         "type": "pek",
@@ -849,15 +1005,15 @@
     },
     {
         "type": "pek",
-        "template": "Vem kommer jobba på google"
+        "template": "Vem kommer jobba på google?"
     },
     {
         "type": "pek",
-        "template": "Vem kommer slå ett världsrekord"
+        "template": "Vem kommer slå ett världsrekord?"
     },
     {
         "type": "pek",
-        "template": "Vem rökte sist"
+        "template": "Vem rökte sist?"
     },
     {
         "type": "pek",
@@ -881,7 +1037,7 @@
     },
     {
         "type": "pek",
-        "template": "Vem skulle du inte lita på med en hemlighet"
+        "template": "Vem skulle du inte lita på med en hemlighet?"
     },
     {
         "type": "pek",
@@ -897,7 +1053,7 @@
     },
     {
         "type": "pek",
-        "template": "Vem skulle kunna använda samma kondom två gånger"
+        "template": "Vem skulle kunna använda samma kondom två gånger?"
     },
     {
         "type": "pek",
@@ -905,11 +1061,15 @@
     },
     {
         "type": "pek",
+        "template": "Vem skulle kunna ha sin egen podcast?"
+    },
+    {
+        "type": "pek",
         "template": "Vem skulle kunna jobba på en telefonsex linje?"
     },
     {
         "type": "pek",
-        "template": "Vem skulle kunna komma unda med mord"
+        "template": "Vem skulle kunna komma unda med mord?"
     },
     {
         "type": "pek",
@@ -917,11 +1077,11 @@
     },
     {
         "type": "pek",
-        "template": "Vem skulle lyckas bäst som musiker"
+        "template": "Vem skulle lyckas bäst som musiker?"
     },
     {
         "type": "pek",
-        "template": "Vem skulle sälja sina vänner för 1 miljon"
+        "template": "Vem skulle sälja sina vänner för 1 miljon?"
     },
     {
         "type": "pek",
@@ -933,7 +1093,11 @@
     },
     {
         "type": "pek",
-        "template": "Vem sover naken"
+        "template": "Vem skulle vinna i en fight mot en björn?"
+    },
+    {
+        "type": "pek",
+        "template": "Vem sover naken?"
     },
     {
         "type": "pek",
@@ -970,6 +1134,10 @@
     {
         "type": "pek",
         "template": "Vem är blygast?"
+    },
+    {
+        "type": "pek",
+        "template": "Vem är den största hustlern?"
     },
     {
         "type": "pek",
@@ -1037,11 +1205,11 @@
     },
     {
         "type": "pek",
-        "template": "Vem är sämst på att laga mat"
+        "template": "Vem är sämst på att laga mat?"
     },
     {
         "type": "pek",
-        "template": "Vem är tystast"
+        "template": "Vem är tystast?"
     },
     {
         "type": "rygg",
@@ -1625,94 +1793,10 @@
     },
     {
         "type": "two_name",
+        "template": "{} och {} på tre sista som avslutar sin enhet måste ta en shot"
+    },
+    {
+        "type": "two_name",
         "template": "{} och {} staring contest förloraren tar en shot"
-    },
-    {
-        "type": "kat",
-        "template": "{} TV-serier från 2000-talet"
-    },
-    {
-        "type": "kat",
-        "template": "{} Berömda konstnärer"
-    },
-    {
-        "type": "kat",
-        "template": "{} Sportgrenar"
-    },
-    {
-        "type": "kat",
-        "template": "{} Instrument"
-    },
-    {
-        "type": "kat",
-        "template": "{} Superhjältar"
-    },
-    {
-        "type": "kat",
-        "template": "{} Berg i världen"
-    },
-    {
-        "type": "kat",
-        "template": "{} Kända författare"
-    },
-    {
-        "type": "kat",
-        "template": "{} Snabbmatskedjor"
-    },
-    {
-        "type": "kat",
-        "template": "{} Vinmärken"
-    },
-    {
-        "type": "kat",
-        "template": "{} Japanska bilar"
-    },
-    {
-        "type": "kat",
-        "template": "{} Fotbollslag"
-    },
-    {
-        "type": "kat",
-        "template": "{} TV-kanaler"
-    },
-    {
-        "type": "kat",
-        "template": "{} Datormärken"
-    },
-    {
-        "type": "kat",
-        "template": "{} klädesmärken"
-    },
-    {
-        "type": "kat",
-        "template": "{} Stjärntecken"
-    },
-    {
-        "type": "kat",
-        "template": "{} mjukvaror"
-    },
-    {
-        "type": "kat",
-        "template": "{} energidrycker"
-    },
-    {
-        "type": "kat",
-        "template": "{} podcasts"
-    },
-    {
-        "type": "kat",
-        "template": "{} streamingtjänster"
-    },
-    {
-        "type": "kat",
-        "template": "{} bilmärken från Japan"
-    },
-    {
-        "type": "kat",
-        "template": "{} musikfestivaler"
-    },
-    {
-        "type": "kat",
-        "template": "{} pokémon"
     }
 ]
