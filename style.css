@@ -203,9 +203,10 @@ button:active {
 }
 
 .weight-row input[type="range"] {
-    flex: 1 1 120px;
-    accent-color: #0077ff;
-    min-width: 100px;
+    flex: 1;               /* always fill remaining space */
+    min-width: 150px;      /* set a solid minimum size */
+    max-width: 100%;       /* prevent overflow */
+    accent-color: #0077ff; /* keep your accent color */
 }
 
 .weight-value {
