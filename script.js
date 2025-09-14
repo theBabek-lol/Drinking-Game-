@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', async () => {
-    const APP_VERSION = "1.0.8"; // bumpa när du deployar
+    const APP_VERSION = "1.1.0"; // bumpa när du deployar
 
     // --- Version label ---
     const versionEl = document.createElement("div");
@@ -34,7 +34,9 @@ document.addEventListener('DOMContentLoaded', async () => {
     const couplesDating = document.getElementById('couples-dating');
     const weightsList = document.getElementById('weights-list');
     const gameHeader = document.getElementById('game-header');
-    
+    const rulesBtn = document.getElementById('rules-btn');
+    const backNamesFromRulesBtn = document.getElementById('back-names-from-rules-btn');
+
     // --- Game State ---
     let names = [];
     let couples = {};
@@ -53,7 +55,7 @@ document.addEventListener('DOMContentLoaded', async () => {
           kat: "Kategorier",
           one_name: "En person",
           two_name: "Två personer",
-          two_name_intim: "Intima frågor",
+          two_name_intim: "Intima utmaingar",
           all: "Alla deltar"
     };
 
@@ -410,7 +412,9 @@ function renderWeights() {
     addClickEvents(settingsBtn, () => showScreen('settings'));
     addClickEvents(backNamesBtn, () => showScreen('names'));
     addClickEvents(nextBtn, nextChallenge);
-
+    addClickEvents(rulesBtn, () => showScreen('rules'));
+    addClickEvents(backNamesFromRulesBtn, () => showScreen('names'));
+    
     // --- Initialize ---
     await loadQuestions();
     renderNames();
