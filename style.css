@@ -67,9 +67,11 @@ button {
     cursor: pointer;
     transition: transform 0.15s, background 0.3s, box-shadow 0.3s;
 }
-button:hover {
-    transform: scale(1.05);
-    box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+@media (hover: hover) and (pointer: fine) {
+  button:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+  }
 }
 button:active {
     transform: scale(0.95);
@@ -260,8 +262,5 @@ button:active {
     .weight-row input[type="range"] {
         width: 100%;
     }
-    button:hover{
-        transform: none;
-        box-shadow: none;
-    }
+    
 }
