@@ -191,8 +191,8 @@ button:active {
 }
 
 .weight-row {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: 120px 1fr 40px 60px; /* label | slider | value | percent */
     align-items: center;
     gap: 10px;
     background: rgba(255,255,255,0.7);
@@ -205,24 +205,21 @@ button:active {
 }
 
 .weight-row input[type="range"] {
-    flex: 1;               /* always fill remaining space */
-    min-width: 150px;      /* set a solid minimum size */
-    max-width: 100%;       /* prevent overflow */
-    accent-color: #0077ff; /* keep your accent color */
+    width: 100%;           /* fill its grid cell */
+    accent-color: #0077ff; /* keep accent */
 }
 
 .weight-value {
     font-weight: bold;
-    min-width: 30px;
     text-align: right;
 }
 
 .weight-percent {
     color: #666;
     font-size: 0.9rem;
-    min-width: 45px;
     text-align: left;
 }
+
 
 /* Scrollable wrapper */
 .scrollable-wrapper {
@@ -262,5 +259,5 @@ button:active {
     .weight-row input[type="range"] {
         width: 100%;
     }
-    
+
 }
