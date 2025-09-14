@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', async () => {
-    const APP_VERSION = "1.1.1"; // bumpa när du deployar
+    const APP_VERSION = "1.1.2"; // bumpa när du deployar
 
     // --- Version label ---
     const versionEl = document.createElement("div");
@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     const nameInput = document.getElementById('name-input');
     const namesList = document.getElementById('names-list');
     const addNameBtn = document.getElementById('add-name-btn');
-    const ContinueBtn = document.getElementById('continue-btn');
+    const continueBtn = document.getElementById('continue-btn');
     const startGameBtn = document.getElementById('start-game-btn');
     const settingsBtn = document.getElementById('settings-btn');
     const backNamesBtn = document.getElementById('back-names-btn');
@@ -400,7 +400,7 @@ function renderWeights() {
     // --- Attach buttons ---
     addClickEvents(addNameBtn, addName);
     nameInput.addEventListener('keydown', e => { if (e.key === 'Enter') addName(e); });
-    addClickEvents(ContinueBtnBtn, () => { renderDating(); showScreen('dating'); });
+    addClickEvents(continueBtn, () => { renderDating(); showScreen('dating'); });
 
     addClickEvents(startGameBtn, () => {
         if (!deckBuilt) buildDeck();
