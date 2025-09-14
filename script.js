@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', async () => {
-    const APP_VERSION = "1.0.5"; // bumpa när du deployar
+    const APP_VERSION = "1.0.6"; // bumpa när du deployar
 
     // --- Version label ---
     const versionEl = document.createElement("div");
@@ -328,45 +328,54 @@ document.addEventListener('DOMContentLoaded', async () => {
         return available[Math.floor(Math.random() * available.length)] || '(ingen)';
     }
 
-    // --- Settings / Weights ---
-    function renderWeights() {
-        weightsList.innerHTML = '';
-        const total = Math.max(1, Object.values(weights).reduce((a,b)=>a+b,0));
-        for (let type in weights) {
-            const row = document.createElement('div');
-            row.className = 'weight-row';
+ // --- Settings / Weights ---
+function renderWeights() {
+    weightsList.innerHTML = '';
+    const total = Math.max(1, Object.values(weights).reduce((a, b) => a + b, 0));
 
-            const label = document.createElement('span');
-            label.textContent = weightLabels[type] || type;
+    for (let type in weights) {
+        const row = document.createElement('div');
+        row.className = 'weight-row';
 
-            const slider = document.createElement('input');
-            slider.type = 'range';
-            slider.min = 0;
-            slider.max = 20;
-            slider.value = weights[type];
+        const label = document.createElement('span');
+        label.textContent = weightLabels[type] || type;
 
-            const value = document.createElement('span');
-            value.className = 'weight-value';
-            value.textContent = weights[type];
+        const slider = document.createElement('input');
+        slider.type = 'range';
+        slider.min = 0;
+        slider.max = 20;
+        slider.value = weights[type];
 
-            const percent = document.createElement('span');
-            percent.className = 'weight-percent';
-            percent.textContent = `(${((weights[type]/total)*100).toFixed(0)}%)`;
+        const value = document.createElement('span');
+        value.className = 'weight-value';
+        value.textContent = weights[type];
 
-            slider.addEventListener('input', () => {
-                weights[type] = parseInt(slider.value,10);
-                value.textContent = weights[type];
-                const newTotal = Math.max(1, Object.values(weights).reduce((a,b)=>a+b,0));
-                percent.textContent = `(${((weights[type]/newTotal)*100).toFixed(0)}%)`;
+        const percent = document.createElement('span');
+        percent.className = 'weight-percent';
+        percent.textContent = `(${((weights[type] / total) * 100).toFixed(0)}%)`;
+
+        // 🔥 Fix: update ALL sliders whenever any slider moves
+        slider.addEventListener('input', () => {
+            weights[type] = parseInt(slider.value, 10);
+            const newTotal = Math.max(1, Object.values(weights).reduce((a, b) => a + b, 0));
+
+            weightsList.querySelectorAll('.weight-row').forEach((r, i) => {
+                const v = r.querySelector('.weight-value');
+                const p = r.querySelector('.weight-percent');
+                const t = Object.keys(weights)[i];
+                v.textContent = weights[t];
+                p.textContent = `(${((weights[t] / newTotal) * 100).toFixed(0)}%)`;
             });
+        });
 
-            row.appendChild(label);
-            row.appendChild(slider);
-            row.appendChild(value);
-            row.appendChild(percent);
-            weightsList.appendChild(row);
-        }
+        row.appendChild(label);
+        row.appendChild(slider);
+        row.appendChild(value);
+        row.appendChild(percent);
+        weightsList.appendChild(row);
     }
+}
+
 
     // --- Load JSON Questions ---
     async function loadQuestions() {

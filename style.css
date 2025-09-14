@@ -259,4 +259,8 @@ button:active {
     .weight-row input[type="range"] {
         width: 100%;
     }
+    button:hover{
+        transform: none;
+        box-shadow: none;
+    }
 }
