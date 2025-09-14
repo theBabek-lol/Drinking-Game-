@@ -158,6 +158,11 @@ button:active {
     margin-top: auto;
 }
 
+/* For the names screen, stack rows vertically */
+.bottom-buttons {
+    flex-direction: column;
+}
+
 .bottom-buttons button,
 .game-bottom-buttons button {
     flex: 1;
@@ -166,6 +171,16 @@ button:active {
     font-size: 1.4rem;
     border-radius: 16px;
     background: linear-gradient(135deg, #34d399, #10b981);
+}
+
+/* Row for the two lower buttons */
+.button-row {
+    display: flex;
+    gap: 10px;
+}
+
+.button-row button {
+    flex: 1;
 }
 
 .game-bottom-buttons {
@@ -179,6 +194,7 @@ button:active {
 .game-bottom-buttons .next-btn {
     min-height: 120px;
 }
+
 
 /* Settings screen */
 #weights-list {
