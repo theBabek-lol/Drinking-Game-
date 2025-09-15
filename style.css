@@ -163,8 +163,11 @@ button:active {
     flex-direction: column;
 }
 
-.bottom-buttons button,
-.game-bottom-buttons button {
+#screen-names .bottom-buttons button,
+#screen-dating .bottom-buttons button,
+#screen-game .game-bottom-buttons button,
+#screen-settings .bottom-buttons button,
+#screen-rules .bottom-buttons button {
     flex: 1;
     min-height: 120px;
     padding: 15px 0;
