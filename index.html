@@ -61,6 +61,7 @@
             <div id="weights-list" class="scrollable"></div>
         </div>
         <div class="bottom-buttons">
+            <button id="reset-btn" class="danger-btn">Återställ spelet</button>
             <button id="back-names-btn">Tillbaka</button>
         </div>
     </div>
@@ -95,6 +96,17 @@
         </div>
         <div class="bottom-buttons">
             <button id="back-names-from-rules-btn">Tillbaka</button>
+        </div>
+    </div>
+
+    <!-- Reset Confirmation Modal -->
+    <div id="reset-modal" class="modal hidden">
+        <div class="modal-content">
+            <p>Är du säker på att du vill återställa spelet?</p>
+            <div class="modal-buttons">
+                <button id="confirm-reset" class="danger-btn">Ja, återställ</button>
+                <button id="cancel-reset">Avbryt</button>
+            </div>
         </div>
     </div>
 

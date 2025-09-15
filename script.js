@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', async () => {
-    const APP_VERSION = "1.2.0"; // bumpa när du deployar
+    const APP_VERSION = "1.2.1"; // bumpa när du deployar
 
     // --- Version label ---
     const versionEl = document.createElement("div");
@@ -37,6 +37,10 @@ document.addEventListener('DOMContentLoaded', async () => {
     const gameHeader = document.getElementById('game-header');
     const rulesBtn = document.getElementById('rules-btn');
     const backNamesFromRulesBtn = document.getElementById('back-names-from-rules-btn');
+    const resetBtn = document.getElementById('reset-btn');
+    const resetModal = document.getElementById('reset-modal');
+    const confirmResetBtn = document.getElementById('confirm-reset');
+    const cancelResetBtn = document.getElementById('cancel-reset');
 
     // --- Game State ---
     let names = [];
@@ -456,6 +460,22 @@ function renderWeights() {
     addClickEvents(nextBtn, nextChallenge);
     addClickEvents(rulesBtn, () => showScreen('rules'));
     addClickEvents(backNamesFromRulesBtn, () => showScreen('names'));
+    
+    addClickEvents(resetBtn, () => {
+        resetModal.classList.remove('hidden');
+    });
+
+    addClickEvents(cancelResetBtn, () => {
+        resetModal.classList.add('hidden');
+    });
+
+    addClickEvents(confirmResetBtn, () => {
+        resetState();
+        renderNames();
+        renderDating();
+        showScreen('names');
+        resetModal.classList.add('hidden');
+    });
     
     // --- Initialize ---
     await loadQuestions();
