@@ -9,6 +9,16 @@
 <body>
 <div id="app">
 
+    <!-- Start Screen (only if save exists) -->
+    <div id="screen-start" class="screen hidden">
+        <h2>Välkommen tillbaka</h2>
+        <div class="bottom-buttons">
+            <button id="continue-game-btn">Fortsätt</button>
+            <button id="new-game-btn" class="danger-btn">Nytt spel</button>
+         </div>
+    </div>
+    
+    
     <!-- Names Screen -->
     <div id="screen-names" class="screen">
         <h2>Namnlista</h2>
@@ -61,7 +71,6 @@
             <div id="weights-list" class="scrollable"></div>
         </div>
         <div class="bottom-buttons">
-            <button id="reset-btn" class="danger-btn">Återställ spelet</button>
             <button id="back-names-btn">Tillbaka</button>
         </div>
     </div>
@@ -110,13 +119,14 @@
         </div>
     </div>
 
-    <!-- Reset Confirmation Modal -->
-    <div id="reset-modal" class="modal hidden">
+    <!-- Confirm New Game Modal -->
+    <div id="newgame-modal" class="modal hidden">
         <div class="modal-content">
-            <p>Är du säker på att du vill återställa spelet?</p>
+            <h3>Starta nytt spel?</h3>
+            <p>Detta kommer återställa sparade namn och frågor.</p>
             <div class="modal-buttons">
-                <button id="confirm-reset" class="danger-btn">Ja, återställ</button>
-                <button id="cancel-reset">Avbryt</button>
+                <button id="confirm-newgame" class="danger-btn">Ja, nytt spel</button>
+                <button id="cancel-newgame">Avbryt</button>
             </div>
         </div>
     </div>

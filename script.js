@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', async () => {
-    const APP_VERSION = "1.2.5"; // bumpa när du deployar
+    const APP_VERSION = "1.3.0"; // bumpa när du deployar
 
     // --- Version label ---
     const versionEl = document.createElement("div");
@@ -37,10 +37,11 @@ document.addEventListener('DOMContentLoaded', async () => {
     const gameHeader = document.getElementById('game-header');
     const rulesBtn = document.getElementById('rules-btn');
     const backNamesFromRulesBtn = document.getElementById('back-names-from-rules-btn');
-    const resetBtn = document.getElementById('reset-btn');
-    const resetModal = document.getElementById('reset-modal');
-    const confirmResetBtn = document.getElementById('confirm-reset');
-    const cancelResetBtn = document.getElementById('cancel-reset');
+    const newGameBtn = document.getElementById('new-game-btn');
+    const continueGameBtn = document.getElementById('continue-game-btn');
+    const newGameModal = document.getElementById('newgame-modal');
+    const confirmNewGameBtn = document.getElementById('confirm-newgame');
+    const cancelNewGameBtn = document.getElementById('cancel-newgame');
 
     // --- Game State ---
     let names = [];
@@ -468,26 +469,40 @@ function renderWeights() {
     addClickEvents(rulesBtn, () => showScreen('rules'));
     addClickEvents(backNamesFromRulesBtn, () => showScreen('names'));
     
-    addClickEvents(resetBtn, () => {
-        resetModal.classList.remove('hidden');
-    });
-
-    addClickEvents(cancelResetBtn, () => {
-        resetModal.classList.add('hidden');
-    });
-
-    addClickEvents(confirmResetBtn, () => {
-        resetState();
+    addClickEvents(continueGameBtn, () => {
+        loadState();         
         renderNames();
         renderDating();
         showScreen('names');
-        resetModal.classList.add('hidden');
     });
-    
+
+    addClickEvents(newGameBtn, () => {
+        newGameModal.classList.remove('hidden');
+    });
+
+    addClickEvents(cancelNewGameBtn, () => {
+        newGameModal.classList.add('hidden');
+    });
+
+    addClickEvents(confirmNewGameBtn, () => {
+        resetState();        
+        renderNames();
+        renderDating();
+        showScreen('names');
+        newGameModal.classList.add('hidden');
+    });
+
+
+
     // --- Initialize ---
     await loadQuestions();
-    loadState();
-    renderNames();
-    renderDating();
-    showScreen('names');
+    const rawSave = localStorage.getItem(SAVE_KEY);
+    if (rawSave) {
+        showScreen('start');
+    } else {
+        loadState();
+        renderNames();
+        renderDating();
+        showScreen('names');
+    }
 });
