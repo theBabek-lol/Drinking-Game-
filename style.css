@@ -386,7 +386,7 @@ button.danger-btn:hover {
   border-radius: 16px;
 }
 
-#screen-start {
+#screen-start:not(.hidden) {
   display: flex;
   justify-content: center;
   align-items: center;
