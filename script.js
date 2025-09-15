@@ -1,5 +1,16 @@
 document.addEventListener('DOMContentLoaded', async () => {
     const APP_VERSION = "1.3.15"; // bumpa när du deployar
+    // --- Cache busting ---
+    document.querySelectorAll('link[rel="stylesheet"], script[src]').forEach(el => {
+        const srcAttr = el.tagName === "LINK" ? "href" : "src";
+        const url = new URL(el.getAttribute(srcAttr), location.href);
+
+        // Only bust for local files (not CDN)
+        if (url.origin === location.origin) {
+            url.searchParams.set("v", APP_VERSION);
+            el.setAttribute(srcAttr, url.pathname + url.search);
+        }
+    });
 
     // --- Version label ---
     const versionEl = document.createElement("div");
