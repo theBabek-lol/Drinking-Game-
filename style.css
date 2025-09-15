@@ -353,27 +353,28 @@ button.danger-btn:hover {
   color: #111; /* darker text for contrast */
 }
 
-/* Start screen menu box */
-.start-box {
-  background: rgba(255, 255, 255, 0.9);
-  padding: 40px 30px;
-  border-radius: 20px;
-  max-width: 400px;
-  width: 90%;
-  margin: auto;
+/* Start screen */
+#screen-start {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   text-align: center;
-  box-shadow: 0 6px 16px rgba(0,0,0,0.3);
+  padding: 0; /* remove the .screen padding for this one */
+}
+
+.start-content {
   display: flex;
   flex-direction: column;
-  gap: 20px;
-  animation: popIn 0.4s ease-out;
+  gap: 30px;
+  width: 100%;
+  max-width: 100%; /* allow full screen width */
 }
 
 .start-content h2 {
   font-size: 2rem;
-  margin: 0;
-  color: #fff; 
-  text-shadow: 0 2px 6px rgba(0,0,0,0.4); 
+  margin: 0 0 10px 0;
+  color: #fff;
+  text-shadow: 0 2px 6px rgba(0,0,0,0.4);
 }
 
 .start-buttons {
@@ -384,34 +385,24 @@ button.danger-btn:hover {
 }
 
 .start-buttons button {
-  min-height: 200px;
-  font-size: 1.6rem;
-  border-radius: 16px;
   width: 100%;
+  min-height: 120px;
+  font-size: 1.6rem;
+  border-radius: 0; /* edge-to-edge look */
 }
 
-#screen-start {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
+/* Green continue button */
+.start-buttons button.continue-btn {
+  background: linear-gradient(135deg, #34d399, #10b981) !important;
+}
+.start-buttons button.continue-btn:hover {
+  background: linear-gradient(135deg, #6ee7b7, #34d399) !important;
 }
 
-button.continue-btn {
-  background: linear-gradient(135deg, #34d399, #10b981);
+/* Blue new game button */
+.start-buttons button.primary-btn {
+  background: linear-gradient(135deg, #3b82f6, #2563eb) !important;
 }
-button.continue-btn:hover {
-  background: linear-gradient(135deg, #6ee7b7, #34d399);
-}
-
-button.primary-btn {
-  background: linear-gradient(135deg, #3b82f6, #2563eb);
-}
-
-button.primary-btn:hover {
-  background: linear-gradient(135deg, #60a5fa, #3b82f6);
-}
-
-.screen.hidden {
-  display: none !important;
+.start-buttons button.primary-btn:hover {
+  background: linear-gradient(135deg, #60a5fa, #3b82f6) !important;
 }
