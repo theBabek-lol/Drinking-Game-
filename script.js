@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', async () => {
-    const APP_VERSION = "1.1.4"; // bumpa när du deployar
+    const APP_VERSION = "1.2.0"; // bumpa när du deployar
 
     // --- Version label ---
     const versionEl = document.createElement("div");
@@ -59,6 +59,41 @@ document.addEventListener('DOMContentLoaded', async () => {
           two_name_intim: "Intima utmaingar",
           all: "Alla deltar"
     };
+    let askedQuestionIds = new Set();
+    
+    // --- persistence --
+    const SAVE_KEY = "dating-game:v1";
+
+    function saveState() {
+        const payload = {
+            names,
+            couples,
+            questionPools,
+            deckBuilt,
+        };
+        localStorage.setItem(SAVE_KEY, JSON.stringify(payload));
+    }
+
+    function loadState() {
+        try {
+            const raw = localStorage.getItem(SAVE_KEY);
+            if (!raw) return;
+            const parsed = JSON.parse(raw);
+            names = parsed.names || [];
+            couples = parsed.couples || {};
+            questionPools = parsed.questionPools || {};
+            deckBuilt = parsed.deckBuilt || false;
+        } catch (e) {
+            console.warn("No saved state", e);
+        }
+    }
+
+    function resetState() {
+        localStorage.removeItem(SAVE_KEY);
+        names = [];
+        couples = {};
+        askedQuestionIds = new Set();
+    }
 
     // --- Helper: only click (fix for PC/mobile) ---
     function addClickEvents(el, handler) {
@@ -80,6 +115,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         if (n && !names.includes(n)) {
             names.push(n);
             renderNames();
+            saveState();
             nameInput.value = '';
         }
         nameInput.focus();
@@ -146,12 +182,14 @@ document.addEventListener('DOMContentLoaded', async () => {
             selectedName = null;
         }
         renderDating();
+        saveState();
     }
 
     function removeCouple(n1, n2) {
         delete couples[n1];
         delete couples[n2];
         renderDating();
+        saveState();
     }
 
     function getSingles() {
@@ -191,6 +229,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         deckBuilt = true;
         waitingForRyggReveal = false;
+        saveState();
     }
 
     function pickType() {
@@ -215,7 +254,9 @@ document.addEventListener('DOMContentLoaded', async () => {
         if (pool.remaining.length === 0) {
             pool.remaining = shuffle([...pool.all]);
         }
-        return pool.remaining.pop();
+        const picked = pool.remaining.pop();
+        saveState();
+        return picked;
     }
 
     function shuffle(array) {
@@ -418,6 +459,8 @@ function renderWeights() {
     
     // --- Initialize ---
     await loadQuestions();
+    loadState();
     renderNames();
+    renderDating();
     showScreen('names');
 });
