@@ -386,7 +386,7 @@ button.danger-btn:hover {
   border-radius: 16px;
 }
 
-#screen-start:not(.hidden) {
+#screen-start {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -398,4 +398,8 @@ button.primary-btn {
 
 button.primary-btn:hover {
   background: linear-gradient(135deg, #60a5fa, #3b82f6);
+}
+
+.screen.hidden {
+  display: none !important;
 }
