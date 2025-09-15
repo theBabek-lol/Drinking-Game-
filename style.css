@@ -333,3 +333,12 @@ button.danger-btn:hover {
     font-size: 1.1rem;
 }
 
+/* Cancel button */
+#cancel-reset {
+    background: linear-gradient(135deg, #6b7280, #374151); 
+    color: #fff; 
+}
+
+#cancel-reset:hover {
+    background: linear-gradient(135deg, #4b5563, #1f2937);
+}

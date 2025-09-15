@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', async () => {
-    const APP_VERSION = "1.2.1"; // bumpa när du deployar
+    const APP_VERSION = "1.2.2"; // bumpa när du deployar
 
     // --- Version label ---
     const versionEl = document.createElement("div");
@@ -46,7 +46,8 @@ document.addEventListener('DOMContentLoaded', async () => {
     let names = [];
     let couples = {};
     let questions = [];
-    const weights = {"nhie":8,"pek":8,"rygg":6,"kat":4,"one_name":2,"two_name":2,"two_name_intim":2,"all":3};
+    const DEFAULT_WEIGHTS = {"nhie":8,"pek":8,"rygg":6,"kat":4,"one_name":2,"two_name":2,"two_name_intim":2,"all":3};
+    let weights = {...DEFAULT_WEIGHTS};
 
     let questionPools = {};
     let ryggQuestion = null;
@@ -74,6 +75,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             couples,
             questionPools,
             deckBuilt,
+            weights,
         };
         localStorage.setItem(SAVE_KEY, JSON.stringify(payload));
     }
@@ -87,6 +89,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             couples = parsed.couples || {};
             questionPools = parsed.questionPools || {};
             deckBuilt = parsed.deckBuilt || false;
+            if (parsed.weights) weights = parsed.weights;
         } catch (e) {
             console.warn("No saved state", e);
         }
@@ -96,7 +99,10 @@ document.addEventListener('DOMContentLoaded', async () => {
         localStorage.removeItem(SAVE_KEY);
         names = [];
         couples = {};
-        askedQuestionIds = new Set();
+        questionPools = {};
+        deckBuilt = false;
+        weights = {...DEFAULT_WEIGHTS};
+
     }
 
     // --- Helper: only click (fix for PC/mobile) ---
@@ -402,7 +408,7 @@ function renderWeights() {
         percent.className = 'weight-percent';
         percent.textContent = `(${((weights[type] / total) * 100).toFixed(0)}%)`;
 
-        // 🔥 Fix: update ALL sliders whenever any slider moves
+        //  Fix: update ALL sliders whenever any slider moves
         slider.addEventListener('input', () => {
             weights[type] = parseInt(slider.value, 10);
             const newTotal = Math.max(1, Object.values(weights).reduce((a, b) => a + b, 0));
@@ -414,6 +420,7 @@ function renderWeights() {
                 v.textContent = weights[t];
                 p.textContent = `(${((weights[t] / newTotal) * 100).toFixed(0)}%)`;
             });
+            saveState();
         });
 
         row.appendChild(label);
