@@ -385,11 +385,12 @@ button.danger-btn:hover {
 }
 
 .start-buttons button {
-  width: calc(100%-40px);
+  display:block;
+  width: 90%;
   margin: 0 auto;
   min-height: 300px;
   font-size: 1.6rem;
-  border-radius: 24px; 
+  border-radius: 20px; 
 }
 
 /* Green continue button */
