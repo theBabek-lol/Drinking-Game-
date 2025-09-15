@@ -384,27 +384,27 @@ button.danger-btn:hover {
   width: 100%;
 }
 
-.start-buttons button {
+#screen-start .start-buttons button {
   display:block;
   width: 90%;
   margin: 0 auto;
-  min-height: 300px;
+  min-height: 250px;
   font-size: 1.6rem;
   border-radius: 20px; 
 }
 
 /* Green continue button */
-.start-buttons button.continue-btn {
+#screen-start .start-buttons button.continue-btn {
   background: linear-gradient(135deg, #34d399, #10b981) !important;
 }
-.start-buttons button.continue-btn:hover {
+#screen-start .start-buttons button.continue-btn:hover {
   background: linear-gradient(135deg, #6ee7b7, #34d399) !important;
 }
 
 /* Blue new game button */
-.start-buttons button.primary-btn {
+#screen-start .start-buttons button.primary-btn {
   background: linear-gradient(135deg, #3b82f6, #2563eb) !important;
 }
-.start-buttons button.primary-btn:hover {
+#screen-start .start-buttons button.primary-btn:hover {
   background: linear-gradient(135deg, #60a5fa, #3b82f6) !important;
 }
