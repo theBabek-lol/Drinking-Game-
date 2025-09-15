@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', async () => {
-    const APP_VERSION = "1.2.4"; // bumpa när du deployar
+    const APP_VERSION = "1.2.5"; // bumpa när du deployar
 
     // --- Version label ---
     const versionEl = document.createElement("div");
