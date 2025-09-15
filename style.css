@@ -224,8 +224,8 @@ button:active {
 }
 
 .weight-row input[type="range"] {
-    width: 100%;           /* fill its grid cell */
-    accent-color: #0077ff; /* keep accent */
+    width: 100%;
+    accent-color: #0077ff;
 }
 
 .weight-value {
@@ -278,15 +278,12 @@ button:active {
     .weight-row input[type="range"] {
         width: 100%;
     }
-
 }  
 
-
-    /* Danger button (red variant, same shape as others) */
+/* Danger button (red variant) */
 button.danger-btn {
     background: linear-gradient(135deg, #e53935, #c62828);
 }
-
 button.danger-btn:hover {
     background: linear-gradient(135deg, #ef5350, #e53935);
 }
@@ -304,8 +301,6 @@ button.danger-btn:hover {
     align-items: center;
     z-index: 10000;
 }
-
-/* Hidden state */
 .modal.hidden {
     display: none;
 }
@@ -329,7 +324,6 @@ button.danger-btn:hover {
     gap: 10px;
     margin-top: 20px;
 }
-
 .modal-buttons button {
     flex: 1;
     min-height: 60px;
@@ -341,19 +335,19 @@ button.danger-btn:hover {
     background: linear-gradient(135deg, #6b7280, #374151);
     color: #fff;
 }
-
 #cancel-newgame:hover {
     background: linear-gradient(135deg, #4b5563, #1f2937);
 }
 
+/* Rules box */
 .rules-box {
-  background: rgba(255, 255, 255, 0.8); /* white, slightly see-through */
+  background: rgba(255, 255, 255, 0.8);
   padding: 20px;
   border-radius: 16px;
   max-width: 600px;
   margin: auto;
   box-shadow: 0 4px 10px rgba(0,0,0,0.25);
-  color: #111; /* darker text for contrast */
+  color: #111;
 }
 
 /* Start screen */
@@ -362,52 +356,48 @@ button.danger-btn:hover {
   justify-content: center;
   align-items: center;
   text-align: center;
-  padding: 0; /* remove the .screen padding for this one */
+  padding: 0;
 }
-
 .start-content {
   display: flex;
   flex-direction: column;
   gap: 30px;
   width: 100%;
-  max-width: 100%; /* allow full screen width */
+  max-width: 100%;
 }
-
 .start-content h2 {
   font-size: 2rem;
   margin: 0 0 10px 0;
   color: #fff;
   text-shadow: 0 2px 6px rgba(0,0,0,0.4);
 }
-
 .start-buttons {
   display: flex;
   flex-direction: column;
   gap: 20px;
   width: 100%;
 }
-
-#screen-start .start-buttons button {
-  display:block;
+/* Only style the start screen buttons big */
+#screen-start .start-buttons #continue-game-btn,
+#screen-start .start-buttons #new-game-btn {
+  display: block;
   width: 90%;
   margin: 0 auto;
   min-height: 250px;
-  font-size: 1.6rem;
-  border-radius: 20px; 
+  font-size: 1.8rem;
+  border-radius: 20px;
 }
-
 /* Green continue button */
-#screen-start .start-buttons button.continue-btn {
-  background: linear-gradient(135deg, #34d399, #10b981) !important;
+#screen-start .start-buttons #continue-game-btn {
+  background: linear-gradient(135deg, #34d399, #10b981);
 }
-#screen-start .start-buttons button.continue-btn:hover {
-  background: linear-gradient(135deg, #6ee7b7, #34d399) !important;
+#screen-start .start-buttons #continue-game-btn:hover {
+  background: linear-gradient(135deg, #6ee7b7, #34d399);
 }
-
 /* Blue new game button */
-#screen-start .start-buttons button.primary-btn {
-  background: linear-gradient(135deg, #3b82f6, #2563eb) !important;
+#screen-start .start-buttons #new-game-btn {
+  background: linear-gradient(135deg, #3b82f6, #2563eb);
 }
-#screen-start .start-buttons button.primary-btn:hover {
-  background: linear-gradient(135deg, #60a5fa, #3b82f6) !important;
+#screen-start .start-buttons #new-game-btn:hover {
+  background: linear-gradient(135deg, #60a5fa, #3b82f6);
 }
