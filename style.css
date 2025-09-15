@@ -378,10 +378,13 @@ button.danger-btn:hover {
   display: flex;
   flex-direction: column;
   gap: 15px;
+  width: 100%;
 }
 
 .start-buttons button {
-  min-height: 70px;
+  flex: 1;
+  width: 100%;
+  min-height: 100px;
   font-size: 1.4rem;
   border-radius: 16px;
 }
