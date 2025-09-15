@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', async () => {
-    const APP_VERSION = "1.1.4"; // bumpa när du deployar
+    const APP_VERSION = "1.2.5"; // bumpa när du deployar
 
     // --- Version label ---
     const versionEl = document.createElement("div");
@@ -37,12 +37,17 @@ document.addEventListener('DOMContentLoaded', async () => {
     const gameHeader = document.getElementById('game-header');
     const rulesBtn = document.getElementById('rules-btn');
     const backNamesFromRulesBtn = document.getElementById('back-names-from-rules-btn');
+    const resetBtn = document.getElementById('reset-btn');
+    const resetModal = document.getElementById('reset-modal');
+    const confirmResetBtn = document.getElementById('confirm-reset');
+    const cancelResetBtn = document.getElementById('cancel-reset');
 
     // --- Game State ---
     let names = [];
     let couples = {};
     let questions = [];
-    const weights = {"nhie":8,"pek":8,"rygg":6,"kat":4,"one_name":2,"two_name":2,"two_name_intim":2,"all":3};
+    const DEFAULT_WEIGHTS = {"nhie":8,"pek":8,"rygg":6,"kat":4,"one_name":2,"two_name":2,"two_name_intim":2,"all":3};
+    let weights = {...DEFAULT_WEIGHTS};
 
     let questionPools = {};
     let ryggQuestion = null;
@@ -59,6 +64,46 @@ document.addEventListener('DOMContentLoaded', async () => {
           two_name_intim: "Intima utmaingar",
           all: "Alla deltar"
     };
+    let askedQuestionIds = new Set();
+    
+    // --- persistence --
+    const SAVE_KEY = "dating-game:v1";
+
+    function saveState() {
+        const payload = {
+            names,
+            couples,
+            questionPools,
+            deckBuilt,
+            weights,
+        };
+        localStorage.setItem(SAVE_KEY, JSON.stringify(payload));
+    }
+
+    function loadState() {
+        try {
+            const raw = localStorage.getItem(SAVE_KEY);
+            if (!raw) return;
+            const parsed = JSON.parse(raw);
+            names = parsed.names || [];
+            couples = parsed.couples || {};
+            questionPools = parsed.questionPools || {};
+            deckBuilt = parsed.deckBuilt || false;
+            if (parsed.weights) weights = parsed.weights;
+        } catch (e) {
+            console.warn("No saved state", e);
+        }
+    }
+
+    function resetState() {
+        localStorage.removeItem(SAVE_KEY);
+        names = [];
+        couples = {};
+        questionPools = {};
+        deckBuilt = false;
+        weights = {...DEFAULT_WEIGHTS};
+
+    }
 
     // --- Helper: only click (fix for PC/mobile) ---
     function addClickEvents(el, handler) {
@@ -80,6 +125,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         if (n && !names.includes(n)) {
             names.push(n);
             renderNames();
+            saveState();
             nameInput.value = '';
         }
         nameInput.focus();
@@ -146,12 +192,14 @@ document.addEventListener('DOMContentLoaded', async () => {
             selectedName = null;
         }
         renderDating();
+        saveState();
     }
 
     function removeCouple(n1, n2) {
         delete couples[n1];
         delete couples[n2];
         renderDating();
+        saveState();
     }
 
     function getSingles() {
@@ -191,6 +239,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         deckBuilt = true;
         waitingForRyggReveal = false;
+        saveState();
     }
 
     function pickType() {
@@ -215,7 +264,9 @@ document.addEventListener('DOMContentLoaded', async () => {
         if (pool.remaining.length === 0) {
             pool.remaining = shuffle([...pool.all]);
         }
-        return pool.remaining.pop();
+        const picked = pool.remaining.pop();
+        saveState();
+        return picked;
     }
 
     function shuffle(array) {
@@ -357,7 +408,7 @@ function renderWeights() {
         percent.className = 'weight-percent';
         percent.textContent = `(${((weights[type] / total) * 100).toFixed(0)}%)`;
 
-        // 🔥 Fix: update ALL sliders whenever any slider moves
+        //  Fix: update ALL sliders whenever any slider moves
         slider.addEventListener('input', () => {
             weights[type] = parseInt(slider.value, 10);
             const newTotal = Math.max(1, Object.values(weights).reduce((a, b) => a + b, 0));
@@ -369,6 +420,7 @@ function renderWeights() {
                 v.textContent = weights[t];
                 p.textContent = `(${((weights[t] / newTotal) * 100).toFixed(0)}%)`;
             });
+            saveState();
         });
 
         row.appendChild(label);
@@ -416,8 +468,26 @@ function renderWeights() {
     addClickEvents(rulesBtn, () => showScreen('rules'));
     addClickEvents(backNamesFromRulesBtn, () => showScreen('names'));
     
+    addClickEvents(resetBtn, () => {
+        resetModal.classList.remove('hidden');
+    });
+
+    addClickEvents(cancelResetBtn, () => {
+        resetModal.classList.add('hidden');
+    });
+
+    addClickEvents(confirmResetBtn, () => {
+        resetState();
+        renderNames();
+        renderDating();
+        showScreen('names');
+        resetModal.classList.add('hidden');
+    });
+    
     // --- Initialize ---
     await loadQuestions();
+    loadState();
     renderNames();
+    renderDating();
     showScreen('names');
 });

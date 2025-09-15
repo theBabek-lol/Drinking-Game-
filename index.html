@@ -61,6 +61,7 @@
             <div id="weights-list" class="scrollable"></div>
         </div>
         <div class="bottom-buttons">
+            <button id="reset-btn" class="danger-btn">Återställ spelet</button>
             <button id="back-names-btn">Tillbaka</button>
         </div>
     </div>
@@ -69,32 +70,54 @@
     <div id="screen-rules" class="screen hidden">
         <h2>Spelregler</h2>
         <div class="scrollable-wrapper">
-            <h3>Jag har aldrig</h3>
-            <p>Ett påstående som börjar med "Jag har aldrig..." visas.
-                De spelare som har gjort det påståendet dricker.
-            </p>
+            <div class="rules-box">
+                <h3>Spelet</h3>
+                <p>Spelet består av en blanding av olika dryckeslekar och utmaningar.
+                    Lägg till namn och vilka som dejtar och börja sen spelet.
+                    Om du vill se mer eller mindre av en eller flera frågetyper går det att ändra i inställningar.
+                    Spelare och par kan tas bort genom att klicka på namnet respektive paret.
+                    Spelare, par, inställningar och vilka frågor som visats sparas mellan omgångar.
+                    Om du vill återställa så finns det en knapp i inställningar.
+                </p>
+            
+                <h3>Jag har aldrig</h3>
+                <p>Ett påstående som börjar med "Jag har aldrig..." visas.
+                    De spelare som har gjort det påståendet dricker.
+                </p>
 
-            <h3>Pekleken</h3>
-            <p>En fråga visas. Alla spelare pekar på den som de tycker är svartet på frågan.
-                Man måste peka på någon annan än sig själv och man får inte ta illa up.
-                Antingen så dricker man en klunk för varje finger man får på sig eller så dricker den som fick flest.
-            </p>
+                <h3>Pekleken</h3>
+                <p>En fråga visas. Alla spelare pekar på den som de tycker är svartet på frågan.
+                    Man måste peka på någon annan än sig själv och man får inte ta illa up.
+                    Antingen så dricker man en klunk för varje finger man får på sig eller så dricker den som fick flest.
+                </p>
 
-            <h3>Rygg mot rygg</h3>
-            <p>De spelare vars name visas vänder ryggen mot varandra.
-                Tryck sen på "visa fråga" och läs upp frågan högt.
-                Om någon av de twp utvalda spelarna tycker att den själv är svaret på frågan ska den dricka
-                Om endast en av spelarna dricker klarades frågan och resterande spelarna i gruppen måste dricka.
-                Annars dricker de två utvalda dubbelt.
-            </p>
+                <h3>Rygg mot rygg</h3>
+                <p>De spelare vars name visas vänder ryggen mot varandra.
+                    Tryck sen på "visa fråga" och läs upp frågan högt.
+                    Om någon av de twp utvalda spelarna tycker att den själv är svaret på frågan ska den dricka
+                    Om endast en av spelarna dricker klarades frågan och resterande spelarna i gruppen måste dricka.
+                    Annars dricker de två utvalda dubbelt.
+                </p>
 
-            <h3>Kategori</h3>
-            <p>Spelaren vars namn visas ska börja att säga nåt som följer Kategorin.
-                sen forstätter man medsols tills någon inte kommer på nått som följer kategorin eller upprepar något som redan sagts.
-                den som misslyckas dricker</p>
+                <h3>Kategori</h3>
+                <p>Spelaren vars namn visas ska börja att säga nåt som följer Kategorin.
+                    sen forstätter man medsols tills någon inte kommer på nått som följer kategorin eller upprepar något som redan sagts.
+                    den som misslyckas dricker</p>
+            </div>
         </div>
         <div class="bottom-buttons">
             <button id="back-names-from-rules-btn">Tillbaka</button>
+        </div>
+    </div>
+
+    <!-- Reset Confirmation Modal -->
+    <div id="reset-modal" class="modal hidden">
+        <div class="modal-content">
+            <p>Är du säker på att du vill återställa spelet?</p>
+            <div class="modal-buttons">
+                <button id="confirm-reset" class="danger-btn">Ja, återställ</button>
+                <button id="cancel-reset">Avbryt</button>
+            </div>
         </div>
     </div>
 
