@@ -21,17 +21,17 @@ html, body {
     height: 100%;
 }
 
+/* Screens: hidden by default */
 .screen {
-    display: flex;
+    display: none;
     flex-direction: column;
     flex: 1 1 auto;
     padding: 10px;
     box-sizing: border-box;
     overflow: hidden;
 }
-
-.hidden {
-    display: none;
+.screen.active {
+    display: flex;
 }
 
 /* Input row */
@@ -158,13 +158,15 @@ button:active {
     margin-top: auto;
 }
 
-/* For the names screen, stack rows vertically */
 .bottom-buttons {
     flex-direction: column;
 }
 
-.bottom-buttons button,
-.game-bottom-buttons button {
+#screen-names .bottom-buttons button,
+#screen-dating .bottom-buttons button,
+#screen-game .game-bottom-buttons button,
+#screen-settings .bottom-buttons button,
+#screen-rules .bottom-buttons button {
     flex: 1;
     min-height: 120px;
     padding: 15px 0;
@@ -173,12 +175,10 @@ button:active {
     background: linear-gradient(135deg, #34d399, #10b981);
 }
 
-/* Row for the two lower buttons */
 .button-row {
     display: flex;
     gap: 10px;
 }
-
 .button-row button {
     flex: 1;
 }
@@ -186,15 +186,12 @@ button:active {
 .game-bottom-buttons {
     flex-direction: column;
 }
-
 .game-bottom-buttons .change-names-btn {
     min-height: 60px;
 }
-
 .game-bottom-buttons .next-btn {
     min-height: 120px;
 }
-
 
 /* Settings screen */
 #weights-list {
@@ -208,34 +205,20 @@ button:active {
 
 .weight-row {
     display: grid;
-    grid-template-columns: 120px 1fr 40px 60px; /* label | slider | value | percent */
+    grid-template-columns: 120px 1fr 40px 60px;
     align-items: center;
     gap: 10px;
     background: rgba(255,255,255,0.7);
     padding: 8px 10px;
     border-radius: 10px;
 }
-
-.weight-row span {
-    font-size: 1.1rem;
-}
-
+.weight-row span { font-size: 1.1rem; }
 .weight-row input[type="range"] {
-    width: 100%;           /* fill its grid cell */
-    accent-color: #0077ff; /* keep accent */
+    width: 100%;
+    accent-color: #0077ff;
 }
-
-.weight-value {
-    font-weight: bold;
-    text-align: right;
-}
-
-.weight-percent {
-    color: #666;
-    font-size: 0.9rem;
-    text-align: left;
-}
-
+.weight-value { font-weight: bold; text-align: right; }
+.weight-percent { color: #666; font-size: 0.9rem; text-align: left; }
 
 /* Scrollable wrapper */
 .scrollable-wrapper {
@@ -258,32 +241,17 @@ button:active {
         min-height: 100px;
         padding: 10px 0;
     }
-    .game-bottom-buttons .change-names-btn {
-        min-height: 50px;
-    }
-    .game-bottom-buttons .next-btn {
-        min-height: 100px;
-    }
-    #card {
-        font-size: 1.6rem;
-        padding: 10px;
-    }
-    .weight-row {
-        flex-direction: column;
-        align-items: stretch;
-    }
-    .weight-row input[type="range"] {
-        width: 100%;
-    }
+    .game-bottom-buttons .change-names-btn { min-height: 50px; }
+    .game-bottom-buttons .next-btn { min-height: 100px; }
+    #card { font-size: 1.6rem; padding: 10px; }
+    .weight-row { flex-direction: column; align-items: stretch; }
+    .weight-row input[type="range"] { width: 100%; }
+}
 
-}  
-
-
-    /* Danger button (red variant, same shape as others) */
+/* Danger button */
 button.danger-btn {
     background: linear-gradient(135deg, #e53935, #c62828);
 }
-
 button.danger-btn:hover {
     background: linear-gradient(135deg, #ef5350, #e53935);
 }
@@ -301,13 +269,8 @@ button.danger-btn:hover {
     align-items: center;
     z-index: 10000;
 }
+.modal.hidden { display: none; }
 
-/* Hidden state */
-.modal.hidden {
-    display: none;
-}
-
-/* Modal box */
 .modal-content {
     background: #fff;
     padding: 20px;
@@ -318,70 +281,83 @@ button.danger-btn:hover {
     box-shadow: 0 6px 12px rgba(0,0,0,0.3);
     animation: popIn 0.3s ease-out;
 }
-
-/* Buttons inside modal */
 .modal-buttons {
     display: flex;
     justify-content: space-between;
     gap: 10px;
     margin-top: 20px;
 }
-
 .modal-buttons button {
     flex: 1;
     min-height: 60px;
     font-size: 1.1rem;
 }
-
-/* Cancel button (gray) */
 #cancel-newgame {
     background: linear-gradient(135deg, #6b7280, #374151);
     color: #fff;
 }
-
 #cancel-newgame:hover {
     background: linear-gradient(135deg, #4b5563, #1f2937);
 }
 
+/* Rules box */
 .rules-box {
-  background: rgba(255, 255, 255, 0.8); /* white, slightly see-through */
+  background: rgba(255, 255, 255, 0.8);
   padding: 20px;
   border-radius: 16px;
   max-width: 600px;
   margin: auto;
   box-shadow: 0 4px 10px rgba(0,0,0,0.25);
-  color: #111; /* darker text for contrast */
+  color: #111;
 }
 
-/* Start screen menu box */
-.start-box {
-  background: rgba(255, 255, 255, 0.9);
-  padding: 40px 30px;
-  border-radius: 20px;
-  max-width: 400px;
-  width: 90%;
-  margin: auto;
+/* Start screen */
+#screen-start {
+  display: none; /* hidden by default */
+  justify-content: center;
+  align-items: center;
   text-align: center;
-  box-shadow: 0 6px 16px rgba(0,0,0,0.3);
+  padding: 0;
+}
+#screen-start.active {
+  display: flex;
+}
+.start-content {
   display: flex;
   flex-direction: column;
-  gap: 20px;
-  animation: popIn 0.4s ease-out;
+  gap: 30px;
+  width: 100%;
+  max-width: 100%;
 }
-
-.start-box h2 {
-  font-size: 1.8rem;
-  margin: 0;
+.start-content h2 {
+  font-size: 2rem;
+  margin: 0 0 10px 0;
+  color: #fff;
+  text-shadow: 0 2px 6px rgba(0,0,0,0.4);
 }
-
 .start-buttons {
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 20px;
+  width: 100%;
 }
-
-.start-buttons button {
-  min-height: 70px;
-  font-size: 1.4rem;
-  border-radius: 16px;
+#screen-start .start-buttons button {
+  display:block;
+  width: 90%;
+  margin: 0 auto;
+  min-height: 250px;
+  font-size: 1.6rem;
+  border-radius: 20px; 
+}
+#screen-start .start-buttons button.continue-btn {
+  background: linear-gradient(135deg, #34d399, #10b981) !important;
+}
+#screen-start .start-buttons button.continue-btn:hover {
+  background: linear-gradient(135deg, #6ee7b7, #34d399) !important;
+}
+#screen-start .start-buttons button.primary-btn {
+  background: linear-gradient(135deg, #3b82f6, #2563eb) !important;
+}
+#screen-start .start-buttons button.primary-btn:hover {
+  background: linear-gradient(135deg, #60a5fa, #3b82f6) !important;
 }

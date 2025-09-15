@@ -11,16 +11,18 @@
 
     <!-- Start Screen (only if save exists) -->
     <div id="screen-start" class="screen hidden">
-        <h2>Välkommen tillbaka</h2>
-        <div class="bottom-buttons">
-            <button id="continue-game-btn">Fortsätt</button>
-            <button id="new-game-btn" class="danger-btn">Nytt spel</button>
-         </div>
+        <div class="start-content">
+            <h2>Välkommen tillbaka!</h2>
+            <div class="start-buttons">
+                <button id="continue-game-btn" class="continue-btn">Fortsätt</button>
+                <button id="new-game-btn" class="primary-btn">Nytt spel</button>
+            </div>
+        </div>
     </div>
     
     
     <!-- Names Screen -->
-    <div id="screen-names" class="screen">
+    <div id="screen-names" class="screen hidden">
         <h2>Namnlista</h2>
         <div class="input-row">
             <input type="text" id="name-input" placeholder="Skriv namn" />
@@ -86,7 +88,7 @@
                     Om du vill se mer eller mindre av en eller flera frågetyper går det att ändra i inställningar.
                     Spelare och par kan tas bort genom att klicka på namnet respektive paret.
                     Spelare, par, inställningar och vilka frågor som visats sparas mellan omgångar.
-                    Om du vill återställa så finns det en knapp i inställningar.
+                    Om du vill återställa välj "Nytt spel" istället för "Fortsätt".
                 </p>
             
                 <h3>Jag har aldrig</h3>
