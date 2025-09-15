@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', async () => {
-    const APP_VERSION = "1.3.0"; // bumpa när du deployar
+    const APP_VERSION = "1.3.1"; // bumpa när du deployar
 
     // --- Version label ---
     const versionEl = document.createElement("div");
@@ -14,6 +14,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     // --- DOM Elements ---
     const screens = {
+        start: document.getElementById('screen-start'),
         names: document.getElementById('screen-names'),
         dating: document.getElementById('screen-dating'),
         game: document.getElementById('screen-game'),
