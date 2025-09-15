@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', async () => {
-    const APP_VERSION = "1.3.14"; // bumpa när du deployar
+    const APP_VERSION = "1.3.15"; // bumpa när du deployar
 
     // --- Version label ---
     const versionEl = document.createElement("div");
@@ -66,19 +66,12 @@ document.addEventListener('DOMContentLoaded', async () => {
           two_name_intim: "Intima utmaingar",
           all: "Alla deltar"
     };
-    let askedQuestionIds = new Set();
-    
+
     // --- persistence --
     const SAVE_KEY = "dating-game:v1";
 
     function saveState() {
-        const payload = {
-            names,
-            couples,
-            questionPools,
-            deckBuilt,
-            weights,
-        };
+        const payload = { names, couples, questionPools, deckBuilt, weights };
         localStorage.setItem(SAVE_KEY, JSON.stringify(payload));
     }
 
@@ -104,7 +97,6 @@ document.addEventListener('DOMContentLoaded', async () => {
         questionPools = {};
         deckBuilt = false;
         weights = {...DEFAULT_WEIGHTS};
-
     }
 
     // --- Helper: only click (fix for PC/mobile) ---
@@ -115,8 +107,10 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     // --- Screen Logic ---
     function showScreen(screen) {
-        for (const s in screens) screens[s].classList.add('hidden');
-        screens[screen].classList.remove('hidden');
+        for (const s in screens) {
+            screens[s].classList.remove('active');
+        }
+        screens[screen].classList.add('active');
         if (screen === "settings") renderWeights();
     }
 
@@ -384,55 +378,53 @@ document.addEventListener('DOMContentLoaded', async () => {
         return available[Math.floor(Math.random() * available.length)] || '(ingen)';
     }
 
- // --- Settings / Weights ---
-function renderWeights() {
-    weightsList.innerHTML = '';
-    const total = Math.max(1, Object.values(weights).reduce((a, b) => a + b, 0));
+    // --- Settings / Weights ---
+    function renderWeights() {
+        weightsList.innerHTML = '';
+        const total = Math.max(1, Object.values(weights).reduce((a, b) => a + b, 0));
 
-    for (let type in weights) {
-        const row = document.createElement('div');
-        row.className = 'weight-row';
+        for (let type in weights) {
+            const row = document.createElement('div');
+            row.className = 'weight-row';
 
-        const label = document.createElement('span');
-        label.textContent = weightLabels[type] || type;
+            const label = document.createElement('span');
+            label.textContent = weightLabels[type] || type;
 
-        const slider = document.createElement('input');
-        slider.type = 'range';
-        slider.min = 0;
-        slider.max = 20;
-        slider.value = weights[type];
+            const slider = document.createElement('input');
+            slider.type = 'range';
+            slider.min = 0;
+            slider.max = 20;
+            slider.value = weights[type];
 
-        const value = document.createElement('span');
-        value.className = 'weight-value';
-        value.textContent = weights[type];
+            const value = document.createElement('span');
+            value.className = 'weight-value';
+            value.textContent = weights[type];
 
-        const percent = document.createElement('span');
-        percent.className = 'weight-percent';
-        percent.textContent = `(${((weights[type] / total) * 100).toFixed(0)}%)`;
+            const percent = document.createElement('span');
+            percent.className = 'weight-percent';
+            percent.textContent = `(${((weights[type] / total) * 100).toFixed(0)}%)`;
 
-        //  Fix: update ALL sliders whenever any slider moves
-        slider.addEventListener('input', () => {
-            weights[type] = parseInt(slider.value, 10);
-            const newTotal = Math.max(1, Object.values(weights).reduce((a, b) => a + b, 0));
+            slider.addEventListener('input', () => {
+                weights[type] = parseInt(slider.value, 10);
+                const newTotal = Math.max(1, Object.values(weights).reduce((a, b) => a + b, 0));
 
-            weightsList.querySelectorAll('.weight-row').forEach((r, i) => {
-                const v = r.querySelector('.weight-value');
-                const p = r.querySelector('.weight-percent');
-                const t = Object.keys(weights)[i];
-                v.textContent = weights[t];
-                p.textContent = `(${((weights[t] / newTotal) * 100).toFixed(0)}%)`;
+                weightsList.querySelectorAll('.weight-row').forEach((r, i) => {
+                    const v = r.querySelector('.weight-value');
+                    const p = r.querySelector('.weight-percent');
+                    const t = Object.keys(weights)[i];
+                    v.textContent = weights[t];
+                    p.textContent = `(${((weights[t] / newTotal) * 100).toFixed(0)}%)`;
+                });
+                saveState();
             });
-            saveState();
-        });
 
-        row.appendChild(label);
-        row.appendChild(slider);
-        row.appendChild(value);
-        row.appendChild(percent);
-        weightsList.appendChild(row);
+            row.appendChild(label);
+            row.appendChild(slider);
+            row.appendChild(value);
+            row.appendChild(percent);
+            weightsList.appendChild(row);
+        }
     }
-}
-
 
     // --- Load JSON Questions ---
     async function loadQuestions() {
@@ -492,8 +484,6 @@ function renderWeights() {
         showScreen('names');
         newGameModal.classList.add('hidden');
     });
-
-
 
     // --- Initialize ---
     await loadQuestions();
