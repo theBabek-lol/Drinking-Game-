@@ -382,3 +382,53 @@ button.danger-btn:hover {
 #players-modal .modal-buttons button:hover {
   background: linear-gradient(135deg, #60a5fa, #3b82f6);
 }
+
+#suggest-input {
+  display: block;
+  width: 90%;          /* leave space on the sides */
+  max-width: 500px;    /* don’t get too wide */
+  margin: 20px auto;   /* auto centers horizontally */
+  padding: 12px;
+  font-size: 1rem;
+  border-radius: 12px;
+  border: 1px solid #ccc;
+  resize: vertical;
+  box-sizing: border-box;
+}
+
+#open-suggest-btn {
+  display: block;
+  width: 100%;
+  max-width: 600px;
+  margin: 20px auto 0 auto;
+  padding: 30px 0;                /* double height */
+  font-size: 1.6rem;              /* bigger text */
+  font-weight: bold;
+  border-radius: 20px;
+  background: linear-gradient(135deg, #3b82f6, #2563eb);
+  color: #fff;
+}
+#open-suggest-btn:hover {
+  background: linear-gradient(135deg, #60a5fa, #3b82f6);
+}
+
+#submit-suggest-btn {
+  background: linear-gradient(135deg, #34d399, #10b981); 
+  color: #fff;
+}
+#submit-suggest-btn:hover {
+  background: linear-gradient(135deg, #6ee7b7, #34d399);
+}
+
+#cancel-suggest-btn {
+  background: linear-gradient(135deg, #e53935, #c62828); 
+  color: #fff;
+}
+#cancel-suggest-btn:hover {
+  background: linear-gradient(135deg, #ef5350, #e53935);
+}
+
+#suggest-modal .modal-content {
+  background: #b5d7ee;       /* light blue */
+  border: 2px solid #86c6e9; /* subtle border */
+}
