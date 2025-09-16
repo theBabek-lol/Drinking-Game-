@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', async () => {
-    const APP_VERSION = "1.3.15"; // bumpa när du deployar
+    const APP_VERSION = "1.3.16"; // bumpa när du deployar
+    
     // --- Cache busting ---
     document.querySelectorAll('link[rel="stylesheet"], script[src]').forEach(el => {
         const srcAttr = el.tagName === "LINK" ? "href" : "src";
@@ -461,6 +462,11 @@ document.addEventListener('DOMContentLoaded', async () => {
     addClickEvents(continueBtn, () => { renderDating(); showScreen('dating'); });
 
     addClickEvents(startGameBtn, () => {
+        if (names.length < 2) {
+            document.getElementById('players-modal').classList.remove('hidden');
+            return;
+        }
+
         if (!deckBuilt) buildDeck();
         showScreen('game');
         if (!waitingForRyggReveal) nextChallenge();
@@ -494,6 +500,10 @@ document.addEventListener('DOMContentLoaded', async () => {
         renderDating();
         showScreen('names');
         newGameModal.classList.add('hidden');
+    });
+
+    addClickEvents(document.getElementById('close-players-modal'), () => {
+        document.getElementById('players-modal').classList.add('hidden');
     });
 
     // --- Initialize ---
