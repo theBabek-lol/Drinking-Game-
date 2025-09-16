@@ -52,7 +52,6 @@ kat|{} pokémon
 kat|{} porrstjärnor
 kat|{} sektioner på ltu
 kat|{} sexleksaker
-kat|{} sexleksaker
 kat|{} sexställningar
 kat|{} smink och hårprodukts märken
 kat|{} smörgås pålägg
@@ -103,7 +102,6 @@ nhie|haft en walk of shame
 nhie|haft ett husdjur
 nhie|haft ett one night stand
 nhie|haft ett seriöst förhållande
-nhie|haft gruppsex
 nhie|haft gruppsex
 nhie|haft på mig motsatta könets underkläder
 nhie|haft sex i en bastu
@@ -253,7 +251,6 @@ pek|Vem har bäst musiksmak?
 pek|Vem har bäst radio röst?
 pek|Vem har den bästa sångrösten?
 pek|Vem har den konstigaste fetischen?
-pek|Vem har den konstigaste fetischen?
 pek|Vem har den mest värdelösa utbildningen?
 pek|Vem har djupast urringning?
 pek|Vem har dyrast dricka?
@@ -319,7 +316,6 @@ pek|Vem peakade i gymnasiet?
 pek|Vem rökte sist?
 pek|Vem ser snyggast ut i glasögon?
 pek|Vem ser yngst ut?
-pek|Vem ser yngst ut?
 pek|Vem ser äldst ut?
 pek|Vem sextar mest?
 pek|Vem shoppar mest?
@@ -374,7 +370,6 @@ pek|Vem är mest autistisk?
 pek|Vem är mest bortskämd?
 pek|Vem är mest desperat?
 pek|Vem är mest emo?
-pek|Vem är mest emo?
 pek|Vem är mest feminin?
 pek|Vem är mest framgångsrik?
 pek|Vem är mest gold-digger
@@ -409,7 +404,6 @@ rygg|Vem festar mest?
 rygg|Vem får mest ragg?
 rygg|Vem ger bäst oralsex?
 rygg|Vem gör dummast saker på fyllan?
-rygg|Vem hade sex senast?
 rygg|Vem hade sex senast?
 rygg|Vem har blivit dumpad flest gånger?
 rygg|Vem har bäst hår?
