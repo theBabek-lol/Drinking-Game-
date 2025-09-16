@@ -1,4 +1,6 @@
-﻿all|Alla killar dricker!
+﻿
+all|Alla killar dricker!
+all|Alla med Android dricker!
 all|Alla med bruna ögon dricker.
 all|Alla med en tatuering måste dricka!
 all|Alla med iphone dricker!
@@ -157,6 +159,7 @@ nhie|sprungit från polisen
 nhie|spytt i en bil
 nhie|strulat med någon i detta rum
 nhie|sugit av någon som kör bil
+nhie|svalt sperma
 nhie|tagit dagen efter piller
 nhie|tagit en springnota
 nhie|tagit ett graviditetstest
@@ -181,6 +184,8 @@ nhie|åkt helikopter
 nhie|åkt motorcykel
 nhie|ångrat ett ligg
 one_name|Alla med samma dricka som {} måste dricka 3 klunkar
+one_name|Alla som är kortare än {} dircker 3 klunkar!
+one_name|Alla som är längre än {} dricker 3 klunkar!
 one_name|Vattenfall! Börja med {}
 one_name|{} Ta en klunk för varje smycke du har på dig
 one_name|{} Twerka
@@ -188,74 +193,138 @@ one_name|{} Visa dina underkläder eller ta 5 klunkar
 one_name|{} bonga en enhet!
 one_name|{} byt plats med den snyggaste i rummet
 one_name|{} dela ut 5 klunkar!
+one_name|{} dela ut en klunk till den sötaste personen ikväll
 one_name|{} drick lika många klunkar som du har bokstäver i ditt namn
 one_name|{} får inte flytta på sig förens du har avslutat din enhet
+one_name|{} ge bort en klunk av din dricka till någons som behöver den mer!
 one_name|{} gör 15 armhävningar 1 shot om du misslyckas
+one_name|{} imitera en säl
 one_name|{} lägg till en regel
 one_name|{} lägg ut en story
+one_name|{} måste dricka med vänsterhanden resten av spelet
 one_name|{} nämn alla deltagare, en klunk för varje fel
 one_name|{} ta 2 klunkar för varje ex som du har
 one_name|{} ta 3 klunkar från din enhet utan att använda händerna
 one_name|{} ta av ett klädesplagg!
+one_name|{} ta en klunk för var tionde högskolepoäng du har!
 one_name|{} ta en klunk för varje par skor du äger
 one_name|{} ta en klunk för varje person du hånglat med i rummet
 one_name|{} ta en klunk för varje piercing du har
 one_name|{} ta en klunk för varje syskon du har
 one_name|{} ta en klunk för varje tatuering du har
 one_name|{} ta en selfie och lägg upp i story – annars shot
+one_name|{} tejpa fast din nuvarande dricka i handen och ta inte loss den förens du har druckit upp den
 one_name|{} visa den senaste bilden i ditt galleri eller ta en shot
 one_name|{} visa din sökhistorik på instagram - annars 5 klunkar
 one_name|{} visa ett partytrick eller ta en shot!
 one_name|{} visa senaste tinder konversationen - annars shot
 one_name|{} är partydog och måste yla varje gång den avslutar en enhet
 one_name|{} är question master i 15 min
+pek|Vem behöver en partner?
+pek|Vem behöver en shot?
+pek|Vem behöver köpa ny mobil?
+pek|Vem behöver ta en dusch?
+pek|Vem behöver ta tag i sitt liv?
+pek|Vem bidrar mest till världen?
 pek|Vem bidrar minst till världen?
 pek|Vem bjuder på efterfest ikväll?
+pek|Vem blir mest friendzonad?
 pek|Vem borde dricka mer?
 pek|Vem dansar bäst?
+pek|Vem döljer sin fetish?
+pek|Vem festar mest?
+pek|Vem festar minst?
 pek|Vem flirtar mest?
+pek|Vem fuskar på tentor?
 pek|Vem får inte csn?
+pek|Vem får sina dejting tips från internet?
 pek|Vem gifter sig först?
+pek|Vem gillar BDSM?
+pek|Vem gillar hentai?
 pek|Vem gråter mest?
+pek|Vem gråter till filmer?
 pek|Vem hade du friendzonat?
 pek|Vem hade du räddat först i en brand?
 pek|Vem hade kunnat bli skådespelare?
+pek|Vem hade sex senast?
+pek|Vem har blivit dumpad flest gånger?
+pek|Vem har bäst klädstil?
+pek|Vem har bäst musiksmak?
+pek|Vem har bäst radio röst?
 pek|Vem har den bästa sångrösten?
+pek|Vem har den konstigaste fetischen?
 pek|Vem har den konstigaste fetischen?
 pek|Vem har den mest värdelösa utbildningen?
 pek|Vem har djupast urringning?
 pek|Vem har dyrast dricka?
+pek|Vem har en existensielkris?
 pek|Vem har finast fötter?
+pek|Vem har finast kropp?
 pek|Vem har finast röv?
 pek|Vem har finast ögon?
+pek|Vem har flest vuxenleksaker?
 pek|Vem har fulast frisyr?
+pek|Vem har fulast naglar?
 pek|Vem har fulast tatuering?
+pek|Vem har fulast underkläder?
 pek|Vem har gett flest blowjobs?
 pek|Vem har haft flest förhållanden?
+pek|Vem har haft sex på offäntlig plats?
 pek|Vem har hårigast ben!
 pek|Vem har högst bodycount?
+pek|Vem har inget mål i livet?
+pek|Vem har inte kommit ut ur garderoben?
+pek|Vem har klamydia?
+pek|Vem har lägst EQ?
 pek|Vem har lägst bodycount?
+pek|Vem har lägst självförtroende?
 pek|Vem har mest ADHD?
 pek|Vem har rest mest?
+pek|Vem har skummast relationer?
+pek|Vem har snyggast mamma?
 pek|Vem har snyggast partner?
+pek|Vem har störst bekräftelsebehov?
 pek|Vem har störst ego?
+pek|Vem har störst ordförråd?
+pek|Vem har sämst ekonomi?
 pek|Vem har sämst humor?
+pek|Vem har sämst klädsmak?
+pek|Vem hatar Apple?
 pek|Vem hatar sitt liv mest?
+pek|Vem håller inte käften?
 pek|Vem jobbar hårdast?
+pek|Vem kan inte läsa?
 pek|Vem klagar mest?
+pek|Vem knarkar mest?
 pek|Vem kollar mest tiktok?
+pek|Vem kollar på mest porr?
+pek|Vem kommer att spy i kväll?
 pek|Vem kommer att vinna ett nobelpris?
+pek|Vem kommer begå ett mord?
 pek|Vem kommer bli arbetslös?
+pek|Vem kommer bli en katt-tant?
 pek|Vem kommer bli statsminister?
 pek|Vem kommer få flest barn?
+pek|Vem kommer få sötaste barn?
+pek|Vem kommer göra slut?
 pek|Vem kommer inte in på krogen ikväll?
 pek|Vem kommer jobba på google?
+pek|Vem kommer pierca sig i könet?
 pek|Vem kommer slå ett världsrekord?
+pek|Vem kommer snabbast?
+pek|Vem kommer tjäna mest pengar?
+pek|Vem ljuger bäst?
+pek|Vem njuter av lite smisk?
+pek|Vem peakade i gymnasiet?
 pek|Vem rökte sist?
+pek|Vem ser snyggast ut i glasögon?
 pek|Vem ser yngst ut?
 pek|Vem ser yngst ut?
 pek|Vem ser äldst ut?
 pek|Vem sextar mest?
+pek|Vem shoppar mest?
+pek|Vem skrattar mest?
+pek|Vem skriver erotisk litteratur?
 pek|Vem skulle du helst ha sex med?
 pek|Vem skulle du inte lita på med en hemlighet?
 pek|Vem skulle du inte låna ut din bil till?
@@ -272,40 +341,71 @@ pek|Vem skulle sälja sina vänner för 1 miljon?
 pek|Vem skulle vara med i Paradise Hotel?
 pek|Vem skulle vara skurken i en film?
 pek|Vem skulle vinna i en fight mot en björn?
+pek|Vem skulle överleva en zombieapokalyps?
+pek|Vem smakar bäst?
+pek|Vem snackar mest skit?
 pek|Vem sover naken?
 pek|Vem spenderar mest pengar på mat?
+pek|Vem strippar bäst?
+pek|Vem talar flest språk?
 pek|Vem tindrar mest?
 pek|Vem tål mest alkohol?
 pek|Vem tål minst alkohol?
 pek|Vem vill du inte ligga med?
 pek|Vem vill du slås mot?
+pek|Vem vill vara någon annanstans just nu?
 pek|Vem äger the kama sutra?
 pek|Vem är best på att kyssas?
 pek|Vem är blygast?
+pek|Vem är bäst i sängen?
+pek|Vem är bäst på dirty talk?
+pek|Vem är bäst på ursäkter?
+pek|Vem är charmigast?
 pek|Vem är den största hustlern?
+pek|Vem är den största romanikern?
+pek|Vem är det svarta fåret i sin familj?
+pek|Vem är fegast?
 pek|Vem är har en samling erotisk litteratur?
+pek|Vem är inte över sitt ex?
 pek|Vem är känsligast?
 pek|Vem är latast?
+pek|Vem är mest atletisk?
 pek|Vem är mest autistisk?
 pek|Vem är mest bortskämd?
 pek|Vem är mest desperat?
 pek|Vem är mest emo?
+pek|Vem är mest emo?
+pek|Vem är mest feminin?
+pek|Vem är mest framgångsrik?
 pek|Vem är mest gold-digger
+pek|Vem är mest kinky?
+pek|Vem är mest kreativ?
 pek|Vem är mest lättkränkt?
 pek|Vem är mest lättlurad?
+pek|Vem är mest maskulin?
+pek|Vem är mest mogen?
 pek|Vem är mest orten?
+pek|Vem är mest pinsam?
+pek|Vem är mest svartsjuk?
+pek|Vem är mest trolig att vara med i en vuxenfilm?
 pek|Vem är mest vig?
 pek|Vem är nördigast?
+pek|Vem är sexigast?
+pek|Vem är smalast?
 pek|Vem är smartast?
 pek|Vem är snyggast?
 pek|Vem är snålast?
+pek|Vem är största mobboffret?
+pek|Vem är sämst i skolan?
 pek|Vem är sämst på att laga mat?
 pek|Vem är tystast?
+pek|Vem äter mest?
 rygg|Vem blir kär lättast?
 rygg|Vem dansar bäst?
 rygg|Vem drar de sämsta skämten?
 rygg|Vem duschar oftast?
 rygg|Vem dör först?
+rygg|Vem festar mest?
 rygg|Vem får mest ragg?
 rygg|Vem ger bäst oralsex?
 rygg|Vem gör dummast saker på fyllan?
@@ -374,6 +474,7 @@ rygg|Vem spenderar mest pengar på kläder?
 rygg|Vem spenderar mest tid framför spegeln?
 rygg|Vem springer snabbast?
 rygg|Vem svettas mest?
+rygg|Vem talar flest spåk?
 rygg|Vem talar sämst engelska?
 rygg|Vem twerkar bäst?
 rygg|Vem tål mest alkohol?
@@ -442,6 +543,7 @@ two_name|Sten, sax, påse! {} mot {}, förloraren tar en shot
 two_name|Tumkrig!! {} mot {} förloraren tar en shot
 two_name|{} byt dricka med {}
 two_name|{} byt ett klädesplagg med {}
+two_name|{} dela ut en klunk till alla som är nyktrare än {}!
 two_name|{} ge {} en ny frisyr
 two_name|{} gör en armhävning med {} på ryggen en shot om du misslyckas
 two_name|{} lyft {}. En shot om du misslyckas
