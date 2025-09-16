@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', async () => {
-    const APP_VERSION = "1.4.0"; // bumpa när du deployar
+    const APP_VERSION = "1.4.1"; // bumpa när du deployar
     
     // --- Cache busting ---
     document.querySelectorAll('link[rel="stylesheet"], script[src]').forEach(el => {
@@ -550,5 +550,5 @@ document.addEventListener('DOMContentLoaded', async () => {
         renderDating();
         showScreen('names');
     }
-    
+
 });
