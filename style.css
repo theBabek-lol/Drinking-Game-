@@ -309,6 +309,8 @@ button.danger-btn:hover {
   margin: auto;
   box-shadow: 0 4px 10px rgba(0,0,0,0.25);
   color: #111;
+  overflow-y: auto;
+  max-height: 80vh;
 }
 
 .rules-box .qr-code {
