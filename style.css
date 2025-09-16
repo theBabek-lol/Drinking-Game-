@@ -311,6 +311,18 @@ button.danger-btn:hover {
   color: #111;
 }
 
+.rules-box .qr-code {
+  display: block;
+  margin: 20px auto;
+  width: 200px;      /* adjust size */
+  height: auto;
+  border: 4px solid #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+  background: #fff;  /* makes QR stand out */
+}
+
+
 /* Start screen */
 #screen-start {
   display: none; /* hidden by default */
