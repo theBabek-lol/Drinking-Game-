@@ -5,6 +5,10 @@
     },
     {
         "type": "all",
+        "template": "Alla med Android dricker!"
+    },
+    {
+        "type": "all",
         "template": "Alla med bruna ögon dricker."
     },
     {
@@ -209,10 +213,6 @@
     },
     {
         "type": "kat",
-        "template": "{} sexleksaker"
-    },
-    {
-        "type": "kat",
         "template": "{} sexställningar"
     },
     {
@@ -410,10 +410,6 @@
     {
         "type": "nhie",
         "template": "haft ett seriöst förhållande"
-    },
-    {
-        "type": "nhie",
-        "template": "haft gruppsex"
     },
     {
         "type": "nhie",
@@ -637,6 +633,10 @@
     },
     {
         "type": "nhie",
+        "template": "svalt sperma"
+    },
+    {
+        "type": "nhie",
         "template": "tagit dagen efter piller"
     },
     {
@@ -733,6 +733,14 @@
     },
     {
         "type": "one_name",
+        "template": "Alla som är kortare än {} dircker 3 klunkar!"
+    },
+    {
+        "type": "one_name",
+        "template": "Alla som är längre än {} dricker 3 klunkar!"
+    },
+    {
+        "type": "one_name",
         "template": "Vattenfall! Börja med {}"
     },
     {
@@ -761,6 +769,10 @@
     },
     {
         "type": "one_name",
+        "template": "{} dela ut en klunk till den sötaste personen ikväll"
+    },
+    {
+        "type": "one_name",
         "template": "{} drick lika många klunkar som du har bokstäver i ditt namn"
     },
     {
@@ -769,7 +781,15 @@
     },
     {
         "type": "one_name",
+        "template": "{} ge bort en klunk av din dricka till någons som behöver den mer!"
+    },
+    {
+        "type": "one_name",
         "template": "{} gör 15 armhävningar 1 shot om du misslyckas"
+    },
+    {
+        "type": "one_name",
+        "template": "{} imitera en säl"
     },
     {
         "type": "one_name",
@@ -778,6 +798,10 @@
     {
         "type": "one_name",
         "template": "{} lägg ut en story"
+    },
+    {
+        "type": "one_name",
+        "template": "{} måste dricka med vänsterhanden resten av spelet"
     },
     {
         "type": "one_name",
@@ -794,6 +818,10 @@
     {
         "type": "one_name",
         "template": "{} ta av ett klädesplagg!"
+    },
+    {
+        "type": "one_name",
+        "template": "{} ta en klunk för var tionde högskolepoäng du har!"
     },
     {
         "type": "one_name",
@@ -821,6 +849,10 @@
     },
     {
         "type": "one_name",
+        "template": "{} tejpa fast din nuvarande dricka i handen och ta inte loss den förens du har druckit upp den"
+    },
+    {
+        "type": "one_name",
         "template": "{} visa den senaste bilden i ditt galleri eller ta en shot"
     },
     {
@@ -845,11 +877,39 @@
     },
     {
         "type": "pek",
+        "template": "Vem behöver en partner?"
+    },
+    {
+        "type": "pek",
+        "template": "Vem behöver en shot?"
+    },
+    {
+        "type": "pek",
+        "template": "Vem behöver köpa ny mobil?"
+    },
+    {
+        "type": "pek",
+        "template": "Vem behöver ta en dusch?"
+    },
+    {
+        "type": "pek",
+        "template": "Vem behöver ta tag i sitt liv?"
+    },
+    {
+        "type": "pek",
+        "template": "Vem bidrar mest till världen?"
+    },
+    {
+        "type": "pek",
         "template": "Vem bidrar minst till världen?"
     },
     {
         "type": "pek",
         "template": "Vem bjuder på efterfest ikväll?"
+    },
+    {
+        "type": "pek",
+        "template": "Vem blir mest friendzonad?"
     },
     {
         "type": "pek",
@@ -861,7 +921,23 @@
     },
     {
         "type": "pek",
+        "template": "Vem döljer sin fetish?"
+    },
+    {
+        "type": "pek",
+        "template": "Vem festar mest?"
+    },
+    {
+        "type": "pek",
+        "template": "Vem festar minst?"
+    },
+    {
+        "type": "pek",
         "template": "Vem flirtar mest?"
+    },
+    {
+        "type": "pek",
+        "template": "Vem fuskar på tentor?"
     },
     {
         "type": "pek",
@@ -869,11 +945,27 @@
     },
     {
         "type": "pek",
+        "template": "Vem får sina dejting tips från internet?"
+    },
+    {
+        "type": "pek",
         "template": "Vem gifter sig först?"
     },
     {
         "type": "pek",
+        "template": "Vem gillar BDSM?"
+    },
+    {
+        "type": "pek",
+        "template": "Vem gillar hentai?"
+    },
+    {
+        "type": "pek",
         "template": "Vem gråter mest?"
+    },
+    {
+        "type": "pek",
+        "template": "Vem gråter till filmer?"
     },
     {
         "type": "pek",
@@ -886,6 +978,26 @@
     {
         "type": "pek",
         "template": "Vem hade kunnat bli skådespelare?"
+    },
+    {
+        "type": "pek",
+        "template": "Vem hade sex senast?"
+    },
+    {
+        "type": "pek",
+        "template": "Vem har blivit dumpad flest gånger?"
+    },
+    {
+        "type": "pek",
+        "template": "Vem har bäst klädstil?"
+    },
+    {
+        "type": "pek",
+        "template": "Vem har bäst musiksmak?"
+    },
+    {
+        "type": "pek",
+        "template": "Vem har bäst radio röst?"
     },
     {
         "type": "pek",
@@ -909,7 +1021,15 @@
     },
     {
         "type": "pek",
+        "template": "Vem har en existensielkris?"
+    },
+    {
+        "type": "pek",
         "template": "Vem har finast fötter?"
+    },
+    {
+        "type": "pek",
+        "template": "Vem har finast kropp?"
     },
     {
         "type": "pek",
@@ -921,11 +1041,23 @@
     },
     {
         "type": "pek",
+        "template": "Vem har flest vuxenleksaker?"
+    },
+    {
+        "type": "pek",
         "template": "Vem har fulast frisyr?"
     },
     {
         "type": "pek",
+        "template": "Vem har fulast naglar?"
+    },
+    {
+        "type": "pek",
         "template": "Vem har fulast tatuering?"
+    },
+    {
+        "type": "pek",
+        "template": "Vem har fulast underkläder?"
     },
     {
         "type": "pek",
@@ -937,6 +1069,10 @@
     },
     {
         "type": "pek",
+        "template": "Vem har haft sex på offäntlig plats?"
+    },
+    {
+        "type": "pek",
         "template": "Vem har hårigast ben!"
     },
     {
@@ -945,7 +1081,27 @@
     },
     {
         "type": "pek",
+        "template": "Vem har inget mål i livet?"
+    },
+    {
+        "type": "pek",
+        "template": "Vem har inte kommit ut ur garderoben?"
+    },
+    {
+        "type": "pek",
+        "template": "Vem har klamydia?"
+    },
+    {
+        "type": "pek",
+        "template": "Vem har lägst EQ?"
+    },
+    {
+        "type": "pek",
         "template": "Vem har lägst bodycount?"
+    },
+    {
+        "type": "pek",
+        "template": "Vem har lägst självförtroende?"
     },
     {
         "type": "pek",
@@ -957,7 +1113,19 @@
     },
     {
         "type": "pek",
+        "template": "Vem har skummast relationer?"
+    },
+    {
+        "type": "pek",
+        "template": "Vem har snyggast mamma?"
+    },
+    {
+        "type": "pek",
         "template": "Vem har snyggast partner?"
+    },
+    {
+        "type": "pek",
+        "template": "Vem har störst bekräftelsebehov?"
     },
     {
         "type": "pek",
@@ -965,7 +1133,23 @@
     },
     {
         "type": "pek",
+        "template": "Vem har störst ordförråd?"
+    },
+    {
+        "type": "pek",
+        "template": "Vem har sämst ekonomi?"
+    },
+    {
+        "type": "pek",
         "template": "Vem har sämst humor?"
+    },
+    {
+        "type": "pek",
+        "template": "Vem har sämst klädsmak?"
+    },
+    {
+        "type": "pek",
+        "template": "Vem hatar Apple?"
     },
     {
         "type": "pek",
@@ -973,7 +1157,15 @@
     },
     {
         "type": "pek",
+        "template": "Vem håller inte käften?"
+    },
+    {
+        "type": "pek",
         "template": "Vem jobbar hårdast?"
+    },
+    {
+        "type": "pek",
+        "template": "Vem kan inte läsa?"
     },
     {
         "type": "pek",
@@ -981,7 +1173,19 @@
     },
     {
         "type": "pek",
+        "template": "Vem knarkar mest?"
+    },
+    {
+        "type": "pek",
         "template": "Vem kollar mest tiktok?"
+    },
+    {
+        "type": "pek",
+        "template": "Vem kollar på mest porr?"
+    },
+    {
+        "type": "pek",
+        "template": "Vem kommer att spy i kväll?"
     },
     {
         "type": "pek",
@@ -989,7 +1193,15 @@
     },
     {
         "type": "pek",
+        "template": "Vem kommer begå ett mord?"
+    },
+    {
+        "type": "pek",
         "template": "Vem kommer bli arbetslös?"
+    },
+    {
+        "type": "pek",
+        "template": "Vem kommer bli en katt-tant?"
     },
     {
         "type": "pek",
@@ -1001,6 +1213,14 @@
     },
     {
         "type": "pek",
+        "template": "Vem kommer få sötaste barn?"
+    },
+    {
+        "type": "pek",
+        "template": "Vem kommer göra slut?"
+    },
+    {
+        "type": "pek",
         "template": "Vem kommer inte in på krogen ikväll?"
     },
     {
@@ -1009,7 +1229,31 @@
     },
     {
         "type": "pek",
+        "template": "Vem kommer pierca sig i könet?"
+    },
+    {
+        "type": "pek",
         "template": "Vem kommer slå ett världsrekord?"
+    },
+    {
+        "type": "pek",
+        "template": "Vem kommer snabbast?"
+    },
+    {
+        "type": "pek",
+        "template": "Vem kommer tjäna mest pengar?"
+    },
+    {
+        "type": "pek",
+        "template": "Vem ljuger bäst?"
+    },
+    {
+        "type": "pek",
+        "template": "Vem njuter av lite smisk?"
+    },
+    {
+        "type": "pek",
+        "template": "Vem peakade i gymnasiet?"
     },
     {
         "type": "pek",
@@ -1017,7 +1261,7 @@
     },
     {
         "type": "pek",
-        "template": "Vem ser yngst ut?"
+        "template": "Vem ser snyggast ut i glasögon?"
     },
     {
         "type": "pek",
@@ -1030,6 +1274,18 @@
     {
         "type": "pek",
         "template": "Vem sextar mest?"
+    },
+    {
+        "type": "pek",
+        "template": "Vem shoppar mest?"
+    },
+    {
+        "type": "pek",
+        "template": "Vem skrattar mest?"
+    },
+    {
+        "type": "pek",
+        "template": "Vem skriver erotisk litteratur?"
     },
     {
         "type": "pek",
@@ -1097,11 +1353,31 @@
     },
     {
         "type": "pek",
+        "template": "Vem skulle överleva en zombieapokalyps?"
+    },
+    {
+        "type": "pek",
+        "template": "Vem smakar bäst?"
+    },
+    {
+        "type": "pek",
+        "template": "Vem snackar mest skit?"
+    },
+    {
+        "type": "pek",
         "template": "Vem sover naken?"
     },
     {
         "type": "pek",
         "template": "Vem spenderar mest pengar på mat?"
+    },
+    {
+        "type": "pek",
+        "template": "Vem strippar bäst?"
+    },
+    {
+        "type": "pek",
+        "template": "Vem talar flest språk?"
     },
     {
         "type": "pek",
@@ -1125,6 +1401,10 @@
     },
     {
         "type": "pek",
+        "template": "Vem vill vara någon annanstans just nu?"
+    },
+    {
+        "type": "pek",
         "template": "Vem äger the kama sutra?"
     },
     {
@@ -1137,11 +1417,43 @@
     },
     {
         "type": "pek",
+        "template": "Vem är bäst i sängen?"
+    },
+    {
+        "type": "pek",
+        "template": "Vem är bäst på dirty talk?"
+    },
+    {
+        "type": "pek",
+        "template": "Vem är bäst på ursäkter?"
+    },
+    {
+        "type": "pek",
+        "template": "Vem är charmigast?"
+    },
+    {
+        "type": "pek",
         "template": "Vem är den största hustlern?"
     },
     {
         "type": "pek",
+        "template": "Vem är den största romanikern?"
+    },
+    {
+        "type": "pek",
+        "template": "Vem är det svarta fåret i sin familj?"
+    },
+    {
+        "type": "pek",
+        "template": "Vem är fegast?"
+    },
+    {
+        "type": "pek",
         "template": "Vem är har en samling erotisk litteratur?"
+    },
+    {
+        "type": "pek",
+        "template": "Vem är inte över sitt ex?"
     },
     {
         "type": "pek",
@@ -1150,6 +1462,10 @@
     {
         "type": "pek",
         "template": "Vem är latast?"
+    },
+    {
+        "type": "pek",
+        "template": "Vem är mest atletisk?"
     },
     {
         "type": "pek",
@@ -1169,7 +1485,23 @@
     },
     {
         "type": "pek",
+        "template": "Vem är mest feminin?"
+    },
+    {
+        "type": "pek",
+        "template": "Vem är mest framgångsrik?"
+    },
+    {
+        "type": "pek",
         "template": "Vem är mest gold-digger"
+    },
+    {
+        "type": "pek",
+        "template": "Vem är mest kinky?"
+    },
+    {
+        "type": "pek",
+        "template": "Vem är mest kreativ?"
     },
     {
         "type": "pek",
@@ -1181,7 +1513,27 @@
     },
     {
         "type": "pek",
+        "template": "Vem är mest maskulin?"
+    },
+    {
+        "type": "pek",
+        "template": "Vem är mest mogen?"
+    },
+    {
+        "type": "pek",
         "template": "Vem är mest orten?"
+    },
+    {
+        "type": "pek",
+        "template": "Vem är mest pinsam?"
+    },
+    {
+        "type": "pek",
+        "template": "Vem är mest svartsjuk?"
+    },
+    {
+        "type": "pek",
+        "template": "Vem är mest trolig att vara med i en vuxenfilm?"
     },
     {
         "type": "pek",
@@ -1190,6 +1542,14 @@
     {
         "type": "pek",
         "template": "Vem är nördigast?"
+    },
+    {
+        "type": "pek",
+        "template": "Vem är sexigast?"
+    },
+    {
+        "type": "pek",
+        "template": "Vem är smalast?"
     },
     {
         "type": "pek",
@@ -1205,11 +1565,23 @@
     },
     {
         "type": "pek",
+        "template": "Vem är största mobboffret?"
+    },
+    {
+        "type": "pek",
+        "template": "Vem är sämst i skolan?"
+    },
+    {
+        "type": "pek",
         "template": "Vem är sämst på att laga mat?"
     },
     {
         "type": "pek",
         "template": "Vem är tystast?"
+    },
+    {
+        "type": "pek",
+        "template": "Vem äter mest?"
     },
     {
         "type": "rygg",
@@ -1233,6 +1605,10 @@
     },
     {
         "type": "rygg",
+        "template": "Vem festar mest?"
+    },
+    {
+        "type": "rygg",
         "template": "Vem får mest ragg?"
     },
     {
@@ -1242,10 +1618,6 @@
     {
         "type": "rygg",
         "template": "Vem gör dummast saker på fyllan?"
-    },
-    {
-        "type": "rygg",
-        "template": "Vem hade sex senast?"
     },
     {
         "type": "rygg",
@@ -1502,6 +1874,10 @@
     {
         "type": "rygg",
         "template": "Vem svettas mest?"
+    },
+    {
+        "type": "rygg",
+        "template": "Vem talar flest spåk?"
     },
     {
         "type": "rygg",
@@ -1774,6 +2150,10 @@
     {
         "type": "two_name",
         "template": "{} byt ett klädesplagg med {}"
+    },
+    {
+        "type": "two_name",
+        "template": "{} dela ut en klunk till alla som är nyktrare än {}!"
     },
     {
         "type": "two_name",
