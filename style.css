@@ -384,14 +384,16 @@ button.danger-btn:hover {
 }
 
 #suggest-input {
-  width: 100%;
-  min-height: 100px;
-  padding: 10px;
+  display: block;
+  width: 90%;          /* leave space on the sides */
+  max-width: 500px;    /* don’t get too wide */
+  margin: 20px auto;   /* auto centers horizontally */
+  padding: 12px;
+  font-size: 1rem;
   border-radius: 12px;
   border: 1px solid #ccc;
-  font-size: 1rem;
   resize: vertical;
-  margin-top: 10px;
+  box-sizing: border-box;
 }
 
 #open-suggest-btn {
@@ -424,4 +426,9 @@ button.danger-btn:hover {
 }
 #cancel-suggest-btn:hover {
   background: linear-gradient(135deg, #ef5350, #e53935);
+}
+
+#suggest-modal .modal-content {
+  background: #b5d7ee;       /* light blue */
+  border: 2px solid #86c6e9; /* subtle border */
 }
