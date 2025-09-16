@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', async () => {
-    const APP_VERSION = "1.3.16"; // bumpa när du deployar
+    const APP_VERSION = "1.3.17"; // bumpa när du deployar
     
     // --- Cache busting ---
     document.querySelectorAll('link[rel="stylesheet"], script[src]').forEach(el => {
@@ -459,14 +459,15 @@ document.addEventListener('DOMContentLoaded', async () => {
     // --- Attach buttons ---
     addClickEvents(addNameBtn, addName);
     nameInput.addEventListener('keydown', e => { if (e.key === 'Enter') addName(e); });
-    addClickEvents(continueBtn, () => { renderDating(); showScreen('dating'); });
-
-    addClickEvents(startGameBtn, () => {
+    addClickEvents(continueBtn, () => {
         if (names.length < 2) {
             document.getElementById('players-modal').classList.remove('hidden');
             return;
         }
+        renderDating(); showScreen('dating'); 
+    });
 
+    addClickEvents(startGameBtn, () => {
         if (!deckBuilt) buildDeck();
         showScreen('game');
         if (!waitingForRyggReveal) nextChallenge();
