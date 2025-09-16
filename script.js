@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', async () => {
-    const APP_VERSION = "1.3.20"; // bumpa när du deployar
+    const APP_VERSION = "1.4.0"; // bumpa när du deployar
     
     // --- Cache busting ---
     document.querySelectorAll('link[rel="stylesheet"], script[src]').forEach(el => {
@@ -55,12 +55,18 @@ document.addEventListener('DOMContentLoaded', async () => {
     const newGameModal = document.getElementById('newgame-modal');
     const confirmNewGameBtn = document.getElementById('confirm-newgame');
     const cancelNewGameBtn = document.getElementById('cancel-newgame');
+    const suggestModal = document.getElementById('suggest-modal');
+    const openSuggestBtn = document.getElementById('open-suggest-btn');
+    const submitSuggestBtn = document.getElementById('submit-suggest-btn');
+    const cancelSuggestBtn = document.getElementById('cancel-suggest-btn');
+    const suggestInput = document.getElementById('suggest-input');
+
 
     // --- Game State ---
     let names = [];
     let couples = {};
     let questions = [];
-    const DEFAULT_WEIGHTS = {"nhie":8,"pek":8,"rygg":6,"kat":4,"one_name":2,"two_name":2,"two_name_intim":2,"all":3};
+    const DEFAULT_WEIGHTS = {"nhie":8,"pek":8,"rygg":6,"kat":4,"one_name":3,"two_name":2,"two_name_intim":2,"all":3};
     let weights = {...DEFAULT_WEIGHTS};
 
     let questionPools = {};
@@ -507,6 +513,32 @@ document.addEventListener('DOMContentLoaded', async () => {
         document.getElementById('players-modal').classList.add('hidden');
     });
 
+    addClickEvents(openSuggestBtn, () => {
+        suggestModal.classList.remove('hidden');
+    });
+
+    addClickEvents(cancelSuggestBtn, () => {
+        suggestModal.classList.add('hidden');
+        suggestInput.value = '';
+    });
+
+    addClickEvents(submitSuggestBtn, () => {
+        const text = suggestInput.value.trim();
+        if (!text) return;
+
+        fetch("https://docs.google.com/forms/d/e/1FAIpQLSce5442Wex6BmsNHoo7OAvZl0Sk8ymH5NjjhGIlP0uMlHysfw/formResponse", {
+            method: "POST",
+            mode: "no-cors",
+            body: new URLSearchParams({
+                "entry.973501385": text
+            })
+        });
+
+        suggestModal.classList.add('hidden');
+        suggestInput.value = '';
+        alert("Tack! Din fråga har skickats.");
+    });
+
     // --- Initialize ---
     await loadQuestions();
     const rawSave = localStorage.getItem(SAVE_KEY);
@@ -518,4 +550,5 @@ document.addEventListener('DOMContentLoaded', async () => {
         renderDating();
         showScreen('names');
     }
+    
 });

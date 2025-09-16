@@ -117,7 +117,9 @@
                 
                 <h3>Dela Spelet</h3>
                 <p>Skanna QR-koden nedan för att snabbt dela spelet:</p>
-                <img src="qr-code.png" alt="QR-kod till spelet" class="qr-code">    
+                <img src="qr-code.png" alt="QR-kod till spelet" class="qr-code"> 
+                
+                <button id="open-suggest-btn" class="primary-btn">Föreslå en fråga</button>
                     
             </div>
         </div>
@@ -145,6 +147,17 @@
             <p>Du måste lägga till minst 2 spelare för att starta spelet.</p>
             <div class="modal-buttons">
                 <button id="close-players-modal">Ok</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="suggest-modal" class="modal hidden">
+        <div class="modal-content">
+            <h3>Föreslå en fråga</h3>
+            <textarea id="suggest-input" placeholder="Skriv din fråga här..."></textarea>
+            <div class="modal-buttons">
+                <button id="submit-suggest-btn" class="primary-btn">Skicka</button>
+                <button id="cancel-suggest-btn">Avbryt</button>
             </div>
         </div>
     </div>

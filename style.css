@@ -382,3 +382,14 @@ button.danger-btn:hover {
 #players-modal .modal-buttons button:hover {
   background: linear-gradient(135deg, #60a5fa, #3b82f6);
 }
+
+#suggest-input {
+  width: 100%;
+  min-height: 100px;
+  padding: 10px;
+  border-radius: 12px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  resize: vertical;
+  margin-top: 10px;
+}
