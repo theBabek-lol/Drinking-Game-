@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', async () => {
-    const APP_VERSION = "1.3.15"; // bumpa när du deployar
+    const APP_VERSION = "1.3.18"; // bumpa när du deployar
+    
     // --- Cache busting ---
     document.querySelectorAll('link[rel="stylesheet"], script[src]').forEach(el => {
         const srcAttr = el.tagName === "LINK" ? "href" : "src";
@@ -458,7 +459,13 @@ document.addEventListener('DOMContentLoaded', async () => {
     // --- Attach buttons ---
     addClickEvents(addNameBtn, addName);
     nameInput.addEventListener('keydown', e => { if (e.key === 'Enter') addName(e); });
-    addClickEvents(continueBtn, () => { renderDating(); showScreen('dating'); });
+    addClickEvents(continueBtn, () => {
+        if (names.length < 2) {
+            document.getElementById('players-modal').classList.remove('hidden');
+            return;
+        }
+        renderDating(); showScreen('dating'); 
+    });
 
     addClickEvents(startGameBtn, () => {
         if (!deckBuilt) buildDeck();
@@ -494,6 +501,10 @@ document.addEventListener('DOMContentLoaded', async () => {
         renderDating();
         showScreen('names');
         newGameModal.classList.add('hidden');
+    });
+
+    addClickEvents(document.getElementById('close-players-modal'), () => {
+        document.getElementById('players-modal').classList.add('hidden');
     });
 
     // --- Initialize ---
