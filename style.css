@@ -137,6 +137,8 @@ button:active { transform: scale(0.95); }
     will-change: transform, opacity;
     z-index: 1;
     transition: opacity 0.3s;
+    min-height: 150px;
+    position: relative;
 }
 
 #card-stack .card.active {
@@ -162,7 +164,7 @@ button:active { transform: scale(0.95); }
 .card-inner {
     position: relative;
     width: 100%;
-    height: auto; /* allow card to grow with text */
+    height: 100%; /* allow card to grow with text */
     transform-style: preserve-3d;
     transition: transform 0.6s;
 }
@@ -170,15 +172,18 @@ button:active { transform: scale(0.95); }
 
 .card-front,
 .card-back {
+    color: #111;
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
+    min-height: 150px; 
     height: 100%;
     backface-visibility: hidden;
     display: flex;
     align-items: center;
     justify-content: center;
+    text-align: center; 
     font-size: 2rem;
     border-radius: 16px;
     box-shadow: 0 6px 12px rgba(0,0,0,0.25);
