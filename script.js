@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', async () => {
-    const APP_VERSION = "1.5.4"; // bumpa när du deployar
+    const APP_VERSION = "1.5.5"; // bumpa när du deployar
     
     // --- Cache busting ---
     document.querySelectorAll('link[rel="stylesheet"], script[src]').forEach(el => {
@@ -60,6 +60,8 @@ document.addEventListener('DOMContentLoaded', async () => {
     const submitSuggestBtn = document.getElementById('submit-suggest-btn');
     const cancelSuggestBtn = document.getElementById('cancel-suggest-btn');
     const suggestInput = document.getElementById('suggest-input');
+    const cardStack = document.getElementById('card-stack');
+    const cards = cardStack.querySelectorAll('.card');
 
 
     // --- Game State ---
@@ -74,6 +76,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     let ryggNames = [];
     let waitingForRyggReveal = false;
     let deckBuilt = false;
+    let activeCardIndex = 0;
     const weightLabels = {
           nhie: "Jag har aldrig",
           pek: "Pekleken",
@@ -283,6 +286,34 @@ document.addEventListener('DOMContentLoaded', async () => {
         return picked;
     }
 
+    function showCardText(text) {
+        const current = cards[activeCardIndex];
+        const nextIndex = (activeCardIndex + 1) % 2;
+        const next = cards[nextIndex];
+
+        // set new text on the hidden card
+        next.textContent = text;
+
+        // animate current out
+        current.classList.remove('active');
+        current.classList.add('slide-out');
+        current.addEventListener('animationend', function handler() {
+            current.classList.remove('slide-out');
+            current.removeEventListener('animationend', handler);
+        });
+
+        // animate new card in
+        next.classList.add('slide-in');
+        next.addEventListener('animationend', function handler() {
+            next.classList.remove('slide-in');
+            next.classList.add('active');
+            next.removeEventListener('animationend', handler);
+        });
+
+        activeCardIndex = nextIndex;
+    }
+
+
     function shuffle(array) {
         for (let i = array.length - 1; i > 0; i--) {
             const j = Math.floor(Math.random() * (i + 1));
@@ -292,7 +323,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
 
     // --- Game Logic ---
-    function nextChallenge() {
+   function nextChallenge() {
         if (waitingForRyggReveal) {
             showRygg();
             return;
@@ -300,53 +331,49 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         const q = drawQuestion();
         if (!q) {
-            card.textContent = 'Inga fler frågor!';
+            showCardText('Inga fler frågor!');
             return;
         }
 
-        card.classList.remove('flip');
-        void card.offsetWidth;
-        card.classList.add('flip');
-
         if (q.type === 'nhie') {
             gameHeader.textContent = "Jag har aldrig";
-            card.textContent = `Jag har aldrig\n${q.template}`;
+            showCardText(`Jag har aldrig\n${q.template}`);
         } else if (q.type === 'one_name') {
             gameHeader.textContent = "Utmaning";
-            card.textContent = q.template.replace('{}', randomName());
+            showCardText(q.template.replace('{}', randomName()));
         } else if (q.type === 'two_name') {
             gameHeader.textContent = "Utmaning";
             const n1 = randomName();
             const n2 = randomName([n1]);
-            card.textContent = q.template.replace('{}', n1).replace('{}', n2);
+            showCardText(q.template.replace('{}', n1).replace('{}', n2));
         } else if (q.type === 'rygg') {
             gameHeader.textContent = "Rygg mot rygg";
             const n1 = randomName();
             const n2 = randomName([n1]);
             if (!n1 || !n2 || n1 === '(ingen)' || n2 === '(ingen)') {
-                card.textContent = 'Behövs minst två spelare för rygg mot rygg.';
+                showCardText('Behövs minst två spelare för rygg mot rygg.');
             } else {
                 ryggNames = [n1, n2];
                 ryggQuestion = q.template;
-                card.textContent = `Rygg mot rygg\n${ryggNames[0]} & ${ryggNames[1]}`;
+                showCardText(`Rygg mot rygg\n${ryggNames[0]} & ${ryggNames[1]}`);
                 nextBtn.textContent = 'Visa fråga';
                 waitingForRyggReveal = true;
                 return;
             }
         } else if (q.type === 'pek') {
             gameHeader.textContent = "Pekleken";
-            card.textContent = `Pekleken!\n${q.template}`;
+            showCardText(`Pekleken!\n${q.template}`);
         } else if (q.type === 'kat') {
             gameHeader.textContent = "Kategori";
-            card.textContent = `Kategori!\n${q.template.replace('{}', randomName())}`;
+            showCardText(`Kategori!\n${q.template.replace('{}', randomName())}`);
         } else if (q.type === 'all') {
-            card.textContent = q.template;
+            showCardText(q.template);
         } else if (q.type === 'two_name_intim') {
             gameHeader.textContent = "Utmaning";
             const singles = getSingles();
             const allNames = names.slice();
             if (allNames.length < 2) {
-                card.textContent = 'Behövs minst två spelare för denna fråga.';
+                showCardText('Behövs minst två spelare för denna fråga.');
                 nextBtn.textContent = 'Nästa';
                 return;
             }
@@ -364,11 +391,11 @@ document.addEventListener('DOMContentLoaded', async () => {
                     const pairs = uniqueCouplePairs();
                     if (pairs.length > 0) {
                         const pick = pairs[Math.floor(Math.random() * pairs.length)];
-                        card.textContent = q.template.replace('{}', pick[0]).replace('{}', pick[1]);
+                        showCardText(q.template.replace('{}', pick[0]).replace('{}', pick[1]));
                         nextBtn.textContent = 'Nästa';
                         return;
                     } else {
-                        card.textContent = 'Inget giltigt par finns för den här frågan.';
+                        showCardText('Inget giltigt par finns för den här frågan.');
                         nextBtn.textContent = 'Nästa';
                         return;
                     }
@@ -376,20 +403,21 @@ document.addEventListener('DOMContentLoaded', async () => {
             }
 
             if (!n1 || !n2 || n1 === '(ingen)' || n2 === '(ingen)') {
-                card.textContent = 'Behövs två spelare för den här frågan.';
+                showCardText('Behövs två spelare för den här frågan.');
             } else {
-                card.textContent = q.template.replace('{}', n1).replace('{}', n2);
+                showCardText(q.template.replace('{}', n1).replace('{}', n2));
             }
         }
 
-        nextBtn.textContent = 'Nästa';
+        extBtn.textContent = 'Nästa';
     }
 
     function showRygg() {
-        card.textContent = ryggQuestion;
+        showCardText(ryggQuestion);
         nextBtn.textContent = 'Nästa';
         waitingForRyggReveal = false;
     }
+
 
     function randomName(exclude = []) {
         const available = names.filter(n => !exclude.includes(n));

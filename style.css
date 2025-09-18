@@ -438,3 +438,53 @@ button.danger-btn:hover {
   background: #b5d7ee;       /* light blue */
   border: 2px solid #86c6e9; /* subtle border */
 }
+
+#card-stack {
+  position: relative;
+  width: 100%;
+  max-width: 500px;
+  height: 180px; /* match your min-height */
+  perspective: 1000px;
+  overflow: hidden;
+}
+
+#card-stack .card {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.25);
+  font-size: 2rem;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  opacity: 0;
+  transform: translateX(100%);
+}
+
+#card-stack .card.active {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+#card-stack .card.slide-out {
+  animation: slideOutLeft 0.4s forwards ease;
+}
+
+#card-stack .card.slide-in {
+  animation: slideInRight 0.4s forwards ease;
+}
+
+@keyframes slideOutLeft {
+  to { transform: translateX(-100%); opacity: 0; }
+}
+
+@keyframes slideInRight {
+  from { transform: translateX(100%); opacity: 0; }
+  to   { transform: translateX(0); opacity: 1; }
+}
