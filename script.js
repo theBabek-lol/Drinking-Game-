@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', async () => {
-    const APP_VERSION = "1.5.29"; // bump version on deploy
+    const APP_VERSION = "1.5.30"; // bump version on deploy
 
     // --- Cache busting ---
     document.querySelectorAll('link[rel="stylesheet"], script[src]').forEach(el => {
@@ -285,45 +285,55 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     // --- Cards ---
     function showCardText(text, isBack = false) {
-        if (isAnimating) return; 
+        if (isAnimating) return;
         isAnimating = true;
 
         const current = cards[activeCardIndex];
         const nextIndex = (activeCardIndex + 1) % 2;
         const next = cards[nextIndex];
 
-        const front = next.querySelector('.card-front');
-        const back = next.querySelector('.card-back');
+        // prepare elements
+        const frontNext = next.querySelector('.card-front');
+        const backNext  = next.querySelector('.card-back');
 
         if (isBack) {
+            // 🔹 flip current active card
             const front = current.querySelector('.card-front');
             const back  = current.querySelector('.card-back');
 
             front.textContent = "";
-            back.textContent = text;
+            back.textContent  = text;
 
             const inner = current.querySelector('.card-inner');
             inner.classList.add('flip');
             inner.addEventListener('transitionend', function handler() {
                 inner.removeEventListener('transitionend', handler);
+                // make sure animation state resets
                 isAnimating = false;
             });
             return;
         } else {
-            front.textContent = text;
-            back.textContent = "";
+            // 🔹 prepare next card for slide in
+            frontNext.textContent = text;
+            backNext.textContent  = "";
         }
+
+        // slide out current
         current.classList.add('slide-out');
         current.addEventListener('animationend', function handler() {
             current.classList.remove('slide-out', 'active');
             current.removeEventListener('animationend', handler);
+            // 🔹 reset animating here too (fallback safety)
+            isAnimating = false;
         });
 
+        // slide in next
         next.classList.add('slide-in');
         next.addEventListener('animationend', function handler() {
             next.classList.remove('slide-in');
             next.classList.add('active');
             next.removeEventListener('animationend', handler);
+            // 🔹 ensure animating resets when swap finishes
             isAnimating = false;
         });
 
