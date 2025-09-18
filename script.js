@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', async () => {
-    const APP_VERSION = "1.5.19"; // bump version on deploy
+    const APP_VERSION = "1.5.20"; // bump version on deploy
 
     // --- Cache busting ---
     document.querySelectorAll('link[rel="stylesheet"], script[src]').forEach(el => {
@@ -291,6 +291,12 @@ document.addEventListener('DOMContentLoaded', async () => {
         const current = cards[activeCardIndex];
         const nextIndex = (activeCardIndex + 1) % 2;
         const next = cards[nextIndex];
+        
+        let target = next; // default = write into next card
+        if (!current.classList.contains('active')) {
+            // if starting state, current is already empty & active → use it
+            target = current;
+        }
 
         const front = next.querySelector('.card-front');
         const back = next.querySelector('.card-back');
