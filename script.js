@@ -295,34 +295,28 @@ document.addEventListener('DOMContentLoaded', async () => {
         const front = next.querySelector('.card-front');
         const back = next.querySelector('.card-back');
 
-    if (isBack) {
-        // Hide front so only back is visible
-        front.style.visibility = "hidden";
-        back.textContent = text;
+        if (isBack) {
+            front.textContent = "";          // clear front
+            back.textContent = text;         // put text on back
+            next.classList.add('flip');
 
-        next.classList.add('flip');
-        next.querySelector('.card-inner').addEventListener('transitionend', function handler() {
-            next.classList.remove('flip');
-            // Reset for next use
-            front.style.visibility = "visible";
-            next.removeEventListener('transitionend', handler);
-            isAnimating = false;
-        });
-        return;
-    } else {
-        front.textContent = text;
-        back.textContent = ""; // clear back so it doesn’t overlap
-    }   
+            next.querySelector('.card-inner').addEventListener('transitionend', function handler() {
+                next.classList.remove('flip');
+                next.removeEventListener('transitionend', handler);
+                isAnimating = false;
+            });
+            return;
+        } else {
+            front.textContent = text;        // normal case
+            back.textContent = "";           // clear back
+        }
 
-
-         // animate current out
         current.classList.add('slide-out');
         current.addEventListener('animationend', function handler() {
             current.classList.remove('slide-out', 'active');
             current.removeEventListener('animationend', handler);
         });
 
-        // animate new card in
         next.classList.add('slide-in');
         next.addEventListener('animationend', function handler() {
             next.classList.remove('slide-in');
