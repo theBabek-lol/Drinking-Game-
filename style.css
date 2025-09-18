@@ -4,7 +4,7 @@ html, body {
     padding: 0;
     height: 100%;
     font-family: sans-serif;
-    background: linear-gradient(135deg, #f9a8d4, #a5b4fc, #fcd34d);
+    background: linear-gradient(135deg, #f9a8d4, #8da0ff, #8747ff);
     background-size: 300% 300%;
     animation: bgShift 10s infinite alternate;
     color: #333;
@@ -147,7 +147,13 @@ button:active {
 }
 
 #card.flip {
-    transform: rotateY(360deg);
+    animation: popSlide 0.5s ease;
+}
+
+@keyframes popSlide {
+    0%   { opacity: 0; transform: translateY(20px) scale(0.9); }
+    60%  { opacity: 1; transform: translateY(-5px) scale(1.02); }
+    100% { opacity: 1; transform: translateY(0) scale(1); }
 }
 
 /* Bottom buttons */
