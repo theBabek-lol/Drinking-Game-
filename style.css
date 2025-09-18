@@ -4,7 +4,7 @@ html, body {
     padding: 0;
     height: 100%;
     font-family: sans-serif;
-    background: linear-gradient(135deg, #f9a8d4, #a5b4fc, #4dfcdf);
+    background: linear-gradient(135deg, #f9a8d4, #8da0ff, #8747ff);
     background-size: 300% 300%;
     animation: bgShift 10s infinite alternate;
     color: #333;
