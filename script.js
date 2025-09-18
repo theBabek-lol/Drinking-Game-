@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', async () => {
-    const APP_VERSION = "1.5.13"; // bump version on deploy
+    const APP_VERSION = "1.5.14"; // bump version on deploy
 
     // --- Cache busting ---
     document.querySelectorAll('link[rel="stylesheet"], script[src]').forEach(el => {
@@ -284,22 +284,38 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
 
     // --- Cards ---
-    function showCardText(text) {
-        if (isAnimating) return;
+    function showCardText(text, isBack = false) {
+        if (isAnimating) return; 
         isAnimating = true;
 
         const current = cards[activeCardIndex];
         const nextIndex = (activeCardIndex + 1) % 2;
         const next = cards[nextIndex];
 
-        next.textContent = text;
+        const front = next.querySelector('.card-front');
+        const back = next.querySelector('.card-back');
 
+        if (isBack) {
+            back.textContent = text;
+            next.classList.add('flip');
+            next.querySelector('.card-inner').addEventListener('transitionend', function handler() {
+                next.classList.remove('flip');
+                next.removeEventListener('transitionend', handler);
+                isAnimating = false;
+            });
+            return;
+        } else {
+            front.textContent = text;
+        }
+
+         // animate current out
         current.classList.add('slide-out');
         current.addEventListener('animationend', function handler() {
             current.classList.remove('slide-out', 'active');
             current.removeEventListener('animationend', handler);
         });
 
+        // animate new card in
         next.classList.add('slide-in');
         next.addEventListener('animationend', function handler() {
             next.classList.remove('slide-in');
@@ -410,7 +426,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
 
     function showRygg() {
-        showCardText(ryggQuestion);
+        showCardText(ryggQuestion, true); // flip to back
         nextBtn.textContent = 'Nästa';
         waitingForRyggReveal = false;
     }
