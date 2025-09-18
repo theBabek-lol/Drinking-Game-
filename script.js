@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', async () => {
-    const APP_VERSION = "1.5.8"; // bumpa när du deployar
+    const APP_VERSION = "1.5.9"; // bumpa när du deployar
     
     // --- Cache busting ---
     document.querySelectorAll('link[rel="stylesheet"], script[src]').forEach(el => {
@@ -294,10 +294,9 @@ document.addEventListener('DOMContentLoaded', async () => {
         next.textContent = text;
 
         // animate current out
-        current.classList.remove('active');
         current.classList.add('slide-out');
         current.addEventListener('animationend', function handler() {
-            current.classList.remove('slide-out');
+            current.classList.remove('slide-out', 'active');
             current.removeEventListener('animationend', handler);
         });
 
