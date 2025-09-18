@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', async () => {
-    const APP_VERSION = "1.5.15"; // bump version on deploy
+    const APP_VERSION = "1.5.16"; // bump version on deploy
 
     // --- Cache busting ---
     document.querySelectorAll('link[rel="stylesheet"], script[src]').forEach(el => {
@@ -295,17 +295,24 @@ document.addEventListener('DOMContentLoaded', async () => {
         const front = next.querySelector('.card-front');
         const back = next.querySelector('.card-back');
 
-        if (isBack) {
-            front.textContent = ""; // clear front
-            back.textContent = text;
-            next.classList.add('flip');
-            next.querySelector('.card-inner').addEventListener('transitionend', function handler() {
-                next.classList.remove('flip');
-                next.removeEventListener('transitionend', handler);
-                isAnimating = false;
-            });
-            return;
-        }   
+    if (isBack) {
+        // Hide front so only back is visible
+        front.style.visibility = "hidden";
+        back.textContent = text;
+
+        next.classList.add('flip');
+        next.querySelector('.card-inner').addEventListener('transitionend', function handler() {
+            next.classList.remove('flip');
+            // Reset for next use
+            front.style.visibility = "visible";
+            next.removeEventListener('transitionend', handler);
+            isAnimating = false;
+        });
+        return;
+    } else {
+        front.textContent = text;
+        back.textContent = ""; // clear back so it doesn’t overlap
+    }   
 
 
          // animate current out
