@@ -119,60 +119,59 @@ button:active { transform: scale(0.95); }
     margin: 10px 0;
 }
 
-/* --- Card stack (sliding) --- */
+/* --- Card stack (sliding + adaptive height) --- */
 #card-stack {
-    display: grid;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     width: 100%;
     max-width: 500px;
     perspective: 1000px;
     position: relative;
-    overflow: visible;
 }
+
 #card-stack .card {
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%; 
-    height: auto;
-    min-height: 180px;
+    width: 100%;
     opacity: 0;
     transform: translateX(100%);
     will-change: transform, opacity;
     z-index: 1;
+    transition: opacity 0.3s;
 }
+
 #card-stack .card.active {
     opacity: 1;
     transform: translateX(0);
     z-index: 2;
+    position: relative; /* only the active card is placed normally */
 }
+
 #card-stack .card.slide-out {
     animation: slideOutLeft 0.4s ease forwards;
+    position: absolute; /* slide-out card floats above */
+    top: 0; left: 0;
 }
+
 #card-stack .card.slide-in {
     animation: slideInRight 0.4s ease forwards;
-}
-@keyframes slideOutLeft {
-  to { transform: translateX(-120%) rotate(-8deg) scale(0.95); opacity: 1; }
-}
-@keyframes slideInRight {
-  from { transform: translateX(120%) rotate(8deg) scale(0.95); opacity: 1; }
-  to { transform: translateX(0) rotate(0) scale(1); opacity: 1; }
+    position: absolute; /* slide-in card floats until animation ends */
+    top: 0; left: 0;
 }
 
 /* --- Flip effect --- */
 .card-inner {
     position: relative;
-    width: 100%; 
-    height: auto;
+    width: 100%;
+    height: auto; /* allow card to grow with text */
     transform-style: preserve-3d;
     transition: transform 0.6s;
 }
 .card.flip .card-inner { transform: rotateY(180deg); }
+
 .card-front,
 .card-back {
-    position: absolute;
-    top: 0; left: 0;
     width: 100%;
-    min-height: 100%;
+    min-height: 120px;
     backface-visibility: hidden;
     display: flex;
     align-items: center;
@@ -185,7 +184,18 @@ button:active { transform: scale(0.95); }
     white-space: pre-line;
     box-sizing: border-box;
 }
-.card-back { transform: rotateY(180deg); }
+
+.card-front {
+    position: relative; /* grows with content */
+}
+
+.card-back {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: rotateY(180deg);
+}
+
 
 /* Bottom buttons */
 .bottom-buttons,
