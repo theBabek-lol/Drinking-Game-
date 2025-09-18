@@ -168,7 +168,9 @@ button:active { transform: scale(0.95); }
     transform-style: preserve-3d;
     transition: transform 0.6s;
 }
-.card.flip .card-inner { transform: rotateY(180deg); }
+.card-inner.flip {
+  transform: rotateY(180deg);
+}
 
 .card-front,
 .card-back {

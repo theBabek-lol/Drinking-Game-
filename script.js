@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', async () => {
-    const APP_VERSION = "1.5.25"; // bump version on deploy
+    const APP_VERSION = "1.5.26"; // bump version on deploy
 
     // --- Cache busting ---
     document.querySelectorAll('link[rel="stylesheet"], script[src]').forEach(el => {
@@ -298,10 +298,11 @@ document.addEventListener('DOMContentLoaded', async () => {
         if (isBack) {
             front.textContent = "";
             back.textContent = text;
-            next.classList.add('flip');           
-            next.querySelector('.card-inner').addEventListener('transitionend', function handler() {
-                next.classList.remove('flip');
-                next.removeEventListener('transitionend', handler);
+            const inner = next.querySelector('.card-inner');
+            inner.classList.add('flip');
+            inner.addEventListener('transitionend', function handler() {
+                inner.classList.remove('flip');
+                inner.removeEventListener('transitionend', handler);
                 isAnimating = false;
             });
             return;
