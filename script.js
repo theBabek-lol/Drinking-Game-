@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', async () => {
-    const APP_VERSION = "1.5.7"; // bumpa när du deployar
+    const APP_VERSION = "1.5.8"; // bumpa när du deployar
     
     // --- Cache busting ---
     document.querySelectorAll('link[rel="stylesheet"], script[src]').forEach(el => {
@@ -43,7 +43,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     const backNamesBtn = document.getElementById('back-names-btn');
     const nextBtn = document.getElementById('next-btn');
     const changeNamesBtn = document.getElementById('change-names-btn');
-    const card = document.getElementById('card');
     const namesDating = document.getElementById('names-dating');
     const couplesDating = document.getElementById('couples-dating');
     const weightsList = document.getElementById('weights-list');
