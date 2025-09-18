@@ -115,7 +115,7 @@ button:active { transform: scale(0.95); }
     flex: 0 0 auto;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     margin: 10px 0;
 }
 
