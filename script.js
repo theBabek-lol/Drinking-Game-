@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', async () => {
-    const APP_VERSION = "1.5.20"; // bump version on deploy
+    const APP_VERSION = "1.5.21"; // bump version on deploy
 
     // --- Cache busting ---
     document.querySelectorAll('link[rel="stylesheet"], script[src]').forEach(el => {
@@ -292,46 +292,49 @@ document.addEventListener('DOMContentLoaded', async () => {
         const nextIndex = (activeCardIndex + 1) % 2;
         const next = cards[nextIndex];
         
-        let target = next; // default = write into next card
-        if (!current.classList.contains('active')) {
-            // if starting state, current is already empty & active → use it
-            target = current;
-        }
+        const target = current.classList.contains('active') ? next : current;
 
         const front = next.querySelector('.card-front');
         const back = next.querySelector('.card-back');
 
         if (isBack) {
-            front.textContent = "";          // clear front
-            back.textContent = text;         // put text on back
-            next.classList.add('flip');
+            front.textContent = "";
+            back.textContent = text;
+            target.classList.add('flip');
 
-            next.querySelector('.card-inner').addEventListener('transitionend', function handler() {
-                next.classList.remove('flip');
-                next.removeEventListener('transitionend', handler);
+            target.querySelector('.card-inner').addEventListener('transitionend', function handler() {
+                target.classList.remove('flip');
+                target.removeEventListener('transitionend', handler);
                 isAnimating = false;
             });
             return;
         } else {
-            front.textContent = text;        // normal case
-            back.textContent = "";           // clear back
+            front.textContent = text;
+            back.textContent = "";
         }
 
-        current.classList.add('slide-out');
-        current.addEventListener('animationend', function handler() {
-            current.classList.remove('slide-out', 'active');
-            current.removeEventListener('animationend', handler);
-        });
+        if (target === next) {
+            // animate card swap
+            current.classList.add('slide-out');
+            current.addEventListener('animationend', function handler() {
+                current.classList.remove('slide-out', 'active');
+                current.removeEventListener('animationend', handler);
+            });
 
-        next.classList.add('slide-in');
-        next.addEventListener('animationend', function handler() {
-            next.classList.remove('slide-in');
-            next.classList.add('active');
-            next.removeEventListener('animationend', handler);
+            next.classList.add('slide-in');
+            next.addEventListener('animationend', function handler() {
+                next.classList.remove('slide-in');
+                next.classList.add('active');
+                next.removeEventListener('animationend', handler);
+                isAnimating = false;
+            });
+
+            activeCardIndex = nextIndex;
+        } else {
+            // first draw, just mark active
+            target.classList.add('active');
             isAnimating = false;
-        });
-
-        activeCardIndex = nextIndex;
+        }
     }
 
     function shuffle(array) {
