@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', async () => {
-    const APP_VERSION = "1.5.11"; // bumpa när du deployar
+    const APP_VERSION = "1.5.12"; // bumpa när du deployar
     
     // --- Cache busting ---
     document.querySelectorAll('link[rel="stylesheet"], script[src]').forEach(el => {
@@ -76,6 +76,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     let waitingForRyggReveal = false;
     let deckBuilt = false;
     let activeCardIndex = 0;
+    let isAnimating = false;
     const weightLabels = {
           nhie: "Jag har aldrig",
           pek: "Pekleken",
@@ -286,6 +287,9 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
 
     function showCardText(text) {
+        if (isAnimating) return; 
+        isAnimating = true;
+        
         const current = cards[activeCardIndex];
         const nextIndex = (activeCardIndex + 1) % 2;
         const next = cards[nextIndex];
