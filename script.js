@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', async () => {
-    const APP_VERSION = "1.5.28"; // bump version on deploy
+    const APP_VERSION = "1.5.29"; // bump version on deploy
 
     // --- Cache busting ---
     document.querySelectorAll('link[rel="stylesheet"], script[src]').forEach(el => {
@@ -365,6 +365,10 @@ document.addEventListener('DOMContentLoaded', async () => {
             showCardText(q.template.replace('{}', n1).replace('{}', n2));
         } else if (q.type === 'rygg') {
             gameHeader.textContent = "Rygg mot rygg";
+            cards.forEach(c => {
+                const inner = c.querySelector('.card-inner');
+                inner.classList.remove('flip');
+            });
             const n1 = randomName();
             const n2 = randomName([n1]);
             if (!n1 || !n2 || n1 === '(ingen)' || n2 === '(ingen)') {
@@ -430,9 +434,20 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
 
     function showRygg() {
-        showCardText(ryggQuestion, true); // flip to back
+ 
+        const current = cards[activeCardIndex];
+        const front = current.querySelector('.card-front');
+        const back  = current.querySelector('.card-back');
+
+        front.textContent = "";
+        back.textContent = ryggQuestion;
+
+        const inner = current.querySelector('.card-inner');
+        inner.classList.add('flip');
+
         nextBtn.textContent = 'Nästa';
         waitingForRyggReveal = false;
+        isAnimating = false;
     }
 
     function randomName(exclude = []) {
