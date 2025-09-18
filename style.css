@@ -439,21 +439,16 @@ button.danger-btn:hover {
   border: 2px solid #86c6e9; /* subtle border */
 }
 
-#card-stack {
-  position: relative;
+#card-stack{
+  display: grid;
   width: 100%;
   max-width: 500px;
-  height: 180px; /* match your min-height */
-  perspective: 1000px;
   overflow: hidden;
 }
 
-#card-stack .card {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+#card-stack .card{
+  grid-area: 1 / 1; 
+  box-sizing: border-box;
   background: #fff;
   border-radius: 16px;
   box-shadow: 0 6px 12px rgba(0,0,0,0.25);
@@ -463,28 +458,29 @@ button.danger-btn:hover {
   align-items: center;
   justify-content: center;
   padding: 20px;
+  min-height: 150px;     
+  white-space: pre-line; 
   opacity: 0;
   transform: translateX(100%);
+  will-change: transform, opacity;
 }
 
-#card-stack .card.active {
+#card-stack .card.active{
   opacity: 1;
   transform: translateX(0);
 }
 
-#card-stack .card.slide-out {
-  animation: slideOutLeft 0.4s forwards ease;
+#card-stack .card.slide-out{
+  animation: slideOutLeft 0.4s ease forwards;
+}
+#card-stack .card.slide-in{
+  animation: slideInRight 0.4s ease forwards;
 }
 
-#card-stack .card.slide-in {
-  animation: slideInRight 0.4s forwards ease;
-}
-
-@keyframes slideOutLeft {
+@keyframes slideOutLeft{
   to { transform: translateX(-100%); opacity: 0; }
 }
-
-@keyframes slideInRight {
+@keyframes slideInRight{
   from { transform: translateX(100%); opacity: 0; }
-  to   { transform: translateX(0); opacity: 1; }
+  to   { transform: translateX(0);     opacity: 1; }
 }
