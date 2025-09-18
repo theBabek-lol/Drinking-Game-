@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', async () => {
-    const APP_VERSION = "1.5.5"; // bumpa när du deployar
+    const APP_VERSION = "1.5.6"; // bumpa när du deployar
     
     // --- Cache busting ---
     document.querySelectorAll('link[rel="stylesheet"], script[src]').forEach(el => {
@@ -409,7 +409,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             }
         }
 
-        extBtn.textContent = 'Nästa';
+        nextBtn.textContent = 'Nästa';
     }
 
     function showRygg() {
