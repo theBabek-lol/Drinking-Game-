@@ -147,7 +147,12 @@ button:active {
 }
 
 #card.flip {
-    transform: rotateY(360deg);
+    animation: subtleFade 0.35s ease;
+}
+
+@keyframes subtleFade {
+    0%   { opacity: 0; transform: scale(0.95); }
+    100% { opacity: 1; transform: scale(1); }
 }
 
 /* Bottom buttons */
