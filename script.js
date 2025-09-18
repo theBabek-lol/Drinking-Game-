@@ -296,9 +296,13 @@ document.addEventListener('DOMContentLoaded', async () => {
         const back = next.querySelector('.card-back');
 
         if (isBack) {
+            const front = current.querySelector('.card-front');
+            const back  = current.querySelector('.card-back');
+
             front.textContent = "";
             back.textContent = text;
-            const inner = next.querySelector('.card-inner');
+
+            const inner = current.querySelector('.card-inner');
             inner.classList.add('flip');
             inner.addEventListener('transitionend', function handler() {
                 inner.classList.remove('flip');
