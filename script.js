@@ -1,12 +1,11 @@
 document.addEventListener('DOMContentLoaded', async () => {
-    const APP_VERSION = "1.5.4"; // bumpa när du deployar
-    
+    const APP_VERSION = "1.5.34"; // bump version on deploy
+
     // --- Cache busting ---
     document.querySelectorAll('link[rel="stylesheet"], script[src]').forEach(el => {
         const srcAttr = el.tagName === "LINK" ? "href" : "src";
         const url = new URL(el.getAttribute(srcAttr), location.href);
 
-        // Only bust for local files (not CDN)
         if (url.origin === location.origin) {
             url.searchParams.set("v", APP_VERSION);
             el.setAttribute(srcAttr, url.pathname + url.search);
@@ -43,7 +42,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     const backNamesBtn = document.getElementById('back-names-btn');
     const nextBtn = document.getElementById('next-btn');
     const changeNamesBtn = document.getElementById('change-names-btn');
-    const card = document.getElementById('card');
     const namesDating = document.getElementById('names-dating');
     const couplesDating = document.getElementById('couples-dating');
     const weightsList = document.getElementById('weights-list');
@@ -60,32 +58,45 @@ document.addEventListener('DOMContentLoaded', async () => {
     const submitSuggestBtn = document.getElementById('submit-suggest-btn');
     const cancelSuggestBtn = document.getElementById('cancel-suggest-btn');
     const suggestInput = document.getElementById('suggest-input');
-
+    const cardStack = document.getElementById('card-stack');
+    const cards = cardStack.querySelectorAll('.card');
 
     // --- Game State ---
     let names = [];
     let couples = {};
     let questions = [];
-    const DEFAULT_WEIGHTS = {"nhie":8,"pek":8,"rygg":6,"kat":4,"one_name":3,"two_name":2,"two_name_intim":2,"all":3};
-    let weights = {...DEFAULT_WEIGHTS};
+    const DEFAULT_WEIGHTS = {
+        nhie: 8,
+        pek: 8,
+        rygg: 6,
+        kat: 4,
+        one_name: 3,
+        two_name: 2,
+        two_name_intim: 2,
+        all: 3
+    };
+    let weights = { ...DEFAULT_WEIGHTS };
 
     let questionPools = {};
     let ryggQuestion = null;
     let ryggNames = [];
     let waitingForRyggReveal = false;
     let deckBuilt = false;
+    let activeCardIndex = 0;
+    let isAnimating = false;
+
     const weightLabels = {
-          nhie: "Jag har aldrig",
-          pek: "Pekleken",
-          rygg: "Rygg mot rygg",
-          kat: "Kategorier",
-          one_name: "En person",
-          two_name: "Två personer",
-          two_name_intim: "Intima utmaingar",
-          all: "Alla deltar"
+        nhie: "Jag har aldrig",
+        pek: "Pekleken",
+        rygg: "Rygg mot rygg",
+        kat: "Kategorier",
+        one_name: "En person",
+        two_name: "Två personer",
+        two_name_intim: "Intima utmaningar",
+        all: "Alla deltar"
     };
 
-    // --- persistence --
+    // --- Persistence ---
     const SAVE_KEY = "dating-game:v1";
 
     function saveState() {
@@ -114,25 +125,22 @@ document.addEventListener('DOMContentLoaded', async () => {
         couples = {};
         questionPools = {};
         deckBuilt = false;
-        weights = {...DEFAULT_WEIGHTS};
+        weights = { ...DEFAULT_WEIGHTS };
     }
 
-    // --- Helper: only click (fix for PC/mobile) ---
+    // --- Helper ---
     function addClickEvents(el, handler) {
-        if (!el) return;
-        el.addEventListener('click', handler);
+        if (el) el.addEventListener('click', handler);
     }
 
-    // --- Screen Logic ---
+    // --- Screens ---
     function showScreen(screen) {
-        for (const s in screens) {
-            screens[s].classList.remove('active');
-        }
+        Object.values(screens).forEach(s => s.classList.remove('active'));
         screens[screen].classList.add('active');
         if (screen === "settings") renderWeights();
     }
 
-    // --- Names Management ---
+    // --- Names ---
     function addName(e) {
         if (e) e.preventDefault();
         const n = nameInput.value.trim();
@@ -164,7 +172,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         });
     }
 
-    // --- Dating Screen ---
+    // --- Dating ---
     let selectedName = null;
 
     function renderDating() {
@@ -183,8 +191,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         const seen = new Set();
         for (let n1 in couples) {
             const n2 = couples[n1];
-            if (!n2) continue;
-            if (seen.has(n1) || seen.has(n2)) continue;
+            if (!n2 || seen.has(n1) || seen.has(n2)) continue;
             const b = document.createElement('button');
             b.textContent = `${n1} ❤️ ${n2}`;
             b.classList.add('couple-btn');
@@ -226,38 +233,33 @@ document.addEventListener('DOMContentLoaded', async () => {
         for (const a in couples) {
             const b = couples[a];
             if (!b) continue;
-            const key1 = `${a}|${b}`;
-            const key2 = `${b}|${a}`;
-            if (seen.has(key1) || seen.has(key2)) continue;
+            const k1 = `${a}|${b}`, k2 = `${b}|${a}`;
+            if (seen.has(k1) || seen.has(k2)) continue;
             pairs.push([a, b]);
-            seen.add(key1);
-            seen.add(key2);
+            seen.add(k1);
+            seen.add(k2);
         }
         return pairs;
     }
 
-    // --- Deck Logic ---
+    // --- Deck ---
     function buildDeck() {
         if (deckBuilt) return;
         questionPools = {};
         questions.forEach(q => {
-            if (!questionPools[q.type]) {
-                questionPools[q.type] = { all: [], remaining: [] };
-            }
+            if (!questionPools[q.type]) questionPools[q.type] = { all: [], remaining: [] };
             questionPools[q.type].all.push(q);
         });
-
         for (let type in questionPools) {
             questionPools[type].remaining = shuffle([...questionPools[type].all]);
         }
-
         deckBuilt = true;
         waitingForRyggReveal = false;
         saveState();
     }
 
     function pickType() {
-        const totalWeight = Object.values(weights).reduce((a,b)=>a+b,0);
+        const totalWeight = Object.values(weights).reduce((a, b) => a + b, 0);
         if (totalWeight <= 0) {
             const types = Object.keys(questionPools);
             return types[Math.floor(Math.random() * types.length)];
@@ -275,12 +277,67 @@ document.addEventListener('DOMContentLoaded', async () => {
         const type = pickType();
         const pool = questionPools[type];
         if (!pool) return null;
-        if (pool.remaining.length === 0) {
-            pool.remaining = shuffle([...pool.all]);
-        }
+        if (pool.remaining.length === 0) pool.remaining = shuffle([...pool.all]);
         const picked = pool.remaining.pop();
         saveState();
         return picked;
+    }
+
+    function showCardText(text, isBack = false) {
+        if (isAnimating) return;
+        isAnimating = true;
+
+        // 🔹 reset all cards first
+        cards.forEach(c => {
+            c.querySelector('.card-inner').classList.remove('flip');
+            c.querySelector('.card-front').textContent = "";
+            c.querySelector('.card-back').textContent = "";
+        });
+
+        const current = cards[activeCardIndex];
+        const nextIndex = (activeCardIndex + 1) % 2;
+        const next = cards[nextIndex];
+
+        if (isBack) {
+            // 🔹 flip the current active card only
+            const front = current.querySelector('.card-front');
+            const back  = current.querySelector('.card-back');
+
+            front.textContent = "";
+            back.textContent  = text;
+
+            const inner = current.querySelector('.card-inner');
+            inner.classList.add('flip');
+            inner.addEventListener('transitionend', function handler() {
+                inner.removeEventListener('transitionend', handler);
+                isAnimating = false;
+            });
+            return;
+        } else {
+            // 🔹 write to next card for sliding
+            const frontNext = next.querySelector('.card-front');
+            const backNext  = next.querySelector('.card-back');
+            frontNext.textContent = text;
+            backNext.textContent  = "";
+        }
+
+        // slide out current
+        current.classList.add('slide-out');
+        current.addEventListener('animationend', function handler() {
+            current.classList.remove('slide-out', 'active');
+            current.removeEventListener('animationend', handler);
+        });
+
+        // slide in next
+        next.classList.add('slide-in');
+        next.addEventListener('animationend', function handler() {
+            next.classList.remove('slide-in');
+            next.classList.add('active');
+            next.removeEventListener('animationend', handler);
+            isAnimating = false;
+        });
+
+        activeCardIndex = nextIndex;
     }
 
     function shuffle(array) {
@@ -300,53 +357,53 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         const q = drawQuestion();
         if (!q) {
-            card.textContent = 'Inga fler frågor!';
+            showCardText('Inga fler frågor!');
             return;
         }
 
-        card.classList.remove('flip');
-        void card.offsetWidth;
-        card.classList.add('flip');
-
         if (q.type === 'nhie') {
             gameHeader.textContent = "Jag har aldrig";
-            card.textContent = `Jag har aldrig\n${q.template}`;
+            showCardText(`Jag har aldrig\n${q.template}`);
         } else if (q.type === 'one_name') {
             gameHeader.textContent = "Utmaning";
-            card.textContent = q.template.replace('{}', randomName());
+            showCardText(q.template.replace('{}', randomName()));
         } else if (q.type === 'two_name') {
             gameHeader.textContent = "Utmaning";
             const n1 = randomName();
             const n2 = randomName([n1]);
-            card.textContent = q.template.replace('{}', n1).replace('{}', n2);
+            showCardText(q.template.replace('{}', n1).replace('{}', n2));
         } else if (q.type === 'rygg') {
             gameHeader.textContent = "Rygg mot rygg";
+            cards.forEach(c => {
+                const inner = c.querySelector('.card-inner');
+                inner.classList.remove('flip');
+            });
             const n1 = randomName();
             const n2 = randomName([n1]);
             if (!n1 || !n2 || n1 === '(ingen)' || n2 === '(ingen)') {
-                card.textContent = 'Behövs minst två spelare för rygg mot rygg.';
+                showCardText('Behövs minst två spelare för rygg mot rygg.');
             } else {
                 ryggNames = [n1, n2];
                 ryggQuestion = q.template;
-                card.textContent = `Rygg mot rygg\n${ryggNames[0]} & ${ryggNames[1]}`;
+                showCardText(`Rygg mot rygg\n${ryggNames[0]} & ${ryggNames[1]}`);
                 nextBtn.textContent = 'Visa fråga';
                 waitingForRyggReveal = true;
                 return;
             }
         } else if (q.type === 'pek') {
             gameHeader.textContent = "Pekleken";
-            card.textContent = `Pekleken!\n${q.template}`;
+            showCardText(`Pekleken!\n${q.template}`);
         } else if (q.type === 'kat') {
             gameHeader.textContent = "Kategori";
-            card.textContent = `Kategori!\n${q.template.replace('{}', randomName())}`;
+            showCardText(`Kategori!\n${q.template.replace('{}', randomName())}`);
         } else if (q.type === 'all') {
-            card.textContent = q.template;
+            showCardText(q.template);
         } else if (q.type === 'two_name_intim') {
             gameHeader.textContent = "Utmaning";
             const singles = getSingles();
             const allNames = names.slice();
             if (allNames.length < 2) {
-                card.textContent = 'Behövs minst två spelare för denna fråga.';
+                showCardText('Behövs minst två spelare för denna fråga.');
                 nextBtn.textContent = 'Nästa';
                 return;
             }
@@ -364,11 +421,11 @@ document.addEventListener('DOMContentLoaded', async () => {
                     const pairs = uniqueCouplePairs();
                     if (pairs.length > 0) {
                         const pick = pairs[Math.floor(Math.random() * pairs.length)];
-                        card.textContent = q.template.replace('{}', pick[0]).replace('{}', pick[1]);
+                        showCardText(q.template.replace('{}', pick[0]).replace('{}', pick[1]));
                         nextBtn.textContent = 'Nästa';
                         return;
                     } else {
-                        card.textContent = 'Inget giltigt par finns för den här frågan.';
+                        showCardText('Inget giltigt par finns för den här frågan.');
                         nextBtn.textContent = 'Nästa';
                         return;
                     }
@@ -376,9 +433,9 @@ document.addEventListener('DOMContentLoaded', async () => {
             }
 
             if (!n1 || !n2 || n1 === '(ingen)' || n2 === '(ingen)') {
-                card.textContent = 'Behövs två spelare för den här frågan.';
+                showCardText('Behövs två spelare för den här frågan.');
             } else {
-                card.textContent = q.template.replace('{}', n1).replace('{}', n2);
+                showCardText(q.template.replace('{}', n1).replace('{}', n2));
             }
         }
 
@@ -386,9 +443,20 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
 
     function showRygg() {
-        card.textContent = ryggQuestion;
+ 
+        const current = cards[activeCardIndex];
+        const front = current.querySelector('.card-front');
+        const back  = current.querySelector('.card-back');
+
+        front.textContent = "";
+        back.textContent = ryggQuestion;
+
+        const inner = current.querySelector('.card-inner');
+        inner.classList.add('flip');
+
         nextBtn.textContent = 'Nästa';
         waitingForRyggReveal = false;
+        isAnimating = false;
     }
 
     function randomName(exclude = []) {
@@ -396,7 +464,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         return available[Math.floor(Math.random() * available.length)] || '(ingen)';
     }
 
-    // --- Settings / Weights ---
+    // --- Settings ---
     function renderWeights() {
         weightsList.innerHTML = '';
         const total = Math.max(1, Object.values(weights).reduce((a, b) => a + b, 0));
@@ -444,7 +512,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
     }
 
-    // --- Load JSON Questions ---
+    // --- Questions ---
     async function loadQuestions() {
         try {
             const res = await fetch('questions.json');
@@ -453,16 +521,16 @@ document.addEventListener('DOMContentLoaded', async () => {
         } catch (err) {
             console.warn('Could not load questions.json, using fallback');
             questions = [
-                {type:'nhie', template:'druckit någon annans drink'},
-                {type:'one_name', template:'{} tar en klunk'},
-                {type:'two_name', template:'{} och {} byter plats'},
-                {type:'two_name_intim', template:'{} och {} får en intim fråga'},
-                {type:'rygg', template:'Vem har flest …?'}
+                { type: 'nhie', template: 'druckit någon annans drink' },
+                { type: 'one_name', template: '{} tar en klunk' },
+                { type: 'two_name', template: '{} och {} byter plats' },
+                { type: 'two_name_intim', template: '{} och {} får en intim fråga' },
+                { type: 'rygg', template: 'Vem har flest …?' }
             ];
         }
     }
 
-    // --- Attach buttons ---
+    // --- Attach Buttons ---
     addClickEvents(addNameBtn, addName);
     nameInput.addEventListener('keydown', e => { if (e.key === 'Enter') addName(e); });
     addClickEvents(continueBtn, () => {
@@ -470,58 +538,43 @@ document.addEventListener('DOMContentLoaded', async () => {
             document.getElementById('players-modal').classList.remove('hidden');
             return;
         }
-        renderDating(); showScreen('dating'); 
+        renderDating();
+        showScreen('dating');
     });
-
     addClickEvents(startGameBtn, () => {
         if (!deckBuilt) buildDeck();
         showScreen('game');
         if (!waitingForRyggReveal) nextChallenge();
     });
-
     addClickEvents(changeNamesBtn, () => showScreen('names'));
     addClickEvents(settingsBtn, () => showScreen('settings'));
     addClickEvents(backNamesBtn, () => showScreen('names'));
     addClickEvents(nextBtn, nextChallenge);
     addClickEvents(rulesBtn, () => showScreen('rules'));
     addClickEvents(backNamesFromRulesBtn, () => showScreen('names'));
-    
     addClickEvents(continueGameBtn, () => {
-        loadState();         
+        loadState();
         renderNames();
         renderDating();
         showScreen('names');
     });
-
-    addClickEvents(newGameBtn, () => {
-        newGameModal.classList.remove('hidden');
-    });
-
-    addClickEvents(cancelNewGameBtn, () => {
-        newGameModal.classList.add('hidden');
-    });
-
+    addClickEvents(newGameBtn, () => newGameModal.classList.remove('hidden'));
+    addClickEvents(cancelNewGameBtn, () => newGameModal.classList.add('hidden'));
     addClickEvents(confirmNewGameBtn, () => {
-        resetState();        
+        resetState();
         renderNames();
         renderDating();
         showScreen('names');
         newGameModal.classList.add('hidden');
     });
-
-    addClickEvents(document.getElementById('close-players-modal'), () => {
-        document.getElementById('players-modal').classList.add('hidden');
-    });
-
-    addClickEvents(openSuggestBtn, () => {
-        suggestModal.classList.remove('hidden');
-    });
-
+    addClickEvents(document.getElementById('close-players-modal'), () =>
+        document.getElementById('players-modal').classList.add('hidden')
+    );
+    addClickEvents(openSuggestBtn, () => suggestModal.classList.remove('hidden'));
     addClickEvents(cancelSuggestBtn, () => {
         suggestModal.classList.add('hidden');
         suggestInput.value = '';
     });
-
     addClickEvents(submitSuggestBtn, () => {
         const text = suggestInput.value.trim();
         if (!text) return;
@@ -529,9 +582,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         fetch("https://docs.google.com/forms/d/e/1FAIpQLSce5442Wex6BmsNHoo7OAvZl0Sk8ymH5NjjhGIlP0uMlHysfw/formResponse", {
             method: "POST",
             mode: "no-cors",
-            body: new URLSearchParams({
-                "entry.973501385": text
-            })
+            body: new URLSearchParams({ "entry.973501385": text })
         });
 
         suggestModal.classList.add('hidden');
@@ -550,5 +601,4 @@ document.addEventListener('DOMContentLoaded', async () => {
         renderDating();
         showScreen('names');
     }
-
 });

@@ -9,19 +9,17 @@ html, body {
     animation: bgShift 10s infinite alternate;
     color: #333;
 }
-
 @keyframes bgShift {
     0% { background-position: left top; }
     100% { background-position: right bottom; }
 }
-
 #app {
     display: flex;
     flex-direction: column;
     height: 100%;
 }
 
-/* Screens: hidden by default */
+/* Screens */
 .screen {
     display: none;
     flex-direction: column;
@@ -30,16 +28,13 @@ html, body {
     box-sizing: border-box;
     overflow: hidden;
 }
-.screen.active {
-    display: flex;
-}
+.screen.active { display: flex; }
 
 /* Input row */
 .input-row {
     display: flex;
     margin-bottom: 10px;
 }
-
 .input-row input {
     flex: 1;
     padding: 12px;
@@ -48,7 +43,6 @@ html, body {
     border: none;
     box-shadow: 0 2px 6px rgba(0,0,0,0.2);
 }
-
 .input-row button {
     margin-left: 5px;
     font-weight: bold;
@@ -73,9 +67,7 @@ button {
       box-shadow: 0 6px 12px rgba(0,0,0,0.3);
   }
 }
-button:active {
-    transform: scale(0.95);
-}
+button:active { transform: scale(0.95); }
 
 /* Names screen */
 #names-list {
@@ -84,7 +76,6 @@ button:active {
     gap: 10px;
     margin-top: 10px;
 }
-
 .name-btn {
     padding: 10px 15px;
     font-size: 1.2rem;
@@ -93,11 +84,7 @@ button:active {
     box-shadow: 0 2px 6px rgba(0,0,0,0.2);
     color: white;
 }
-
-.name-btn.pop-in {
-    animation: popIn 0.4s ease-out;
-}
-
+.name-btn.pop-in { animation: popIn 0.4s ease-out; }
 @keyframes popIn {
     from { transform: scale(0); opacity: 0; }
     to { transform: scale(1); opacity: 1; }
@@ -111,7 +98,6 @@ button:active {
     gap: 10px;
     width: 100%;
 }
-
 .dating-btn {
     padding: 10px 15px;
     background: linear-gradient(135deg, #60a5fa, #3b82f6);
@@ -129,32 +115,97 @@ button:active {
     flex: 0 0 auto;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     margin: 10px 0;
 }
 
-#card {
-    font-size: 2rem;
-    padding: 20px;
-    background: #fff;
-    border-radius: 16px;
-    box-shadow: 0 6px 12px rgba(0,0,0,0.25);
+/* --- Card stack (sliding + adaptive height) --- */
+#card-stack {
     width: 100%;
     max-width: 500px;
-    text-align: center;
+    perspective: 1000px;
+    position: relative;
     min-height: 150px;
+}
+
+#card-stack .card {
+    width: 100%;
+    opacity: 0;
+    transform: translateX(100%);
+    will-change: transform, opacity;
+    z-index: 1;
+    transition: opacity 0.3s;
+    min-height: 150px;
+    position: relative;
+    position: absolute;   
+    top: 0;
+    left: 0;
+}
+
+#card-stack .card.active {
+    opacity: 1;
+    transform: translateX(0);
+    z-index: 2;
+    position: relative; /* only the active card is placed normally */
+}
+
+#card-stack .card.slide-out {
+    animation: slideOutLeft 0.4s ease forwards;
+    position: absolute; /* slide-out card floats above */
+    top: 0; left: 0;
+}
+
+#card-stack .card.slide-in {
+    animation: slideInRight 0.4s ease forwards;
+    position: absolute; /* slide-in card floats until animation ends */
+    top: 0; left: 0;
+}
+
+/* --- Flip effect --- */
+.card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%; /* allow card to grow with text */
+    transform-style: preserve-3d;
     transition: transform 0.6s;
 }
-
-#card.flip {
-    animation: popSlide 0.5s ease;
+.card-inner.flip {
+  transform: rotateY(180deg);
 }
 
-@keyframes popSlide {
-    0%   { opacity: 0; transform: translateY(20px) scale(0.9); }
-    60%  { opacity: 1; transform: translateY(-5px) scale(1.02); }
-    100% { opacity: 1; transform: translateY(0) scale(1); }
+.card-front,
+.card-back {
+    color: #111;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    min-height: 150px; 
+    height: 100%;
+    backface-visibility: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center; 
+    font-size: 2rem;
+    border-radius: 16px;
+    box-shadow: 0 6px 12px rgba(0,0,0,0.25);
+    background: #fff;
+    padding: 20px;
+    white-space: pre-line;
+    box-sizing: border-box;
 }
+
+.card-front {
+    transform: rotateY(0deg);
+    z-index: 2;
+}
+
+.card-back {
+    transform: rotateY(180deg);
+    z-index: 1;
+}
+
 
 /* Bottom buttons */
 .bottom-buttons,
@@ -163,11 +214,7 @@ button:active {
     gap: 10px;
     margin-top: auto;
 }
-
-.bottom-buttons {
-    flex-direction: column;
-}
-
+.bottom-buttons { flex-direction: column; }
 #screen-names .bottom-buttons button,
 #screen-dating .bottom-buttons button,
 #screen-game .game-bottom-buttons button,
@@ -180,24 +227,14 @@ button:active {
     border-radius: 16px;
     background: linear-gradient(135deg, #34d399, #10b981);
 }
-
 .button-row {
     display: flex;
     gap: 10px;
 }
-.button-row button {
-    flex: 1;
-}
-
-.game-bottom-buttons {
-    flex-direction: column;
-}
-.game-bottom-buttons .change-names-btn {
-    min-height: 60px;
-}
-.game-bottom-buttons .next-btn {
-    min-height: 120px;
-}
+.button-row button { flex: 1; }
+.game-bottom-buttons { flex-direction: column; }
+.game-bottom-buttons .change-names-btn { min-height: 60px; }
+.game-bottom-buttons .next-btn { min-height: 120px; }
 
 /* Settings screen */
 #weights-list {
@@ -208,7 +245,6 @@ button:active {
     max-width: 500px;
     margin: 10px auto;
 }
-
 .weight-row {
     display: grid;
     grid-template-columns: 120px 1fr 40px 60px;
@@ -249,7 +285,7 @@ button:active {
     }
     .game-bottom-buttons .change-names-btn { min-height: 50px; }
     .game-bottom-buttons .next-btn { min-height: 100px; }
-    #card { font-size: 1.6rem; padding: 10px; }
+    #card-stack .card-front, #card-stack .card-back { font-size: 1.6rem; padding: 10px; }
     .weight-row { flex-direction: column; align-items: stretch; }
     .weight-row input[type="range"] { width: 100%; }
 }
@@ -265,10 +301,8 @@ button.danger-btn:hover {
 /* Modal overlay */
 .modal {
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
     background: rgba(0,0,0,0.6);
     display: flex;
     justify-content: center;
@@ -276,7 +310,6 @@ button.danger-btn:hover {
     z-index: 10000;
 }
 .modal.hidden { display: none; }
-
 .modal-content {
     background: #fff;
     padding: 20px;
@@ -318,30 +351,25 @@ button.danger-btn:hover {
   overflow-y: auto;
   max-height: 80vh;
 }
-
 .rules-box .qr-code {
   display: block;
   margin: 20px auto;
-  width: 200px;      /* adjust size */
-  height: auto;
+  width: 200px;
   border: 4px solid #fff;
   border-radius: 12px;
   box-shadow: 0 4px 10px rgba(0,0,0,0.25);
-  background: #fff;  /* makes QR stand out */
+  background: #fff;
 }
-
 
 /* Start screen */
 #screen-start {
-  display: none; /* hidden by default */
+  display: none;
   justify-content: center;
   align-items: center;
   text-align: center;
   padding: 0;
 }
-#screen-start.active {
-  display: flex;
-}
+#screen-start.active { display: flex; }
 .start-content {
   display: flex;
   flex-direction: column;
@@ -367,7 +395,7 @@ button.danger-btn:hover {
   margin: 0 auto;
   min-height: 250px;
   font-size: 1.6rem;
-  border-radius: 20px; 
+  border-radius: 20px;
 }
 #screen-start .start-buttons button.continue-btn {
   background: linear-gradient(135deg, #34d399, #10b981) !important;
@@ -391,9 +419,9 @@ button.danger-btn:hover {
 
 #suggest-input {
   display: block;
-  width: 90%;          /* leave space on the sides */
-  max-width: 500px;    /* don’t get too wide */
-  margin: 20px auto;   /* auto centers horizontally */
+  width: 90%;
+  max-width: 500px;
+  margin: 20px auto;
   padding: 12px;
   font-size: 1rem;
   border-radius: 12px;
@@ -401,14 +429,13 @@ button.danger-btn:hover {
   resize: vertical;
   box-sizing: border-box;
 }
-
 #open-suggest-btn {
   display: block;
   width: 100%;
   max-width: 600px;
   margin: 20px auto 0 auto;
-  padding: 30px 0;                /* double height */
-  font-size: 1.6rem;              /* bigger text */
+  padding: 30px 0;
+  font-size: 1.6rem;
   font-weight: bold;
   border-radius: 20px;
   background: linear-gradient(135deg, #3b82f6, #2563eb);
@@ -417,24 +444,43 @@ button.danger-btn:hover {
 #open-suggest-btn:hover {
   background: linear-gradient(135deg, #60a5fa, #3b82f6);
 }
-
 #submit-suggest-btn {
-  background: linear-gradient(135deg, #34d399, #10b981); 
+  background: linear-gradient(135deg, #34d399, #10b981);
   color: #fff;
 }
 #submit-suggest-btn:hover {
   background: linear-gradient(135deg, #6ee7b7, #34d399);
 }
-
 #cancel-suggest-btn {
-  background: linear-gradient(135deg, #e53935, #c62828); 
+  background: linear-gradient(135deg, #e53935, #c62828);
   color: #fff;
 }
 #cancel-suggest-btn:hover {
   background: linear-gradient(135deg, #ef5350, #e53935);
 }
-
 #suggest-modal .modal-content {
-  background: #b5d7ee;       /* light blue */
-  border: 2px solid #86c6e9; /* subtle border */
+  background: #b5d7ee;
+  border: 2px solid #86c6e9;
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideOutLeft {
+  from {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
 }
