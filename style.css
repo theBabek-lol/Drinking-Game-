@@ -444,6 +444,7 @@ button.danger-btn:hover {
   width: 100%;
   max-width: 500px;
   overflow: hidden;
+  perspective: 1000px;
 }
 
 #card-stack .card{
@@ -478,9 +479,18 @@ button.danger-btn:hover {
 }
 
 @keyframes slideOutLeft{
-  to { transform: translateX(-100%); opacity: 0; }
+  to {
+    transform: translateX(-120%) rotate(-8deg) scale(0.95);
+    opacity: 1; /* keep visible while moving out */
+  }
 }
 @keyframes slideInRight{
-  from { transform: translateX(100%); opacity: 0; }
-  to   { transform: translateX(0);     opacity: 1; }
+  from {
+    transform: translateX(120%) rotate(8deg) scale(0.95);
+    opacity: 1; /* visible from the start */
+  }
+  to {
+    transform: translateX(0) rotate(0) scale(1);
+    opacity: 1;
+  }
 }
