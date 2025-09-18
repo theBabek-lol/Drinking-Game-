@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', async () => {
-    const APP_VERSION = "1.5.21"; // bump version on deploy
+    const APP_VERSION = "1.5.22"; // bump version on deploy
 
     // --- Cache busting ---
     document.querySelectorAll('link[rel="stylesheet"], script[src]').forEach(el => {
@@ -294,8 +294,8 @@ document.addEventListener('DOMContentLoaded', async () => {
         
         const target = current.classList.contains('active') ? next : current;
 
-        const front = next.querySelector('.card-front');
-        const back = next.querySelector('.card-back');
+        const front = target.querySelector('.card-front');
+        const back = target.querySelector('.card-back');
 
         if (isBack) {
             front.textContent = "";
