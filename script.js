@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', async () => {
-    const APP_VERSION = "1.5.27"; // bump version on deploy
+    const APP_VERSION = "1.5.28"; // bump version on deploy
 
     // --- Cache busting ---
     document.querySelectorAll('link[rel="stylesheet"], script[src]').forEach(el => {
@@ -305,7 +305,6 @@ document.addEventListener('DOMContentLoaded', async () => {
             const inner = current.querySelector('.card-inner');
             inner.classList.add('flip');
             inner.addEventListener('transitionend', function handler() {
-                inner.classList.remove('flip');
                 inner.removeEventListener('transitionend', handler);
                 isAnimating = false;
             });
