@@ -1,12 +1,11 @@
 document.addEventListener('DOMContentLoaded', async () => {
-    const APP_VERSION = "1.5.12"; // bumpa när du deployar
-    
+    const APP_VERSION = "1.5.13"; // bump version on deploy
+
     // --- Cache busting ---
     document.querySelectorAll('link[rel="stylesheet"], script[src]').forEach(el => {
         const srcAttr = el.tagName === "LINK" ? "href" : "src";
         const url = new URL(el.getAttribute(srcAttr), location.href);
 
-        // Only bust for local files (not CDN)
         if (url.origin === location.origin) {
             url.searchParams.set("v", APP_VERSION);
             el.setAttribute(srcAttr, url.pathname + url.search);
@@ -62,13 +61,21 @@ document.addEventListener('DOMContentLoaded', async () => {
     const cardStack = document.getElementById('card-stack');
     const cards = cardStack.querySelectorAll('.card');
 
-
     // --- Game State ---
     let names = [];
     let couples = {};
     let questions = [];
-    const DEFAULT_WEIGHTS = {"nhie":8,"pek":8,"rygg":6,"kat":4,"one_name":3,"two_name":2,"two_name_intim":2,"all":3};
-    let weights = {...DEFAULT_WEIGHTS};
+    const DEFAULT_WEIGHTS = {
+        nhie: 8,
+        pek: 8,
+        rygg: 6,
+        kat: 4,
+        one_name: 3,
+        two_name: 2,
+        two_name_intim: 2,
+        all: 3
+    };
+    let weights = { ...DEFAULT_WEIGHTS };
 
     let questionPools = {};
     let ryggQuestion = null;
@@ -77,18 +84,19 @@ document.addEventListener('DOMContentLoaded', async () => {
     let deckBuilt = false;
     let activeCardIndex = 0;
     let isAnimating = false;
+
     const weightLabels = {
-          nhie: "Jag har aldrig",
-          pek: "Pekleken",
-          rygg: "Rygg mot rygg",
-          kat: "Kategorier",
-          one_name: "En person",
-          two_name: "Två personer",
-          two_name_intim: "Intima utmaingar",
-          all: "Alla deltar"
+        nhie: "Jag har aldrig",
+        pek: "Pekleken",
+        rygg: "Rygg mot rygg",
+        kat: "Kategorier",
+        one_name: "En person",
+        two_name: "Två personer",
+        two_name_intim: "Intima utmaningar",
+        all: "Alla deltar"
     };
 
-    // --- persistence --
+    // --- Persistence ---
     const SAVE_KEY = "dating-game:v1";
 
     function saveState() {
@@ -117,25 +125,22 @@ document.addEventListener('DOMContentLoaded', async () => {
         couples = {};
         questionPools = {};
         deckBuilt = false;
-        weights = {...DEFAULT_WEIGHTS};
+        weights = { ...DEFAULT_WEIGHTS };
     }
 
-    // --- Helper: only click (fix for PC/mobile) ---
+    // --- Helper ---
     function addClickEvents(el, handler) {
-        if (!el) return;
-        el.addEventListener('click', handler);
+        if (el) el.addEventListener('click', handler);
     }
 
-    // --- Screen Logic ---
+    // --- Screens ---
     function showScreen(screen) {
-        for (const s in screens) {
-            screens[s].classList.remove('active');
-        }
+        Object.values(screens).forEach(s => s.classList.remove('active'));
         screens[screen].classList.add('active');
         if (screen === "settings") renderWeights();
     }
 
-    // --- Names Management ---
+    // --- Names ---
     function addName(e) {
         if (e) e.preventDefault();
         const n = nameInput.value.trim();
@@ -167,7 +172,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         });
     }
 
-    // --- Dating Screen ---
+    // --- Dating ---
     let selectedName = null;
 
     function renderDating() {
@@ -186,8 +191,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         const seen = new Set();
         for (let n1 in couples) {
             const n2 = couples[n1];
-            if (!n2) continue;
-            if (seen.has(n1) || seen.has(n2)) continue;
+            if (!n2 || seen.has(n1) || seen.has(n2)) continue;
             const b = document.createElement('button');
             b.textContent = `${n1} ❤️ ${n2}`;
             b.classList.add('couple-btn');
@@ -229,38 +233,33 @@ document.addEventListener('DOMContentLoaded', async () => {
         for (const a in couples) {
             const b = couples[a];
             if (!b) continue;
-            const key1 = `${a}|${b}`;
-            const key2 = `${b}|${a}`;
-            if (seen.has(key1) || seen.has(key2)) continue;
+            const k1 = `${a}|${b}`, k2 = `${b}|${a}`;
+            if (seen.has(k1) || seen.has(k2)) continue;
             pairs.push([a, b]);
-            seen.add(key1);
-            seen.add(key2);
+            seen.add(k1);
+            seen.add(k2);
         }
         return pairs;
     }
 
-    // --- Deck Logic ---
+    // --- Deck ---
     function buildDeck() {
         if (deckBuilt) return;
         questionPools = {};
         questions.forEach(q => {
-            if (!questionPools[q.type]) {
-                questionPools[q.type] = { all: [], remaining: [] };
-            }
+            if (!questionPools[q.type]) questionPools[q.type] = { all: [], remaining: [] };
             questionPools[q.type].all.push(q);
         });
-
         for (let type in questionPools) {
             questionPools[type].remaining = shuffle([...questionPools[type].all]);
         }
-
         deckBuilt = true;
         waitingForRyggReveal = false;
         saveState();
     }
 
     function pickType() {
-        const totalWeight = Object.values(weights).reduce((a,b)=>a+b,0);
+        const totalWeight = Object.values(weights).reduce((a, b) => a + b, 0);
         if (totalWeight <= 0) {
             const types = Object.keys(questionPools);
             return types[Math.floor(Math.random() * types.length)];
@@ -278,43 +277,39 @@ document.addEventListener('DOMContentLoaded', async () => {
         const type = pickType();
         const pool = questionPools[type];
         if (!pool) return null;
-        if (pool.remaining.length === 0) {
-            pool.remaining = shuffle([...pool.all]);
-        }
+        if (pool.remaining.length === 0) pool.remaining = shuffle([...pool.all]);
         const picked = pool.remaining.pop();
         saveState();
         return picked;
     }
 
+    // --- Cards ---
     function showCardText(text) {
-        if (isAnimating) return; 
+        if (isAnimating) return;
         isAnimating = true;
-        
+
         const current = cards[activeCardIndex];
         const nextIndex = (activeCardIndex + 1) % 2;
         const next = cards[nextIndex];
 
-        // set new text on the hidden card
         next.textContent = text;
 
-        // animate current out
         current.classList.add('slide-out');
         current.addEventListener('animationend', function handler() {
             current.classList.remove('slide-out', 'active');
             current.removeEventListener('animationend', handler);
         });
 
-        // animate new card in
         next.classList.add('slide-in');
         next.addEventListener('animationend', function handler() {
             next.classList.remove('slide-in');
             next.classList.add('active');
             next.removeEventListener('animationend', handler);
+            isAnimating = false;
         });
 
         activeCardIndex = nextIndex;
     }
-
 
     function shuffle(array) {
         for (let i = array.length - 1; i > 0; i--) {
@@ -325,7 +320,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
 
     // --- Game Logic ---
-   function nextChallenge() {
+    function nextChallenge() {
         if (waitingForRyggReveal) {
             showRygg();
             return;
@@ -420,13 +415,12 @@ document.addEventListener('DOMContentLoaded', async () => {
         waitingForRyggReveal = false;
     }
 
-
     function randomName(exclude = []) {
         const available = names.filter(n => !exclude.includes(n));
         return available[Math.floor(Math.random() * available.length)] || '(ingen)';
     }
 
-    // --- Settings / Weights ---
+    // --- Settings ---
     function renderWeights() {
         weightsList.innerHTML = '';
         const total = Math.max(1, Object.values(weights).reduce((a, b) => a + b, 0));
@@ -474,7 +468,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
     }
 
-    // --- Load JSON Questions ---
+    // --- Questions ---
     async function loadQuestions() {
         try {
             const res = await fetch('questions.json');
@@ -483,16 +477,16 @@ document.addEventListener('DOMContentLoaded', async () => {
         } catch (err) {
             console.warn('Could not load questions.json, using fallback');
             questions = [
-                {type:'nhie', template:'druckit någon annans drink'},
-                {type:'one_name', template:'{} tar en klunk'},
-                {type:'two_name', template:'{} och {} byter plats'},
-                {type:'two_name_intim', template:'{} och {} får en intim fråga'},
-                {type:'rygg', template:'Vem har flest …?'}
+                { type: 'nhie', template: 'druckit någon annans drink' },
+                { type: 'one_name', template: '{} tar en klunk' },
+                { type: 'two_name', template: '{} och {} byter plats' },
+                { type: 'two_name_intim', template: '{} och {} får en intim fråga' },
+                { type: 'rygg', template: 'Vem har flest …?' }
             ];
         }
     }
 
-    // --- Attach buttons ---
+    // --- Attach Buttons ---
     addClickEvents(addNameBtn, addName);
     nameInput.addEventListener('keydown', e => { if (e.key === 'Enter') addName(e); });
     addClickEvents(continueBtn, () => {
@@ -500,58 +494,43 @@ document.addEventListener('DOMContentLoaded', async () => {
             document.getElementById('players-modal').classList.remove('hidden');
             return;
         }
-        renderDating(); showScreen('dating'); 
+        renderDating();
+        showScreen('dating');
     });
-
     addClickEvents(startGameBtn, () => {
         if (!deckBuilt) buildDeck();
         showScreen('game');
         if (!waitingForRyggReveal) nextChallenge();
     });
-
     addClickEvents(changeNamesBtn, () => showScreen('names'));
     addClickEvents(settingsBtn, () => showScreen('settings'));
     addClickEvents(backNamesBtn, () => showScreen('names'));
     addClickEvents(nextBtn, nextChallenge);
     addClickEvents(rulesBtn, () => showScreen('rules'));
     addClickEvents(backNamesFromRulesBtn, () => showScreen('names'));
-    
     addClickEvents(continueGameBtn, () => {
-        loadState();         
+        loadState();
         renderNames();
         renderDating();
         showScreen('names');
     });
-
-    addClickEvents(newGameBtn, () => {
-        newGameModal.classList.remove('hidden');
-    });
-
-    addClickEvents(cancelNewGameBtn, () => {
-        newGameModal.classList.add('hidden');
-    });
-
+    addClickEvents(newGameBtn, () => newGameModal.classList.remove('hidden'));
+    addClickEvents(cancelNewGameBtn, () => newGameModal.classList.add('hidden'));
     addClickEvents(confirmNewGameBtn, () => {
-        resetState();        
+        resetState();
         renderNames();
         renderDating();
         showScreen('names');
         newGameModal.classList.add('hidden');
     });
-
-    addClickEvents(document.getElementById('close-players-modal'), () => {
-        document.getElementById('players-modal').classList.add('hidden');
-    });
-
-    addClickEvents(openSuggestBtn, () => {
-        suggestModal.classList.remove('hidden');
-    });
-
+    addClickEvents(document.getElementById('close-players-modal'), () =>
+        document.getElementById('players-modal').classList.add('hidden')
+    );
+    addClickEvents(openSuggestBtn, () => suggestModal.classList.remove('hidden'));
     addClickEvents(cancelSuggestBtn, () => {
         suggestModal.classList.add('hidden');
         suggestInput.value = '';
     });
-
     addClickEvents(submitSuggestBtn, () => {
         const text = suggestInput.value.trim();
         if (!text) return;
@@ -559,9 +538,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         fetch("https://docs.google.com/forms/d/e/1FAIpQLSce5442Wex6BmsNHoo7OAvZl0Sk8ymH5NjjhGIlP0uMlHysfw/formResponse", {
             method: "POST",
             mode: "no-cors",
-            body: new URLSearchParams({
-                "entry.973501385": text
-            })
+            body: new URLSearchParams({ "entry.973501385": text })
         });
 
         suggestModal.classList.add('hidden');
@@ -580,5 +557,4 @@ document.addEventListener('DOMContentLoaded', async () => {
         renderDating();
         showScreen('names');
     }
-
 });
