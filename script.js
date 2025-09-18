@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', async () => {
-    const APP_VERSION = "1.5.30"; // bump version on deploy
+    const APP_VERSION = "1.5.31"; // bump version on deploy
 
     // --- Cache busting ---
     document.querySelectorAll('link[rel="stylesheet"], script[src]').forEach(el => {
@@ -283,21 +283,23 @@ document.addEventListener('DOMContentLoaded', async () => {
         return picked;
     }
 
-    // --- Cards ---
     function showCardText(text, isBack = false) {
         if (isAnimating) return;
         isAnimating = true;
+
+        // 🔹 reset all cards first
+        cards.forEach(c => {
+            c.querySelector('.card-inner').classList.remove('flip');
+            c.querySelector('.card-front').textContent = "";
+            c.querySelector('.card-back').textContent = "";
+        });
 
         const current = cards[activeCardIndex];
         const nextIndex = (activeCardIndex + 1) % 2;
         const next = cards[nextIndex];
 
-        // prepare elements
-        const frontNext = next.querySelector('.card-front');
-        const backNext  = next.querySelector('.card-back');
-
         if (isBack) {
-            // 🔹 flip current active card
+            // 🔹 flip the current active card only
             const front = current.querySelector('.card-front');
             const back  = current.querySelector('.card-back');
 
@@ -308,12 +310,13 @@ document.addEventListener('DOMContentLoaded', async () => {
             inner.classList.add('flip');
             inner.addEventListener('transitionend', function handler() {
                 inner.removeEventListener('transitionend', handler);
-                // make sure animation state resets
                 isAnimating = false;
             });
             return;
         } else {
-            // 🔹 prepare next card for slide in
+            // 🔹 write to next card for sliding
+            const frontNext = next.querySelector('.card-front');
+            const backNext  = next.querySelector('.card-back');
             frontNext.textContent = text;
             backNext.textContent  = "";
         }
@@ -323,8 +326,6 @@ document.addEventListener('DOMContentLoaded', async () => {
         current.addEventListener('animationend', function handler() {
             current.classList.remove('slide-out', 'active');
             current.removeEventListener('animationend', handler);
-            // 🔹 reset animating here too (fallback safety)
-            isAnimating = false;
         });
 
         // slide in next
@@ -333,13 +334,11 @@ document.addEventListener('DOMContentLoaded', async () => {
             next.classList.remove('slide-in');
             next.classList.add('active');
             next.removeEventListener('animationend', handler);
-            // 🔹 ensure animating resets when swap finishes
             isAnimating = false;
         });
 
         activeCardIndex = nextIndex;
     }
-    
 
     function shuffle(array) {
         for (let i = array.length - 1; i > 0; i--) {
