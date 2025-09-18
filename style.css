@@ -170,8 +170,11 @@ button:active { transform: scale(0.95); }
 
 .card-front,
 .card-back {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
-    min-height: 120px;
+    height: 100%;
     backface-visibility: hidden;
     display: flex;
     align-items: center;
@@ -186,14 +189,13 @@ button:active { transform: scale(0.95); }
 }
 
 .card-front {
-    position: relative; /* grows with content */
+    transform: rotateY(0deg);
+    z-index: 2;
 }
 
 .card-back {
-    position: absolute;
-    top: 0;
-    left: 0;
     transform: rotateY(180deg);
+    z-index: 1;
 }
 
 
