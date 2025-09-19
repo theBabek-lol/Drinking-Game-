@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', async () => {
-    const APP_VERSION = "1.5.36"; // bump version on deploy
+    const APP_VERSION = "1.6.0"; // bump version on deploy
 
     // --- Cache busting ---
     document.querySelectorAll('link[rel="stylesheet"], script[src]').forEach(el => {
@@ -84,6 +84,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     let deckBuilt = false;
     let activeCardIndex = 0;
     let isAnimating = false;
+    let touchStartX = 0;
 
     const weightLabels = {
         nhie: "Jag har aldrig",
@@ -592,6 +593,18 @@ document.addEventListener('DOMContentLoaded', async () => {
         suggestModal.classList.add('hidden');
         suggestInput.value = '';
         alert("Tack! Din fråga har skickats.");
+    });
+   const gameScreen = screens.game;
+
+    gameScreen.addEventListener('touchstart', e => {
+        touchStartX = e.changedTouches[0].screenX;
+    });
+
+    gameScreen.addEventListener('touchend', e => {
+        const touchEndX = e.changedTouches[0].screenX;
+        if (!isAnimating && touchStartX - touchEndX > 50) {
+            nextChallenge();
+        }
     });
 
     // --- Initialize ---
