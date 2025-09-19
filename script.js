@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', async () => {
-    const APP_VERSION = "1.5.34"; // bump version on deploy
+    const APP_VERSION = "1.5.36"; // bump version on deploy
 
     // --- Cache busting ---
     document.querySelectorAll('link[rel="stylesheet"], script[src]').forEach(el => {
@@ -354,6 +354,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             showRygg();
             return;
         }
+        if (isAnimating) return;
 
         const q = drawQuestion();
         if (!q) {
@@ -549,7 +550,10 @@ document.addEventListener('DOMContentLoaded', async () => {
     addClickEvents(changeNamesBtn, () => showScreen('names'));
     addClickEvents(settingsBtn, () => showScreen('settings'));
     addClickEvents(backNamesBtn, () => showScreen('names'));
-    addClickEvents(nextBtn, nextChallenge);
+    addClickEvents(nextBtn, () => {
+        if (isAnimating) return;   
+        nextChallenge();
+    });
     addClickEvents(rulesBtn, () => showScreen('rules'));
     addClickEvents(backNamesFromRulesBtn, () => showScreen('names'));
     addClickEvents(continueGameBtn, () => {
