@@ -541,6 +541,6 @@ two_name|{} dela ut en klunk till alla som är nyktrare än {}!
 two_name|{} ge {} en ny frisyr
 two_name|{} gör en armhävning med {} på ryggen en shot om du misslyckas
 two_name|{} lyft {}. En shot om du misslyckas
-two_name|{} måste dricka varje gång {} måste dricka í 15 min
+two_name|{} måste dricka varje gång {} måste dricka i 15 min
 two_name|{} och {} på tre sista som avslutar sin enhet måste ta en shot
 two_name|{} och {} staring contest förloraren tar en shot

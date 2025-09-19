@@ -2169,7 +2169,7 @@
     },
     {
         "type": "two_name",
-        "template": "{} måste dricka varje gång {} måste dricka í 15 min"
+        "template": "{} måste dricka varje gång {} måste dricka i 15 min"
     },
     {
         "type": "two_name",
