@@ -1,6 +1,6 @@
 [
     {
-        "type": "all",
+        "type": "﻿all",
         "template": "Alla killar dricker!"
     },
     {
@@ -38,10 +38,6 @@
     {
         "type": "all",
         "template": "Alla tjejer dricker!"
-    },
-    {
-        "type": "all",
-        "template": "Om du har skapat den här appen dela ut en shot!"
     },
     {
         "type": "all",
@@ -202,10 +198,6 @@
     {
         "type": "kat",
         "template": "{} porrstjärnor"
-    },
-    {
-        "type": "kat",
-        "template": "{} sektioner på ltu"
     },
     {
         "type": "kat",
@@ -1673,7 +1665,7 @@
     },
     {
         "type": "rygg",
-        "template": "Vem har högst bodycount?"
+        "template": "Vem har högst bdycount?"
     },
     {
         "type": "rygg",
@@ -2169,7 +2161,7 @@
     },
     {
         "type": "two_name",
-        "template": "{} måste dricka varje gång {} måste dricka i 15 min"
+        "template": "{} måste dricka varje gång {} måste dricka í 15 min"
     },
     {
         "type": "two_name",
@@ -2178,5 +2170,73 @@
     {
         "type": "two_name",
         "template": "{} och {} staring contest förloraren tar en shot"
+    },
+    {
+        "type": "one_name",
+        "template": "{} Du har fått tourettes! varje gång du ska dricka måste du skrika ett fult ord. 3 klunkar om du glömmer"
+    },
+    {
+        "type": "all",
+        "template": "Alla som har fyllt detta år dricker 2 klunkar!"
+    },
+    {
+        "type": "one_name",
+        "template": "{} dela ut 5 klunkar till den med högst sexdrift!"
+    },
+    {
+        "type": "all",
+        "template": "Alla som har haft sex inom de senaste dygnet dricker du 3 klunkar!"
+    },
+    {
+        "type": "all",
+        "template": "Alla som har en sprucken mobilskärm dricker 3 klunkar!"
+    },
+    {
+        "type": "pek",
+        "template": "Vem har mest kärleksproblem?"
+    },
+    {
+        "type": "one_name",
+        "template": "{} slicka dig på näsa. Kan du inte ta en shot!"
+    },
+    {
+        "type": "pek",
+        "template": "Vems fötter luktar värst?"
+    },
+    {
+        "type": "one_name",
+        "template": "{}Ta en klunk för varje snygg person av motsatt kön!"
+    },
+    {
+        "type": "one_name",
+        "template": "{} Krona eller klave! Singla en slant, gissar du fel ta en shot!"
+    },
+    {
+        "type": "nhie",
+        "template": "kört i fel riktning i en rondell"
+    },
+    {
+        "type": "all",
+        "template": "Försten som tar fram en kondom får dela ut en shot!"
+    },
+    {
+        "type": "all",
+        "template": "Alla som ogillar analsex dricker!"
+    },
+    {
+        "type": "one_name",
+        "template": "{} blunda! Gissa vad alla dricker 1 klunk per fel!"
+    },
+    {
+        "type": "nhie",
+        "template": "haft sex med någon från tinder!"
+    },
+    {
+        "type": "one_name",
+        "template": "Alla som har sett {} naken dricker!"
+    },
+    {
+        "type": "nhie",
+        "template": "haft lösögonfransar!"
     }
 ]
