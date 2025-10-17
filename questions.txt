@@ -544,7 +544,7 @@ two_name|{} och {} staring contest förloraren tar en shot
 one_name|{} Du har fått tourettes! varje gång du ska dricka måste du skrika ett fult ord. 3 klunkar om du glömmer
 all|Alla som har fyllt detta år dricker 2 klunkar!
 one_name|{} dela ut 5 klunkar till den med högst sexdrift!
-all|Alla som har haft sex inom de senaste dygnet dricker du 3 klunkar!
+all|Alla som har haft sex inom de senaste dygnet dricker 3 klunkar!
 all|Alla som har en sprucken mobilskärm dricker 3 klunkar!
 pek|Vem har mest kärleksproblem?
 one_name|{} slicka dig på näsa. Kan du inte ta en shot!
@@ -557,4 +557,5 @@ all|Alla som ogillar analsex dricker!
 one_name|{} blunda! Gissa vad alla dricker 1 klunk per fel!
 nhie|haft sex med någon från tinder!
 one_name|Alla som har sett {} naken dricker!
+
 nhie|haft lösögonfransar!
