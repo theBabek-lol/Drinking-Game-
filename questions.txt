@@ -110,7 +110,7 @@ nhie|haft sex med en lärare
 nhie|haft sex med ett ex
 nhie|haft sex med flera personer under samma kväll
 nhie|haft sex med någon i ett förhållande
-nhie|haft sex med nån som inte pratar samma språk
+nhie|haft sex med nån som har ett annat modersmål
 nhie|haft sex på en offentlig plats
 nhie|haft sex på en toalett
 nhie|haft sex utomlands
@@ -559,3 +559,4 @@ nhie|haft sex med någon från tinder!
 one_name|Alla som har sett {} naken dricker!
 
 nhie|haft lösögonfransar!
+
