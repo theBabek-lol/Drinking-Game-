@@ -1,6 +1,6 @@
 {
-  "name": "Drink Game",
-  "short_name": "DrinkGame",
+  "name": "Babeks Dryckeslek",
+  "short_name": "Babeks Dryckeslek",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",
