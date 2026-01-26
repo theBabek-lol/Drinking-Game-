@@ -392,13 +392,25 @@ button.danger-btn:hover {
   gap: 20px;
   width: 100%;
 }
-.share-btn {
-    width: 100%;
-    margin: 10px 0;
-    background: linear-gradient(135deg, #3b82f6, #2563eb);
+.names-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
 }
 
-.share-btn:hover {
+.names-header h2 {
+    margin: 0;
+}
+
+.header-share-btn {
+    min-width: 120px;
+    padding: 12px 16px;
+    font-size: 1.1rem;
+    border-radius: 1rem;
+    background: linear-gradient(135deg, #3b82f6, #2563eb);
+}
+.header-share-btn:hover {
     background: linear-gradient(135deg, #60a5fa, #3b82f6);
 }
 #screen-start .start-buttons button {
