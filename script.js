@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', async () => {
-    const APP_VERSION = "2.0.1"; // bump version on deploy
+    const APP_VERSION = "2.1.0"; // bump version on deploy
 
     // --- Cache busting ---
     document.querySelectorAll('link[rel="stylesheet"], script[src]').forEach(el => {
@@ -604,6 +604,26 @@ document.addEventListener('DOMContentLoaded', async () => {
         const touchEndX = e.changedTouches[0].screenX;
         if (!isAnimating && touchStartX - touchEndX > 50) {
             nextChallenge();
+        }
+    });
+    
+    document.getElementById("share-btn")?.addEventListener("click", async () => {
+        const shareData = {
+            title: "Babek´s dryckesspel 🍻",
+            text: "Spela Babek´s dryckesspel med oss!",
+            url: window.location.href
+        };
+
+        if (navigator.share) {
+            try {
+                await navigator.share(shareData);
+            } catch (err) {
+                console.log("Share cancelled", err);
+            }
+        } else {
+        // Fallback: copy link
+            await navigator.clipboard.writeText(shareData.url);
+            alert("Länken kopierad! 📋");
         }
     });
 
