@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', async () => {
-    const APP_VERSION = "2.1.4"; // bump version on deploy
+    const APP_VERSION = "2.1.5"; // bump version on deploy
 
     // --- Cache busting ---
     document.querySelectorAll('link[rel="stylesheet"], script[src]').forEach(el => {
@@ -532,7 +532,24 @@ document.addEventListener('DOMContentLoaded', async () => {
             ];
         }
     }
+    async function shareGame() {
+        const shareData = {
+            title: "Babek´s dryckesspel 🍻",
+            text: "Spela Babek´s dryckesspel med oss!",
+            url: window.location.href
+        };
 
+        if (navigator.share) {
+            try {
+                await navigator.share(shareData);
+                } catch (err) {
+                console.log("Share cancelled", err);
+            }
+        } else {
+            await navigator.clipboard.writeText(shareData.url);
+            alert("Länken kopierad!");
+        }
+    }
     // --- Attach Buttons ---
     addClickEvents(addNameBtn, addName);
     nameInput.addEventListener('keydown', e => { if (e.key === 'Enter') addName(e); });
@@ -607,18 +624,18 @@ document.addEventListener('DOMContentLoaded', async () => {
             nextChallenge();
         }
     });
-    
-    qrShare.addEventListener("click", shareGame);
+    if (qrShare) {
+        qrShare.addEventListener("click", shareGame);
 
-    qrShare.addEventListener("keydown", e => {
-        if (e.key === "Enter" || e.key === " ") {
-            shareGame();
-        }
-    });
-    
+        qrShare.addEventListener("keydown", e => {
+            if (e.key === "Enter" || e.key === " ") {
+                shareGame();
+            }
+        });
+    }
     document.getElementById("share-btn")?.addEventListener("click", async () => {
         const shareData = {
-            title: "Babek´s dryckesspel 🍻",
+            title: "Babek´s dryckesspel",
             text: "Spela Babek´s dryckesspel med oss!",
             url: window.location.href
         };
