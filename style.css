@@ -110,6 +110,35 @@ button:active { transform: scale(0.95); }
     background: linear-gradient(135deg, #f472b6, #ec4899);
 }
 
+.qr-button {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    margin: 10px 0 20px 0;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.qr-button:hover {
+    transform: scale(1.05);
+}
+
+.qr-button:active {
+    transform: scale(0.95);
+}
+
+.qr-code {
+    width: 200px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+}
+
+.qr-hint {
+    margin-top: 8px;
+    font-size: 0.9rem;
+    color: #333;
+}
+
 /* Game screen */
 .card-wrapper {
     flex: 0 0 auto;

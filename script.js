@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', async () => {
-    const APP_VERSION = "2.1.3"; // bump version on deploy
+    const APP_VERSION = "2.1.4"; // bump version on deploy
 
     // --- Cache busting ---
     document.querySelectorAll('link[rel="stylesheet"], script[src]').forEach(el => {
@@ -60,6 +60,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     const suggestInput = document.getElementById('suggest-input');
     const cardStack = document.getElementById('card-stack');
     const cards = cardStack.querySelectorAll('.card');
+    const qrShare = document.getElementById("qr-share");
 
     // --- Game State ---
     let names = [];
@@ -594,7 +595,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         suggestInput.value = '';
         alert("Tack! Din fråga har skickats.");
     });
-   const gameScreen = screens.game;
+    const gameScreen = screens.game;
 
     gameScreen.addEventListener('touchstart', e => {
         touchStartX = e.changedTouches[0].screenX;
@@ -604,6 +605,14 @@ document.addEventListener('DOMContentLoaded', async () => {
         const touchEndX = e.changedTouches[0].screenX;
         if (!isAnimating && touchStartX - touchEndX > 50) {
             nextChallenge();
+        }
+    });
+    
+    qrShare.addEventListener("click", shareGame);
+
+    qrShare.addEventListener("keydown", e => {
+        if (e.key === "Enter" || e.key === " ") {
+            shareGame();
         }
     });
     
