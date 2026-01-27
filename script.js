@@ -623,7 +623,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         } else {
         // Fallback: copy link
             await navigator.clipboard.writeText(shareData.url);
-            alert("Länken kopierad! 📋");
+            alert("Länken kopierad!");
         }
     });
 
