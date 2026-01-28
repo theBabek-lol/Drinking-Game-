@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', async () => {
-    const APP_VERSION = "2.1.5"; // bump version on deploy
+    const APP_VERSION = "2.1.6"; // bump version on deploy
 
     // --- Cache busting ---
     document.querySelectorAll('link[rel="stylesheet"], script[src]').forEach(el => {
@@ -61,6 +61,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     const cardStack = document.getElementById('card-stack');
     const cards = cardStack.querySelectorAll('.card');
     const qrShare = document.getElementById("qr-share");
+    const installBtn = document.getElementById("install-btn");
 
     // --- Game State ---
     let names = [];
@@ -86,6 +87,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     let activeCardIndex = 0;
     let isAnimating = false;
     let touchStartX = 0;
+    let deferredPrompt = null;
 
     const weightLabels = {
         nhie: "Jag har aldrig",
@@ -550,6 +552,33 @@ document.addEventListener('DOMContentLoaded', async () => {
             alert("Länken kopierad!");
         }
     }
+    // Detect if already installed
+    const isStandalone =
+        window.matchMedia('(display-mode: standalone)').matches ||
+        window.navigator.standalone === true;
+
+    if (isStandalone) {
+    installBtn?.remove(); // never show in PWA
+    }
+
+    // Listen for install availability
+    window.addEventListener('beforeinstallprompt', e => {
+        e.preventDefault();
+        deferredPrompt = e;
+        installBtn?.classList.remove('hidden');
+    });
+
+    // Handle click
+    installBtn?.addEventListener("click", async () => {
+        if (!deferredPrompt) return;
+
+        deferredPrompt.prompt();
+        await deferredPrompt.userChoice;
+
+        deferredPrompt = null;
+        installBtn.remove();
+    });
+
     // --- Attach Buttons ---
     addClickEvents(addNameBtn, addName);
     nameInput.addEventListener('keydown', e => { if (e.key === 'Enter') addName(e); });

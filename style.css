@@ -275,6 +275,34 @@ button:active { transform: scale(0.95); }
     font-size: 1.1rem;
     background: linear-gradient(135deg, #3b82f6, #2563eb);
 }
+/* Share + Install row */
+.share-install-row {
+    display: flex;
+    gap: 10px;
+}
+
+/* Both buttons same size */
+.share-install-row button {
+    flex: 1;
+    min-height: 80px;
+    height: 60px;
+    padding: 0 16px;
+    font-size: 1.1rem;
+    border-radius: 1rem;
+}
+
+/* Install button (mirrored color) */
+.header-install-btn {
+    background: linear-gradient(135deg, #34d399, #10b981);
+}
+.header-install-btn:hover {
+    background: linear-gradient(135deg, #6ee7b7, #34d399);
+}
+
+/* Utility */
+.hidden {
+    display: none !important;
+}
 
 /* Settings screen */
 #weights-list {
