@@ -278,25 +278,31 @@ button:active { transform: scale(0.95); }
 /* Share + Install row */
 .share-install-row {
     display: flex;
-    gap: 10px;
+    justify-content: space-between;
+    align-items: center;
+    gap: 40px;
 }
 
 /* Both buttons same size */
 .share-install-row button {
-    flex: 1;
+    flex: 0 0 auto;
+    width: 160px;
     min-height: 80px;
-    height: 60px;
     padding: 0 16px;
     font-size: 1.1rem;
     border-radius: 1rem;
 }
 
+.header-install-btn.hidden {
+    visibility: hidden;
+}
+
 /* Install button (mirrored color) */
 .header-install-btn {
-    background: linear-gradient(135deg, #34d399, #10b981);
+    background: linear-gradient(135deg, #3b82f6, #2563eb);
 }
 .header-install-btn:hover {
-    background: linear-gradient(135deg, #6ee7b7, #34d399);
+    background: linear-gradient(135deg, #60a5fa, #3b82f6);
 }
 
 /* Utility */

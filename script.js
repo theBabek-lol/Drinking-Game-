@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', async () => {
-    const APP_VERSION = "2.2.1"; // bump version on deploy
+    const APP_VERSION = "2.2.2"; // bump version on deploy
 
     // --- Cache busting ---
     document.querySelectorAll('link[rel="stylesheet"], script[src]').forEach(el => {
@@ -564,14 +564,14 @@ document.addEventListener('DOMContentLoaded', async () => {
         window.navigator.standalone === true;
 
     if (isStandalone) {
-    installBtn?.remove(); // never show in PWA
+    installBtn?.classList.add('hidden'); // never show in PWA
     }
 
     // Listen for install availability
     window.addEventListener('beforeinstallprompt', e => {
         e.preventDefault();
         deferredPrompt = e;
-        installBtn?.classList.remove('hidden');
+        installBtn?.classList.add('hidden');
     });
 
     // Handle click
