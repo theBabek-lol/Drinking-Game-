@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", async () => {
-  const APP_VERSION = "2.2.2"; // bump version on deploy
+  const APP_VERSION = "2.3.0"; // bump version on deploy
 
   // -----------------------
   // Cache busting (same-origin only)
