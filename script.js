@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", async () => {
-  const APP_VERSION = "2.4.0"; // bump version on deploy
+  const APP_VERSION = "2.4.1"; // bump version on deploy
 
   // -----------------------
   // Cache busting (same-origin only)
@@ -234,6 +234,10 @@ document.addEventListener("DOMContentLoaded", async () => {
     }
     return pairs;
   }
+
+    function isIOS() {
+        return /iphone|ipad|ipod/i.test(navigator.userAgent);
+    }   
 
   // -----------------------
   // Names
@@ -706,12 +710,15 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   // Detect if already installed
     const isStandalone =
-        window.matchMedia("(display-mode: standalone)").matches || window.navigator.standalone === true;
+        window.matchMedia("(display-mode: standalone)").matches ||
+        window.navigator.standalone === true;
 
     if (isStandalone) {
         installBtn?.classList.add("hidden"); // never show when already installed
     } else {
-        installBtn?.classList.remove("hidden"); // allow iOS users to tap and get instructions
+        // Only show by default on iOS (Android will show it via beforeinstallprompt)
+        if (isIOS()) installBtn?.classList.remove("hidden");
+        else installBtn?.classList.add("hidden");
     }
 
   window.addEventListener("beforeinstallprompt", (e) => {
@@ -726,12 +733,17 @@ document.addEventListener("DOMContentLoaded", async () => {
         // Android/Chrome native install prompt
         if (deferredPrompt) {
             deferredPrompt.prompt();
-            await deferredPrompt.userChoice;
+
+            const choice = await deferredPrompt.userChoice;
+
+            // Only remove the button if the user actually installed
+            if (choice && choice.outcome === "accepted") {
+                installBtn.remove();
+            }
+
             deferredPrompt = null;
-            installBtn.remove();
             return;
         }
-
         // iOS/Safari: show "Add to Home Screen" instructions
         a2hs?.show("sv");
     });
