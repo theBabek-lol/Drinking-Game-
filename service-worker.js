@@ -5,6 +5,9 @@ const ASSETS = [
   './style.css',
   './script.js',
   './questions.json',
+  // Add-to-homescreen (only the files you actually load)
+  './vendor/add-to-homescreen/add-to-homescreen.min.js',
+  './vendor/add-to-homescreen/add-to-homescreen.min.css',
   
 ];
 
