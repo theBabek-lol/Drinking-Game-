@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", async () => {
-  const APP_VERSION = "2.4.1"; // bump version on deploy
+  const APP_VERSION = "2.4.2"; // bump version on deploy
 
   // -----------------------
   // Cache busting (same-origin only)
@@ -238,6 +238,19 @@ document.addEventListener("DOMContentLoaded", async () => {
     function isIOS() {
         return /iphone|ipad|ipod/i.test(navigator.userAgent);
     }   
+
+    function trackInstallOnce() {
+        if (!window.goatcounter) return;
+        if (localStorage.getItem("gc_install_tracked")) return;
+
+        window.goatcounter.count({
+            path: "/event/app_installed",
+            title: "App Installed",
+            event: true,
+        });
+
+        localStorage.setItem("gc_install_tracked", "1");
+    }
 
   // -----------------------
   // Names
@@ -725,6 +738,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     e.preventDefault();
     deferredPrompt = e;
 
+
     // FIX: show the install button when install becomes available (was hidden before)
     installBtn?.classList.remove("hidden");
   });
@@ -747,6 +761,17 @@ document.addEventListener("DOMContentLoaded", async () => {
         // iOS/Safari: show "Add to Home Screen" instructions
         a2hs?.show("sv");
     });
+    
+    window.addEventListener("appinstalled", () => {
+        trackInstallOnce();
+    });
+
+    if (
+        (window.matchMedia("(display-mode: standalone)").matches ||
+        window.navigator.standalone === true)
+    ) {
+        trackInstallOnce();
+    }
 
   // -----------------------
   // Attach Buttons
