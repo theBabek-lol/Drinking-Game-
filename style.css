@@ -407,7 +407,8 @@ button.danger-btn:hover {
 }
 
 /* Large buttons on each screen */
-#screen-names .bottom-buttons button,
+#screen-names .bottom-buttons > button,
+#screen-names .bottom-buttons .button-row button,
 #screen-dating .bottom-buttons button,
 #screen-game .game-bottom-buttons button,
 #screen-settings .bottom-buttons button,
