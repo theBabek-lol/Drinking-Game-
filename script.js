@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', async () => {
-    const APP_VERSION = "2.1.6"; // bump version on deploy
+    const APP_VERSION = "2.2.1"; // bump version on deploy
 
     // --- Cache busting ---
     document.querySelectorAll('link[rel="stylesheet"], script[src]').forEach(el => {
@@ -139,8 +139,14 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     // --- Screens ---
     function showScreen(screen) {
-        Object.values(screens).forEach(s => s.classList.remove('active'));
+        Object.values(screens).forEach(s => {
+            s.classList.add('hidden');
+            s.classList.remove('active');
+        });
+
+        screens[screen].classList.remove('hidden');
         screens[screen].classList.add('active');
+
         if (screen === "settings") renderWeights();
     }
 
