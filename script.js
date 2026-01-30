@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", async () => {
-  const APP_VERSION = "2.3.2"; // bump version on deploy
+  const APP_VERSION = "2.4.0"; // bump version on deploy
 
   // -----------------------
   // Cache busting (same-origin only)
@@ -79,6 +79,20 @@ document.addEventListener("DOMContentLoaded", async () => {
   const qrShare = document.getElementById("qr-share");
   const installBtn = document.getElementById("install-btn");
   const shareBtn = document.getElementById("share-btn");
+    // --- iOS Add to Home Screen (library) ---
+    const a2hs =
+        typeof window.AddToHomeScreen === "function"
+            ? window.AddToHomeScreen({
+                appName: "Babek´s dryckesspel",
+                appNameDisplay: "standalone",
+                appIconUrl: "icons/icon-192.png",
+                assetUrl: "vendor/add-to-homescreen/assets/img/",
+                maxModalDisplayCount: -1,
+                displayOptions: { showMobile: true, showDesktop: false },
+                allowClose: true,
+                showArrow: true,
+            })
+        : null;
 
   // -----------------------
   // Game State
@@ -691,12 +705,14 @@ document.addEventListener("DOMContentLoaded", async () => {
   }
 
   // Detect if already installed
-  const isStandalone =
-    window.matchMedia("(display-mode: standalone)").matches || window.navigator.standalone === true;
+    const isStandalone =
+        window.matchMedia("(display-mode: standalone)").matches || window.navigator.standalone === true;
 
-  if (isStandalone) {
-    installBtn?.classList.add("hidden");
-  }
+    if (isStandalone) {
+        installBtn?.classList.add("hidden"); // never show when already installed
+    } else {
+        installBtn?.classList.remove("hidden"); // allow iOS users to tap and get instructions
+    }
 
   window.addEventListener("beforeinstallprompt", (e) => {
     e.preventDefault();
@@ -706,15 +722,19 @@ document.addEventListener("DOMContentLoaded", async () => {
     installBtn?.classList.remove("hidden");
   });
 
-  installBtn?.addEventListener("click", async () => {
-    if (!deferredPrompt) return;
+    installBtn?.addEventListener("click", async () => {
+        // Android/Chrome native install prompt
+        if (deferredPrompt) {
+            deferredPrompt.prompt();
+            await deferredPrompt.userChoice;
+            deferredPrompt = null;
+            installBtn.remove();
+            return;
+        }
 
-    deferredPrompt.prompt();
-    await deferredPrompt.userChoice;
-
-    deferredPrompt = null;
-    installBtn.remove();
-  });
+        // iOS/Safari: show "Add to Home Screen" instructions
+        a2hs?.show("sv");
+    });
 
   // -----------------------
   // Attach Buttons
