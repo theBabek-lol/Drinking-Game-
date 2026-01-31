@@ -1,199 +1,296 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="sv">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Drink Game</title>
-<!-- goatcounter analytics -->
-<script data-goatcounter="https://babek-lol.goatcounter.com/count"
-        async src="//gc.zgo.at/count.js"></script>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Drink Game</title>
 
-        <link rel="stylesheet" href="style.css">
-<link rel="manifest" href="manifest.webmanifest">
-<meta name="theme-color" content="#111111">
+    <!-- PWA -->
+    <link rel="manifest" href="manifest.webmanifest" />
+    <meta name="theme-color" content="#111111" />
 
-<!-- iOS (optional) -->
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black">
-<link rel="apple-touch-icon" href="icons/icon-192.png">        
-</head>
-<body>
-<div id="app">
+    <!-- iOS (optional) -->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <link rel="apple-touch-icon" href="icons/icon-192.png" />
 
-    <!-- Start Screen (only if save exists) -->
-    <div id="screen-start" class="screen hidden">
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="vendor/add-to-homescreen/add-to-homescreen.min.css" />
+
+    <!-- goatcounter analytics -->
+    <script
+      data-goatcounter="https://babek-lol.goatcounter.com/count"
+      async
+      src="//gc.zgo.at/count.js"
+    ></script>
+  </head>
+
+  <body>
+    <div id="app">
+      <!-- Start Screen (only if save exists) -->
+      <div id="screen-start" class="screen hidden" aria-hidden="true">
         <div class="start-content">
-            <h2>Välkommen tillbaka!</h2>
-            <div class="start-buttons">
-                <button id="continue-game-btn" class="continue-btn">Fortsätt</button>
-                <button id="new-game-btn" class="primary-btn">Nytt spel</button>
-            </div>
+          <h2>Välkommen tillbaka!</h2>
+          <div class="start-buttons">
+            <button id="continue-game-btn" class="continue-btn" type="button">
+              Fortsätt
+            </button>
+            <button id="new-game-btn" class="primary-btn" type="button">
+              Nytt spel
+            </button>
+          </div>
         </div>
-    </div>
-    
-    
-    <!-- Names Screen -->
-    <div id="screen-names" class="screen hidden">
+      </div>
+
+      <!-- Names Screen -->
+      <div id="screen-names" class="screen hidden" aria-hidden="true">
         <h2>Namnlista</h2>
+
         <div class="input-row">
-            <input type="text" id="name-input" placeholder="Skriv namn" />
-            <button id="add-name-btn">Lägg till</button>
+          <input
+            type="text"
+            id="name-input"
+            placeholder="Skriv namn"
+            autocomplete="off"
+            inputmode="text"
+          />
+          <button id="add-name-btn" type="button">Lägg till</button>
         </div>
+
         <div id="names-list"></div>
-        <div class="bottom-buttons">
-            <button id="continue-btn">Börja Festen</button>
-            <div class="button-row">
-                <button id="settings-btn">Inställningar</button>
-                <button id="rules-btn">Info</button>
-            </div>
-        </div>
-    </div>
 
-    <!-- Dating Screen -->
-    <div id="screen-dating" class="screen hidden">
+        <div class="bottom-buttons">
+          <div class="share-install-row">
+            <button
+              id="install-btn"
+              class="header-install-btn hidden"
+              type="button"
+            >
+              Installera app
+            </button>
+
+            <button id="share-btn" class="header-share-btn" type="button">
+              Dela spelet
+            </button>
+          </div>
+
+          <button id="continue-btn" type="button">Börja Festen</button>
+
+          <div class="button-row">
+            <button id="settings-btn" type="button">Inställningar</button>
+            <button id="rules-btn" type="button">Info</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Dating Screen -->
+      <div id="screen-dating" class="screen hidden" aria-hidden="true">
         <h2>Skapa Par</h2>
+
         <div class="dating-lists-wrapper">
-            <div class="half scrollable-wrapper">
-                <div id="names-dating" class="scrollable"></div>
-            </div>
-            <div class="half scrollable-wrapper">
-                <div id="couples-dating" class="scrollable"></div>
-            </div>
+          <div class="half scrollable-wrapper">
+            <div id="names-dating" class="scrollable"></div>
+          </div>
+          <div class="half scrollable-wrapper">
+            <div id="couples-dating" class="scrollable"></div>
+          </div>
         </div>
-        <div class="bottom-buttons">
-            <button id="start-game-btn">Fortsätt till Spelet</button>
-        </div>
-    </div>
 
-    <!-- Game Screen -->
-    <div id="screen-game" class="screen hidden">
-        <h2 id="game-header">Babek´s dryckesspel</h2>  
+        <div class="bottom-buttons">
+          <button id="start-game-btn" type="button">
+            Fortsätt till Spelet
+          </button>
+        </div>
+      </div>
+
+      <!-- Game Screen -->
+      <div id="screen-game" class="screen hidden" aria-hidden="true">
+        <h2 id="game-header">Babek´s dryckesspel</h2>
+
         <div class="card-wrapper">
-            <div id="card-stack">
-                <div class="card active flip-container">
-                    <div class="card-inner">
-                        <div class="card-front"></div>
-                        <div class="card-back"></div>
-                    </div>
-                </div>
-                <div class="card flip-container">
-                    <div class="card-inner">
-                        <div class="card-front"></div>
-                        <div class="card-back"></div>
-                    </div>
-                </div>
+          <div id="card-stack">
+            <div class="card active flip-container">
+              <div class="card-inner">
+                <div class="card-front"></div>
+                <div class="card-back"></div>
+              </div>
             </div>
+
+            <div class="card flip-container">
+              <div class="card-inner">
+                <div class="card-front"></div>
+                <div class="card-back"></div>
+              </div>
+            </div>
+          </div>
         </div>
+
         <div class="game-bottom-buttons">
-            <button id="next-btn">Nästa</button>
-            <button id="change-names-btn">Ändra namn</button>
+          <button id="next-btn" type="button">Nästa</button>
+          <button id="change-names-btn" type="button">Ändra namn</button>
         </div>
-    </div>
+      </div>
 
-    <!-- Settings Screen -->
-    <div id="screen-settings" class="screen hidden">
+      <!-- Settings Screen -->
+      <div id="screen-settings" class="screen hidden" aria-hidden="true">
         <h2>Ändra Viktning</h2>
-        <div class="scrollable-wrapper">
-            <div id="weights-list" class="scrollable"></div>
-        </div>
-        <div class="bottom-buttons">
-            <button id="back-names-btn">Tillbaka</button>
-        </div>
-    </div>
 
-    <!--Rules screen-->
-    <div id="screen-rules" class="screen hidden">
+        <div class="scrollable-wrapper">
+          <div id="weights-list" class="scrollable"></div>
+        </div>
+
+        <div class="bottom-buttons">
+          <button id="back-names-btn" type="button">Tillbaka</button>
+        </div>
+      </div>
+
+      <!-- Rules screen -->
+      <div id="screen-rules" class="screen hidden" aria-hidden="true">
         <h2>Spelregler och info</h2>
+
         <div class="scrollable-wrapper">
-            <div class="rules-box">
-                <h3>Spelet</h3>
-                <p>Spelet består av en blanding av olika dryckeslekar och utmaningar.
-                    Lägg till namn och vilka som dejtar och börja sen spelet.
-                    Om du vill se mer eller mindre av en eller flera frågetyper går det att ändra i inställningar.
-                    Spelare och par kan tas bort genom att klicka på namnet respektive paret.
-                    Spelare, par, inställningar och vilka frågor som visats sparas mellan omgångar.
-                    Om du vill återställa välj "Nytt spel" istället för "Fortsätt".
-                </p>
-            
-                <h3>Jag har aldrig</h3>
-                <p>Ett påstående som börjar med "Jag har aldrig..." visas.
-                    De spelare som har gjort det påståendet dricker.
-                </p>
+          <div class="rules-box">
+            <h3>Spelet</h3>
+            <p>
+              Spelet består av en blanding av olika dryckeslekar och utmaningar.
+              Lägg till namn och vilka som dejtar och börja sen spelet. Om du vill
+              se mer eller mindre av en eller flera frågetyper går det att ändra i
+              inställningar. Spelare och par kan tas bort genom att klicka på
+              namnet respektive paret. Spelare, par, inställningar och vilka
+              frågor som visats sparas mellan omgångar. Om du vill återställa välj
+              "Nytt spel" istället för "Fortsätt".
+            </p>
 
-                <h3>Pekleken</h3>
-                <p>En fråga visas. Alla spelare pekar på den som de tycker är svartet på frågan.
-                    Man måste peka på någon annan än sig själv och man får inte ta illa up.
-                    Antingen så dricker man en klunk för varje finger man får på sig eller så dricker den som fick flest.
-                </p>
+            <h3>Jag har aldrig</h3>
+            <p>
+              Ett påstående som börjar med "Jag har aldrig..." visas. De spelare
+              som har gjort det påståendet dricker.
+            </p>
 
-                <h3>Rygg mot rygg</h3>
-                <p>De spelare vars name visas vänder ryggen mot varandra.
-                    Tryck sen på "visa fråga" och läs upp frågan högt.
-                    Om någon av de twp utvalda spelarna tycker att den själv är svaret på frågan ska den dricka
-                    Om endast en av spelarna dricker klarades frågan och resterande spelarna i gruppen måste dricka.
-                    Annars dricker de två utvalda dubbelt.
-                </p>
+            <h3>Pekleken</h3>
+            <p>
+              En fråga visas. Alla spelare pekar på den som de tycker är svartet
+              på frågan. Man måste peka på någon annan än sig själv och man får
+              inte ta illa up. Antingen så dricker man en klunk för varje finger
+              man får på sig eller så dricker den som fick flest.
+            </p>
 
-                <h3>Kategori</h3>
-                <p>Spelaren vars namn visas ska börja att säga nåt som följer Kategorin.
-                    sen forstätter man medsols tills någon inte kommer på nått som följer kategorin eller upprepar något som redan sagts.
-                    den som misslyckas dricker</p>
-                
-                <h3>Dela Spelet</h3>
-                <p>Skanna QR-koden nedan för att snabbt dela spelet:</p>
-                <img src="qr-code.png" alt="QR-kod till spelet" class="qr-code"> 
-                
-                <button id="open-suggest-btn" class="primary-btn">Föreslå en fråga</button>
-                    
+            <h3>Rygg mot rygg</h3>
+            <p>
+              De spelare vars name visas vänder ryggen mot varandra. Tryck sen på
+              "visa fråga" och läs upp frågan högt. Om någon av de twp utvalda
+              spelarna tycker att den själv är svaret på frågan ska den dricka Om
+              endast en av spelarna dricker klarades frågan och resterande spelarna
+              i gruppen måste dricka. Annars dricker de två utvalda dubbelt.
+            </p>
+
+            <h3>Kategori</h3>
+            <p>
+              Spelaren vars namn visas ska börja att säga nåt som följer Kategorin.
+              sen forstätter man medsols tills någon inte kommer på nått som följer
+              kategorin eller upprepar något som redan sagts. den som misslyckas
+              dricker
+            </p>
+
+            <h3>Dela Spelet</h3>
+            <p>Skanna eller klicka på QR-koden nedan för att snabbt dela spelet:</p>
+
+            <div id="qr-share" class="qr-button" role="button" tabindex="0">
+              <img
+                src="qr-code.png"
+                alt="QR-kod till spelet"
+                class="qr-code"
+                loading="lazy"
+              />
+              <span class="qr-hint">Tryck för att dela</span>
             </div>
+
+            <button id="open-suggest-btn" class="primary-btn" type="button">
+              Föreslå en fråga
+            </button>
+          </div>
         </div>
+
         <div class="bottom-buttons">
-            <button id="back-names-from-rules-btn">Tillbaka</button>
+          <button id="back-names-from-rules-btn" type="button">Tillbaka</button>
         </div>
-    </div>
+      </div>
 
-    <!-- Confirm New Game Modal -->
-    <div id="newgame-modal" class="modal hidden">
+      <!-- Confirm New Game Modal -->
+      <div
+        id="newgame-modal"
+        class="modal hidden"
+        role="dialog"
+        aria-modal="true"
+        aria-hidden="true"
+      >
         <div class="modal-content">
-            <h3>Starta nytt spel?</h3>
-            <p>Detta kommer återställa sparade namn och frågor.</p>
-            <div class="modal-buttons">
-                <button id="confirm-newgame" class="danger-btn">Ja, nytt spel</button>
-                <button id="cancel-newgame">Avbryt</button>
-            </div>
-        </div>
-    </div>
+          <h3>Starta nytt spel?</h3>
+          <p>Detta kommer återställa sparade namn och frågor.</p>
 
-    <!-- Too Few Players Modal -->
-    <div id="players-modal" class="modal hidden">
+          <div class="modal-buttons">
+            <button id="confirm-newgame" class="danger-btn" type="button">
+              Ja, nytt spel
+            </button>
+            <button id="cancel-newgame" type="button">Avbryt</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Too Few Players Modal -->
+      <div
+        id="players-modal"
+        class="modal hidden"
+        role="dialog"
+        aria-modal="true"
+        aria-hidden="true"
+      >
         <div class="modal-content">
-            <h3>För få spelare</h3>
-            <p>Du måste lägga till minst 2 spelare för att starta spelet.</p>
-            <div class="modal-buttons">
-                <button id="close-players-modal">Ok</button>
-            </div>
-        </div>
-    </div>
+          <h3>För få spelare</h3>
+          <p>Du måste lägga till minst 2 spelare för att starta spelet.</p>
 
-    <div id="suggest-modal" class="modal hidden">
+          <div class="modal-buttons">
+            <button id="close-players-modal" type="button">Ok</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Suggest Modal -->
+      <div
+        id="suggest-modal"
+        class="modal hidden"
+        role="dialog"
+        aria-modal="true"
+        aria-hidden="true"
+      >
         <div class="modal-content">
-            <h3>Föreslå en fråga eller utmaning</h3>
-            <textarea id="suggest-input" placeholder="Skriv din fråga här..."></textarea>
-            <div class="modal-buttons">
-                <button id="submit-suggest-btn" class="primary-btn">Skicka</button>
-                <button id="cancel-suggest-btn">Avbryt</button>
-            </div>
+          <h3>Föreslå en fråga eller utmaning</h3>
+          <textarea
+            id="suggest-input"
+            placeholder="Skriv din fråga här..."
+          ></textarea>
+
+          <div class="modal-buttons">
+            <button id="submit-suggest-btn" class="primary-btn" type="button">
+              Skicka
+            </button>
+            <button id="cancel-suggest-btn" type="button">Avbryt</button>
+          </div>
         </div>
+      </div>
     </div>
 
-</div>
-<script src="script.js"></script>
-<script>
-if ('serviceWorker' in navigator) {
-  window.addEventListener('load', () => {
-    navigator.serviceWorker.register('./service-worker.js').catch(console.error);
-  });
-}
-</script>
-</body>
+    <script defer src="vendor/add-to-homescreen/add-to-homescreen.min.js"></script>
+    <script src="script.js"></script>
+
+    <script>
+      if ("serviceWorker" in navigator) {
+        window.addEventListener("load", () => {
+          navigator.serviceWorker
+            .register("./service-worker.js")
+            .catch(console.error);
+        });
+      }
+    </script>
+  </body>
 </html>
